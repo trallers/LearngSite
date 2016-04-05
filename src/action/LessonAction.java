@@ -2,8 +2,8 @@ package action;
 
 import bean.Lesson;
 import com.opensymphony.xwork2.ActionSupport;
-import dao.LessonDao;
 import org.apache.struts2.ServletActionContext;
+import service.LessonService;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
@@ -37,7 +37,7 @@ public class LessonAction extends ActionSupport {
     public  String getAllLessons(){
         request = ServletActionContext.getRequest();
         setUserID(request.getParameter("userID"));
-        lessonList = LessonDao.getLessonsByUserID(getUserID());
+        lessonList = LessonService.getLessonsByUserID(getUserID());
         return SUCCESS;
     }
 }

@@ -15,7 +15,15 @@ import java.util.List;
 public class CertificateDao {
     private final static String GET_CERTIFICATES_BY_USER_ID_QUERY = "SELECT * FROM certificate WHERE certificate.id_student = ?";
 
-    public static List<Certificate> getCertificatesByUserID(String userID){
+    private final static CertificateDao instance = new CertificateDao();
+
+    private CertificateDao(){}
+
+    public final static CertificateDao getInstance() {
+        return instance;
+    }
+
+    public List<Certificate> getCertificatesByUserID(String userID){
 
         List<Certificate> certificateList = new ArrayList<>();
 

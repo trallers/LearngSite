@@ -3,7 +3,7 @@ package action;
 import bean.User;
 import com.opensymphony.xwork2.ActionSupport;
 import constant.JSPName;
-import dao.UserDao;
+import service.UserService;
 
 /**
  * Created by Антон on 02.04.2016.
@@ -60,7 +60,9 @@ public class LoginAction extends ActionSupport {
 
     @Override
     public String execute() throws Exception {
-        user = UserDao.login(login, password);
+
+        user = UserService.login(login, password);
+
         if(user != null){
             setUserID(user.getId());
             switch (user.getRole()){

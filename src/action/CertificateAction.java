@@ -2,8 +2,8 @@ package action;
 
 import bean.Certificate;
 import com.opensymphony.xwork2.ActionSupport;
-import dao.CertificateDao;
 import org.apache.struts2.ServletActionContext;
+import service.CertificateService;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -35,7 +35,7 @@ public class CertificateAction extends ActionSupport {
     public String getAllCertificates(){
         request = ServletActionContext.getRequest();
         setUserID(request.getParameter("userID"));
-        certificateList = CertificateDao.getCertificatesByUserID(getUserID());
+        certificateList = CertificateService.getCertificatesByUserID(getUserID());
         return SUCCESS;
     }
 

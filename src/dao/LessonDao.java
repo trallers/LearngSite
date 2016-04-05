@@ -15,7 +15,16 @@ import java.util.List;
 public class LessonDao {
     public static final String GET_LESSONS_BY_USER_ID_QUERY = " SELECT passed_lesson.id_lesson, course.name, data_for_lesson.data FROM passed_lesson  inner join lesson on passed_lesson.id_lesson = lesson.id inner join course on lesson.id_course = course.id inner join data_for_lesson on lesson.id_data = data_for_lesson.id where passed_lesson.id_student = ?;";
 
-    public static List<Lesson> getLessonsByUserID(String userID){
+
+    private final static LessonDao instance = new LessonDao();
+
+    private LessonDao(){}
+
+    public final static LessonDao getInstance() {
+        return instance;
+    }
+
+    public  List<Lesson> getLessonsByUserID(String userID){
         List<Lesson> lessonList = new ArrayList<>();
         try {
             PreparedStatement ps = DBUtil.getConnection().prepareStatement(GET_LESSONS_BY_USER_ID_QUERY);

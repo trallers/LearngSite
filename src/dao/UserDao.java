@@ -11,11 +11,21 @@ import java.sql.SQLException;
  * Created by Антон on 02.04.2016.
  */
 public class UserDao {
+
     public static final String REGISTER_USER_QUERY = "INSERT INTO USER (login, password, role, name, surname,phone, email, ban_status ) VALUES (?,?,?,?,?,?,?,?)";
     public static final String LOGIN_USER_QUERY = "SELECT * FROM USER WHERE login = ? AND password = ?";
     private static final String CHECK_LOGIN_QUERY = "SELECT * FROM USER WHERE login = ?";
 
-    public static boolean create(User user) {
+    private final static UserDao instance = new UserDao();
+
+    private UserDao(){}
+
+    public final static UserDao getInstance(){
+        return instance;
+    }
+
+    public Integer create(User user) {
+        Integer resultUserID = null;
         if (!isLoginExist(user.getLogin())) {
             try {
                 PreparedStatement ps = DBUtil.getConnection().prepareStatement(REGISTER_USER_QUERY);
@@ -28,19 +38,26 @@ public class UserDao {
                 ps.setString(7, user.getEmail());
                 ps.setByte(8, user.getBanStatus());
                 ps.execute();
-                return true;
+
+                ResultSet rs = ps.getGeneratedKeys();
+                while (rs.next()){
+                    resultUserID =rs.getInt(1);
+                }
+
+
+                return resultUserID;
 
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            return false;
+            return resultUserID;
         }
-        else return false;
+        else return resultUserID;
 
     }
 
 
-    public static User login(String login, String password) {
+    public User login(String login, String password) {
         User currentUser = null;
         try {
             PreparedStatement ps = DBUtil.getConnection().prepareStatement(LOGIN_USER_QUERY);
@@ -58,7 +75,7 @@ public class UserDao {
         }
     }
 
-    private static boolean isLoginExist(String login){
+    private  boolean isLoginExist(String login){
         try {
             PreparedStatement ps = DBUtil.getConnection().prepareStatement(CHECK_LOGIN_QUERY);
             ps.setString(1, login);
