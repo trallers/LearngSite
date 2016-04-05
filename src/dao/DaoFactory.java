@@ -18,7 +18,7 @@ public  class DaoFactory {
         return CourseDao.getInstance();
     }
 
-    public static CertificateDao getCetrificateDao(){
+    public static CertificateDao getCertificateDao(){
         return CertificateDao.getInstance();
     }
 

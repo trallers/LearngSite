@@ -32,7 +32,7 @@ public class CertificateDao {
             ps.setString(1, userID);
             ResultSet rs = ps.executeQuery();
             while (rs.next()){
-                certificateList.add(new Certificate(rs.getInt(1), rs.getInt(2   ), rs.getInt(3), rs.getString(4), rs.getDate(5)));
+                certificateList.add(new Certificate(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getDate(5)));
             }
             return certificateList;
         } catch (SQLException e) {
