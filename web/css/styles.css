@@ -1,0 +1,297 @@
+﻿html {
+	width:100%;
+	height:100%;
+
+	}
+	
+ol, ul {  /* нумерованный и маркерованный*/
+	list-style: none;
+}	
+
+p{
+	text-align: justify;
+	text-indent: 15px;
+}
+
+	
+h1{
+	font-size: 25px;
+	line-height: 0.9;
+	color: #D6D6D6;
+	text-align: left;
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+	text-indent: 15px;
+	}
+
+h2{
+	text-indent: 15px;
+	font-size: 23px;
+	color: #1998A9;
+	text-align: left;
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+	}
+	
+h3{
+	text-indent: 15px;
+	font-size: 15px;
+	color: #1998A9;
+	text-align: left;
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+	}	
+	
+body{
+	background-image:url(../images/background.png); 
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	background-color: #cdcdcd;
+	background-position: left top;
+	background-repeat: repeat-x; /*Определяет, как будет повторяться фоновое изображение*/
+	color: #3F3E3C;
+	height: 525px;
+	margin: 0 0 1px; height:100%; 
+	line-height: 1.5;
+}
+
+#container{
+	position: relative;
+	width: 980px;
+	margin:0 auto; /*выравнивание блока по центру*/
+	background-color:transparent;
+	min-height:100%;			
+}
+
+header{
+	position: relative;
+	float: left;
+	width: 100%;
+	height: 83px;
+	}
+
+#logo{
+	position: relative;
+	left: 6px;
+	top: -14px;
+	width: 250px;
+	height: 160px;
+	float: left; /*Определяет, по какой стороне будет выравниваться элемент, при этом остальные элементы будут обтекать его с других сторон. */
+	z-index: 10000; /* ?????????????????????????????????????/*/
+}
+
+nav{
+	position: absolute;
+	width: 600px;
+	height: 40px;
+	top: 47px;
+	right: -140px;
+}
+
+nav ul li{
+	float: left;
+	line-height: normal; /*верхний и нижний отступы в горизонтальном меню*/
+	margin-left: 15px;
+}
+
+nav ul li a{
+	font-size: 22px;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	color: white;
+	text-transform: capitalize; /*Первый символ каждого слова в предложении будет заглавным. Остальные символы свой вид не меняют.*/
+	font-weight: normal; /*Устанавливает насыщенность шрифта*/
+	display: block;	/* IE6, IE7 line height fix */
+	background-color: transparent;
+    text-decoration: none; /*Добавляет оформление текста в виде его подчеркивания, перечеркивания, линии над текстом и мигания. */
+	margin-top: 3px;
+	padding: 5px;
+	border-bottom: 3px solid #333333; /*Свойство позволяет одновременно установить толщину, стиль и цвет границы внизу элемента.*/
+}
+
+nav ul li a:hover{
+	color:#1998A9;
+}
+
+#intro{
+	width: 960px;
+	position: relative;
+	float: left;
+	height: 300px;
+	padding: 10px;
+	background: #E9EAEB;
+	margin-top: 52px;
+	-webkit-border-radius: 5px; /*Chrome до версии 4.0, Safari до версии 5.0, iOS используют нестандартное свойство -webkit-border-radius*/
+	-moz-border-radius: 5px; /*Firefox до версии 4.0 использует нестандартное свойство -moz-border-radius.*/
+	border-radius: 5px; /*Устанавливает радиус скругления уголков рамки. Если рамка не задана, то скругление также происходит и с фоном.*/
+}
+
+#slides {
+	position: absolute;
+	top: 15px;
+	left: 4px;
+	z-index: 100;
+}
+
+.slides_container {
+	width: 980px;
+	overflow: hidden; /*Свойство overflow управляет отображением содержания блочного элемента, если оно целиком не помещается и выходит за область заданных размеров.*/
+	position: relative;
+	display: none;
+}
+
+
+.slides_container a {
+	width: 980px;
+	height: 270px;
+	display: block;
+}
+
+.slides_container a img {
+	display: block;
+}
+
+.holder_content_main {
+	position: relative;
+	float: left;
+	width: 100%;
+	margin-top: 6px;
+	}
+
+.holder_content {
+	position: relative;
+	float: left;
+	width: 100%;
+	margin-top: 10px;
+	margin-bottom: 16px;
+	margin-left: 26px;
+}
+
+.Registration{
+	position: relative;
+	z-index: 1;
+	float: left;
+    width: 49%;
+	border-right: 1px solid gray;
+}
+
+.Login{
+	position: relative;
+    z-index:1;
+    float: right;
+    width: 49%;
+    color: inherit;
+}
+
+.Center{
+	 margin: auto;
+}	
+
+.Center h2{	 text-align:  center;}
+
+.ListU {
+    width: 173px;
+    height: 22px;
+}
+
+.group {
+	float: left;
+	width: 200px;
+	position: relative;
+	background: transparent;
+	padding: 15px;
+	margin-bottom: 10px;
+}
+
+.group1 {
+	float: left;
+	width: 930px;
+	position: relative;
+
+	background: transparent;
+	margin-bottom: 10px;
+	}
+	
+.button {
+	width: 80px;
+	height: 16px;
+	margin-top: 12px;
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	float: left;
+	text-decoration: none;
+	color: #1998A9;
+	font-weight: bold;
+	cursor: pointer;
+	text-align: center;
+	padding: 9px;
+	background: #E9EAEB;
+	display: inline-block;  /*Многоцелевое свойство, которое определяет, как элемент должен быть показан в документе.*/
+	box-shadow: 2px 2px 2px #D7D7D7; /*Добавляет тень к элементу*/
+	filter: progid:DXImageTransform.Microsoft.dropshadow(offX=2, offY=2, color=#D7D7D7); /*Internet Explorer до версии 9.0 не поддерживает свойство box-shadow, взамен можно использовать нестандартное свойство filter:*/
+	-moz-box-shadow: 2px 2px #D7D7D7; /*Firefox до версии 4.0 поддерживает свойство -moz-box-shadow.*/
+	-webkit-box-shadow: 2px 2px #D7D7D7; /*Safari до версии 5.1, Chrome до версии 10.0, Android до версии 4.0 и iOS Safari до версии 5.0 поддерживают свойство -webkit-box-shadow.*/
+	position: relative;
+}
+.button:before {
+	position: absolute;
+	content: '';
+	top: 100%;
+	left: 5%;
+	width: 95px;
+	height: 16px;
+	opacity: 0;
+	background: -webkit-radial-gradient(center, ellipse, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 80%);
+	background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 80%);
+	/* W3C */
+	-webkit-transition-duration: 0.3s;
+	transition-duration: 0.3s;
+	-webkit-transition-property: transform, opacity;
+	transition-property: transform, opacity;
+}
+.button:hover, .button:focus, .button:active {
+	-webkit-transform: translateY(-5px); /*Поднимает вверх на 5 px*/
+	transform: translateY(-5px);
+}
+.button:hover:before, .button:focus:before, .button:active:before {
+	opacity: 1;
+	-webkit-transform: translateY(5px); /*Опускает вниз элемент*/
+	transform: translateY(5px);
+}
+
+a.photo{
+	position: relative;
+	float: left;
+	margin: 5px 13px 8px 0;
+	padding: 8px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	-moz-box-shadow: 2px 2px #D7D7D7;
+	-webkit-box-shadow: 2px 2px #D7D7D7;
+}
+a.photo{background:#E9EAEB;
+	border: 1px solid #E1E1E1;
+}
+	
+footer{
+	position: relative;
+	height: 119px;
+	clear: both;
+	width: 100%;
+	background-image: url(../images/footer1.png);
+	background-position: left top;
+	background-repeat: repeat-x;
+	background-color: #333333;
+}
+
+#copyright{
+	position: absolute;
+	right: 225px;
+	margin-top: 85px;
+	color: white;
+}
+
+#createdby{
+	position: absolute;
+	margin-left: 225px;
+	margin-top: 85px;
+	color: white;
+}
