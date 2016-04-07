@@ -50,6 +50,7 @@
                 <img src="images/banner1.jpg" width="960" height="300" alt="baner">
                 <img src="images/banner2.jpg" width="960" height="300" alt="baner">
                 <img src="images/banner3.jpg" width="960" height="300" alt="baner">
+
             </div>
         </div>
 
@@ -60,13 +61,13 @@
 
         <section class="group5">
             <h1>Welcome</h1>
+            <s:actionerror/>
         </section>
     </div>
     <div class="holder_content">
         <div class="Registration">
             <s:form action="register" class="Center">
                 <h2>Registration</h2>
-                <s:actionerror></s:actionerror>
                 <s:textfield name="user.login" label="Login"></s:textfield>
                 <s:password name="user.password" label="Password"></s:password>
                 <s:select class="ListU" list="{'student','lecturer'}" name="user.role" label="Role"></s:select>
@@ -81,7 +82,6 @@
         <div class="Login">
             <s:form action="login" class="Center">
                 <h2>Login</h2>
-                <s:actionerror/>
                 <s:textfield name="login" label="Login"></s:textfield>
                 <s:password name="password" label="Password"></s:password>
                 <s:submit value="Login"></s:submit>

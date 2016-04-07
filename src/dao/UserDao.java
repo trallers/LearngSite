@@ -6,6 +6,8 @@ import util.DBUtil;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Антон on 02.04.2016.
@@ -15,6 +17,7 @@ public class UserDao {
     public static final String REGISTER_USER_QUERY = "INSERT INTO USER (login, password, role, name, surname,phone, email, ban_status ) VALUES (?,?,?,?,?,?,?,?)";
     public static final String LOGIN_USER_QUERY = "SELECT * FROM USER WHERE login = ? AND password = ?";
     private static final String CHECK_LOGIN_QUERY = "SELECT * FROM USER WHERE login = ?";
+    public static final String GET_ALL_USERS = "SELECT * FROM USER";
 
     private final static UserDao instance = new UserDao();
 
@@ -88,6 +91,21 @@ public class UserDao {
             return true;
         }
 
+    }
+    
+    public List<User> getAllUsers(){
+        List<User> userList = new ArrayList<>();
+        try {
+            PreparedStatement ps = DBUtil.getConnection().prepareStatement(GET_ALL_USERS);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next())
+                userList.add(new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7),rs.getString(8), rs.getByte(9)));
+            return userList;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return userList;
     }
 
 

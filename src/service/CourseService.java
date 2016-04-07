@@ -15,4 +15,9 @@ public class CourseService {
         CourseDao dao = DaoFactory.getCourseDao();
         return dao.getCoursesByUserID(userID);
     }
+
+    public static List<Course> getAllCourses(){
+        CourseDao dao = DaoFactory.getCourseDao();
+        return dao.getAllCourses();
+    }
 }

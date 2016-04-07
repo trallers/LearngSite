@@ -1,3 +1,4 @@
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: Антон
@@ -12,5 +13,28 @@
 </head>
 <body>
 <h1>HALLO, ODMEN</h1>
+<ul>
+
+  <li>
+    <h2>
+      <a href="<s:url action="list_users_for_admin"></s:url>">Users</a>
+    </h2>
+  </li>
+  <li>
+    <h2>
+      <a href="<s:url action="list_courses_for_admin"></s:url>">Courses</a>
+    </h2>
+  </li>
+  <li>
+    <h2>
+      <a href="<s:url action="list_lessons_for_admin"></s:url>">Lessons</a>
+    </h2>
+  </li>
+  <li>
+    <h2>
+      <a href="<s:url action="list_certificates_for_students"></s:url>">Certificates</a>
+    </h2>
+  </li>
+</ul>
 </body>
 </html>

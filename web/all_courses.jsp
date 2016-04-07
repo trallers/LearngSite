@@ -20,10 +20,11 @@
         <tr class="even">
           <th>Name</th>
           <th>Technology</th>
-          <th>Price You</th>
+          <th>Price</th>
         </tr>
         <s:iterator value="courseList" status="userStatus">
           <tr>
+            <s:hidden name="id" value="id"></s:hidden>
             <td><s:property value="name" /></td>
             <td><s:property value="technology" /></td>
             <td><s:property value="price" /></td>

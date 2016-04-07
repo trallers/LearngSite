@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * Created by Антон on 03.04.2016.
  */
-public class CoursesAction extends ActionSupport {
+public class CourseAction extends ActionSupport {
     private HttpServletRequest  request;
     private List<Course> courseList;
     private String userID;
@@ -33,10 +33,15 @@ public class CoursesAction extends ActionSupport {
     }
 
 
-    public String getAllCourses() throws Exception {
+    public String getCoursesByUserID() throws Exception {
         request  = ServletActionContext.getRequest();
         setUserID(request.getParameter("userID"));
         courseList = CourseService.getCoursesByUserID(userID);
+        return SUCCESS;
+    }
+
+    public String getAllCourses(){
+        courseList = CourseService.getAllCourses();
         return SUCCESS;
     }
 }

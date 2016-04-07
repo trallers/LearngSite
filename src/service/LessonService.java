@@ -15,4 +15,9 @@ public class LessonService {
         LessonDao dao = DaoFactory.getLessonDao();
         return dao.getLessonsByUserID(userID);
     }
+
+    public static List<Lesson> getAllLessons(){
+        LessonDao dao = DaoFactory.getLessonDao();
+        return dao.getAllLessons();
+    }
 }

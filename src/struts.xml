@@ -14,25 +14,36 @@
                        <result name="success">/thank_you.jsp</result>
                        <result name="error">/index.jsp</result>
                </action>
-
                <action name="login" class="action.LoginAction" method="execute">
                        <result name="redirect" type="redirect">
-                               <param name="location">/home_student.jsp</param>
+                               <param name="location">${url}</param>
                                <param name="userID">${userID}</param>
                        </result>
                        <result name="error">/index.jsp</result>
                </action>
 
-               <action name="list_courses" class="action.CoursesAction" method="getAllCourses">
+               <action name="list_courses_for_student" class="action.CourseAction" method="getCoursesByUserID">
                        <result name="success">all_courses.jsp</result>
                        <result name="error">/index.jsp</result>
                </action>
-               <action name="list_certificates" class="action.CertificateAction" method="getAllCertificates">
+               <action name="list_certificates_for_students" class="action.CertificateAction" method="getAllCertificates">
                        <result name="success">all_certificates.jsp</result>
                        <result name="error">/index.jsp</result>
                </action>
-               <action name="list_lessons" class="action.LessonAction" method="getAllLessons">
+               <action name="list_lessons_for_student" class="action.LessonAction" method="getAllLessonsByUserID">
                        <result name="success">all_lessons.jsp</result>
+                       <result name="error">index.jsp</result>
+               </action>
+               <action name="list_lessons_for_admin" class="action.LessonAction" method="getAllLessons">
+                       <result name="success">all_lessons.jsp</result>
+                       <result name="error">index.jsp</result>
+               </action>
+               <action name="list_users_for_admin" class="action.UserAction" method="getAllUsers">
+                       <result name="success">all_users.jsp</result>
+                       <result name="error">index.jsp</result>
+               </action>
+               <action name="list_courses_for_admin" class="action.CourseAction" method="getAllCourses">
+                       <result name="success">all_courses.jsp</result>
                        <result name="error">index.jsp</result>
                </action>
        </package>

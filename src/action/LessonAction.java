@@ -34,10 +34,15 @@ public class LessonAction extends ActionSupport {
         this.lessonList = lessonList;
     }
 
-    public  String getAllLessons(){
+    public  String getAllLessonsByUserID(){
         request = ServletActionContext.getRequest();
         setUserID(request.getParameter("userID"));
         lessonList = LessonService.getLessonsByUserID(getUserID());
+        return SUCCESS;
+    }
+
+    public String getAllLessons(){
+        lessonList = LessonService.getAllLessons();
         return SUCCESS;
     }
 }
