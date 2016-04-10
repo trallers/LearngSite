@@ -8,12 +8,13 @@
                 name="struts.devMode" value="true">
         </constant>
 
-       <package name="struts2" namespace="/" extends="struts-default">
+       <package name="common" namespace="/" extends="struts-default">
 
                <action name="register" class="action.RegisterAction" method="execute">
                        <result name="success">/thank_you.jsp</result>
                        <result name="error">/index.jsp</result>
                </action>
+
                <action name="login" class="action.LoginAction" method="execute">
                        <result name="redirect" type="redirect">
                                <param name="location">${url}</param>
@@ -26,25 +27,48 @@
                        <result name="success">all_courses.jsp</result>
                        <result name="error">/index.jsp</result>
                </action>
-               <action name="list_certificates_for_students" class="action.CertificateAction" method="getAllCertificates">
+
+               <action name="list_certificates_for_students" class="action.CertificateAction" method="getCertificatesByUserID">
                        <result name="success">all_certificates.jsp</result>
                        <result name="error">/index.jsp</result>
                </action>
+
                <action name="list_lessons_for_student" class="action.LessonAction" method="getAllLessonsByUserID">
                        <result name="success">all_lessons.jsp</result>
                        <result name="error">index.jsp</result>
                </action>
+
                <action name="list_lessons_for_admin" class="action.LessonAction" method="getAllLessons">
                        <result name="success">all_lessons.jsp</result>
                        <result name="error">index.jsp</result>
                </action>
+
                <action name="list_users_for_admin" class="action.UserAction" method="getAllUsers">
                        <result name="success">all_users.jsp</result>
                        <result name="error">index.jsp</result>
                </action>
+
                <action name="list_courses_for_admin" class="action.CourseAction" method="getAllCourses">
                        <result name="success">all_courses.jsp</result>
                        <result name="error">index.jsp</result>
                </action>
+
+               <action name="list_certificates_for_admin" class="action.CertificateAction" method="getAllCertificates">
+                       <result name="success">all_certificates.jsp</result>
+                       <result name="error">index.jsp</result>
+               </action>
+
+               <action name="get_user_for_update" class="action.UserAction" method="getUserByID">
+                       <result name="success">user_settings.jsp</result>
+                       <result name="error">index.jsp</result>
+               </action>
+               <action name="update_user" class="action.UserAction" method="updateUser">
+                       <result name="redirect" type="redirect">
+                               <param name="location">home_student.jsp</param>
+                               <param name="userID">${userID}</param>
+                       </result>
+                       <result name="error">index.jsp</result>
+               </action>
        </package>
+
 </struts>

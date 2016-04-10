@@ -1,0 +1,45 @@
+<%@ taglib prefix="s" uri="/struts-tags" %>
+<%--
+  Created by IntelliJ IDEA.
+  User: Антон
+  Date: 10.04.2016
+  Time: 15:54
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<h1>ALL CERTIFICATES</h1>
+<s:if test="certificateList.size() > 0">
+  <div class="content">
+    <table class="certificates_table" cellpadding="5px">
+      <tr class="even">
+        <th>ID</th>
+        <th>ID student</th>
+        <th>ID course</th>
+        <th>Data</th>
+        <th>Date</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+      <s:iterator value="certificateList" status="userStatus">
+        <tr>
+          <td><s:property value="id" /></td>
+          <td><s:property value="idStudent" /></td>
+          <td><s:property value="idCourse" /></td>
+          <td><s:property value="data" /></td>
+          <td><s:property value="date" /></td>
+          <s:url id="editURL" action="edit">
+            <s:param name="id" value="%{id}"></s:param>
+          </s:url>
+          <s:a href="%{editURL}">Edit</s:a>
+        </tr>
+      </s:iterator>
+    </table>
+  </div>
+</s:if>
+</body>
+</html>

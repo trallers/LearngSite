@@ -10,12 +10,13 @@ public class Course {
     private Integer price;
     private Integer idLecturer;
 
-    public Course(Integer id, String name, String technology, Integer price, Integer idLecturer) {
+    public Course(Integer id, String name, String technology, Integer idLecturer, Integer price) {
         this.id = id;
         this.name = name;
         this.technology = technology;
-        this.price = price;
         this.idLecturer = idLecturer;
+        this.price = price;
+
     }
 
     public Course() {

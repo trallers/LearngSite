@@ -32,10 +32,15 @@ public class CertificateAction extends ActionSupport {
         this.userID = userID;
     }
 
-    public String getAllCertificates(){
+    public String getCertificatesByUserID(){
         request = ServletActionContext.getRequest();
         setUserID(request.getParameter("userID"));
         certificateList = CertificateService.getCertificatesByUserID(getUserID());
+        return SUCCESS;
+    }
+
+    public String getAllCertificates(){
+        certificateList = CertificateService.getAllCertificates();
         return SUCCESS;
     }
 

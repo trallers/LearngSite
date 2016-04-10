@@ -25,6 +25,8 @@
         <th>Phone</th>
         <th>Email</th>
         <th>Ban status</th>
+        <th>Edit</th>
+        <th>Delete</th>
       </tr>
       <s:iterator value="userList" status="userStatus">
         <tr>
@@ -36,6 +38,18 @@
           <td><s:property value="phone" /></td>
           <td><s:property value="email" /></td>
           <td><s:property value="banStatus" /></td>
+          <td>
+            <s:url id="editURL" action="editUser">
+              <s:param name="id" value="%{id}"></s:param>
+            </s:url>
+            <s:a href="%{editURL}">Edit</s:a>
+          </td>
+          <td>
+            <s:url id="deleteURL" action="deleteUser">
+              <s:param name="id" value="%{id}"></s:param>
+            </s:url>
+            <s:a href="%{deleteURL}">Delete</s:a>
+          </td>
         </tr>
       </s:iterator>
     </table>

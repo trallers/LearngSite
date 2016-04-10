@@ -14,4 +14,9 @@ public class CertificateService {
         CertificateDao dao = DaoFactory.getCertificateDao();
         return dao.getCertificatesByUserID(userID);
     }
+
+    public static List<Certificate> getAllCertificates(){
+        CertificateDao dao = DaoFactory.getCertificateDao();
+        return dao.getAllCertificates();
+    }
 }

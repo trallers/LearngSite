@@ -14,6 +14,7 @@ import java.util.List;
  */
 public class CertificateDao {
     private final static String GET_CERTIFICATES_BY_USER_ID_QUERY = "SELECT * FROM certificate WHERE certificate.id_student = ?";
+    public static final String GET_ALL_CERTIFICATES = "SELECT * FROM certificate";
 
     private final static CertificateDao instance = new CertificateDao();
 
@@ -34,11 +35,23 @@ public class CertificateDao {
             while (rs.next()){
                 certificateList.add(new Certificate(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getDate(5)));
             }
-            return certificateList;
         } catch (SQLException e) {
             e.printStackTrace();
-            return null;
         }
+        return certificateList;
+    }
 
+    public List<Certificate> getAllCertificates(){
+        List<Certificate> certificateList = new ArrayList<>();
+        try {
+            PreparedStatement ps = DBUtil.getConnection().prepareStatement(GET_ALL_CERTIFICATES);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()){
+                certificateList.add(new Certificate(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getDate(5)));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return certificateList;
     }
 }

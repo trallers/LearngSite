@@ -26,6 +26,16 @@ public class UserService {
         return dao.getAllUsers();
     }
 
+    public static User getUserByID(String id){
+        UserDao dao = DaoFactory.getUserDao();
+        return dao.getUserByID(id);
+    }
+
+    public static Integer updateUser(User user){
+        UserDao dao = DaoFactory.getUserDao();
+        return dao.update(user);
+    }
+
 
 
 }

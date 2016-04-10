@@ -29,6 +29,11 @@
       <a href="<s:url action="list_certificates_for_students"><s:param name="userID">${param["userID"]}</s:param></s:url>">My certificates</a>
     </h2>
   </li>
+  <li>
+    <h2>
+      <a href="<s:url action="get_user_for_update"><s:param name="userID">${param["userID"]}</s:param></s:url>">Settings</a>
+    </h2>
+  </li>
 </ul>
 </body>
 </html>

@@ -13,9 +13,9 @@ import java.util.List;
  * Created by Антон on 04.04.2016.
  */
 public class LessonDao {
-    public static final String GET_LESSONS_BY_USER_ID_QUERY = " SELECT lesson.id_lesson, course.name, data_for_lesson.data FROM lesson  inner join course on lesson.id_course = course.id inner join data_for_lesson on lesson.id_data = data_for_lesson.id where passed_lesson.id_student = ?;";
+    public static final String GET_LESSONS_BY_USER_ID_QUERY = "SELECT passed_lesson.id_lesson, course.name, data_for_lesson.data FROM passed_lesson INNER JOIN lesson ON passed_lesson.id_lesson = lesson.id INNER JOIN course ON lesson.id_course = course.id INNER JOIN data_for_lesson ON lesson.id_data = data_for_lesson.id WHERE passed_lesson.id_student = ?";
 
-    public static final String GET_ALL_LESSONS = " SELECT passed_lesson.id_lesson, course.name, data_for_lesson.data FROM passed_lesson  inner join lesson on passed_lesson.id_lesson = lesson.id inner join course on lesson.id_course = course.id inner join data_for_lesson on lesson.id_data = data_for_lesson.id";
+    public static final String GET_ALL_LESSONS = "SELECT  lesson.id, course.name, data_for_lesson.data FROM lesson INNER JOIN course ON lesson.id_course = course.id INNER JOIN data_for_lesson ON lesson.id_data = data_for_lesson.id";
 
 
     private final static LessonDao instance = new LessonDao();

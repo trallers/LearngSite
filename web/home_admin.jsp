@@ -17,7 +17,7 @@
 
   <li>
     <h2>
-      <a href="<s:url action="list_users_for_admin"></s:url>">Users</a>
+      <a href="<s:url action="list_users_for_admin" ></s:url>">Users</a>
     </h2>
   </li>
   <li>
@@ -32,7 +32,7 @@
   </li>
   <li>
     <h2>
-      <a href="<s:url action="list_certificates_for_students"></s:url>">Certificates</a>
+      <a href="<s:url action="list_certificates_for_admin"></s:url>">Certificates</a>
     </h2>
   </li>
 </ul>

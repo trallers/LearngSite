@@ -18,11 +18,17 @@
         <div class="content">
           <table class="certificates_table" cellpadding="5px">
             <tr class="even">
+              <th>ID</th>
+              <th>ID student</th>
+              <th>ID course</th>
               <th>Data</th>
               <th>Date</th>
             </tr>
             <s:iterator value="certificateList" status="userStatus">
               <tr>
+                  <td><s:property value="id"></s:property></td>
+                  <td><s:property value="idStudent"></s:property></td>
+                  <td><s:property value="idCourse"></s:property></td>
                   <td><s:property value="data" /></td>
                   <td><s:property value="date" /></td>
               </tr>
