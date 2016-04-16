@@ -31,7 +31,7 @@
   </li>
   <li>
     <h2>
-      <a href="<s:url action="get_user_for_update"><s:param name="userID">${param["userID"]}</s:param></s:url>">Settings</a>
+      <a href="<s:url action="get_user_for_student"><s:param name="userID">${param["userID"]}</s:param></s:url>">Settings</a>
     </h2>
   </li>
 </ul>

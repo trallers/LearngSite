@@ -39,8 +39,8 @@
           <td><s:property value="email" /></td>
           <td><s:property value="banStatus" /></td>
           <td>
-            <s:url id="editURL" action="editUser">
-              <s:param name="id" value="%{id}"></s:param>
+            <s:url id="editURL" action="get_user_for_admin">
+              <s:param name="userID" value="%{id}"></s:param>
             </s:url>
             <s:a href="%{editURL}">Edit</s:a>
           </td>

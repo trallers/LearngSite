@@ -3,7 +3,8 @@ package action;
 import bean.Lesson;
 import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.ServletActionContext;
-import service.LessonService;
+import service.lesson.GetAllLessonsService;
+import service.lesson.GetLessonsByUserIdService;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
@@ -37,12 +38,12 @@ public class LessonAction extends ActionSupport {
     public  String getAllLessonsByUserID(){
         request = ServletActionContext.getRequest();
         setUserID(request.getParameter("userID"));
-        lessonList = LessonService.getLessonsByUserID(getUserID());
+        lessonList = GetLessonsByUserIdService.execute(getUserID());
         return SUCCESS;
     }
 
     public String getAllLessons(){
-        lessonList = LessonService.getAllLessons();
+        lessonList = GetAllLessonsService.execute();
         return SUCCESS;
     }
 }

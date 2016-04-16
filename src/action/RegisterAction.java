@@ -2,7 +2,7 @@ package action;
 
 import bean.User;
 import com.opensymphony.xwork2.ActionSupport;
-import service.UserService;
+import service.user.RegisterUserService;
 
 /**
  * Created by Антон on 02.04.2016.
@@ -21,7 +21,7 @@ public class RegisterAction extends ActionSupport {
     @Override
     public String execute(){
 
-        Integer result = UserService.register(user);
+        Integer result = RegisterUserService.execute(user);
         if(result != null){
             return SUCCESS;
         }

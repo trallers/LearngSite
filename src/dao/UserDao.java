@@ -19,7 +19,7 @@ public class UserDao {
     private static final String CHECK_LOGIN_QUERY = "SELECT * FROM USER WHERE login = ?";
     private static final String GET_ALL_USERS_QUERY = "SELECT * FROM USER";
     private static final String GET_USER_BY_ID_QUERY = "SELECT * FROM USER WHERE id = ?";
-    public static final String UPDATE_USER_QUERY = "UPDATE USER set password = ?, name = ?, surname = ?, phone = ?, email = ? WHERE id = ?";
+    public static final String UPDATE_USER_QUERY = "UPDATE USER set password = ?, name = ?, surname = ?, phone = ?, email = ?, ban_status = ?  WHERE id = ?";
 
     private final static UserDao instance = new UserDao();
 
@@ -139,7 +139,8 @@ public class UserDao {
             ps.setString(3, user.getSurname());
             ps.setString(4, user.getPhone());
             ps.setString(5, user.getEmail());
-            ps.setInt(6, user.getId());
+            ps.setByte(6, user.getBanStatus());
+            ps.setInt(7, user.getId());
             ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

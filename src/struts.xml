@@ -8,7 +8,22 @@
                 name="struts.devMode" value="true">
         </constant>
 
-       <package name="common" namespace="/" extends="struts-default">
+        <package name="common" namespace="/" extends="struts-default">
+
+                <interceptors>
+                        <interceptor name="authentication"
+                                     class="interceptor.LoginInterceptor"></interceptor>
+                        <interceptor-stack name="authStack">
+                                <interceptor-ref name="authentication"></interceptor-ref>
+                                <interceptor-ref name="defaultStack"></interceptor-ref>
+                        </interceptor-stack>
+                </interceptors>
+
+                <default-interceptor-ref name="authStack"></default-interceptor-ref>
+
+                <global-results>
+                        <result name="login" type="redirect">/index.jsp</result>
+                </global-results>
 
                <action name="register" class="action.RegisterAction" method="execute">
                        <result name="success">/thank_you.jsp</result>
@@ -16,6 +31,7 @@
                </action>
 
                <action name="login" class="action.LoginAction" method="execute">
+                       <interceptor-ref name="defaultStack"></interceptor-ref>
                        <result name="redirect" type="redirect">
                                <param name="location">${url}</param>
                                <param name="userID">${userID}</param>
@@ -24,50 +40,71 @@
                </action>
 
                <action name="list_courses_for_student" class="action.CourseAction" method="getCoursesByUserID">
+                       <interceptor-ref name="defaultStack"></interceptor-ref>
                        <result name="success">all_courses.jsp</result>
                        <result name="error">/index.jsp</result>
                </action>
 
                <action name="list_certificates_for_students" class="action.CertificateAction" method="getCertificatesByUserID">
+                       <interceptor-ref name="defaultStack"></interceptor-ref>
                        <result name="success">all_certificates.jsp</result>
                        <result name="error">/index.jsp</result>
                </action>
 
                <action name="list_lessons_for_student" class="action.LessonAction" method="getAllLessonsByUserID">
+                       <interceptor-ref name="defaultStack"></interceptor-ref>
                        <result name="success">all_lessons.jsp</result>
                        <result name="error">index.jsp</result>
                </action>
 
                <action name="list_lessons_for_admin" class="action.LessonAction" method="getAllLessons">
+                       <interceptor-ref name="defaultStack"></interceptor-ref>
                        <result name="success">all_lessons.jsp</result>
                        <result name="error">index.jsp</result>
                </action>
 
                <action name="list_users_for_admin" class="action.UserAction" method="getAllUsers">
+                       <interceptor-ref name="defaultStack"></interceptor-ref>
                        <result name="success">all_users.jsp</result>
                        <result name="error">index.jsp</result>
                </action>
 
                <action name="list_courses_for_admin" class="action.CourseAction" method="getAllCourses">
+                       <interceptor-ref name="defaultStack"></interceptor-ref>
                        <result name="success">all_courses.jsp</result>
                        <result name="error">index.jsp</result>
                </action>
 
                <action name="list_certificates_for_admin" class="action.CertificateAction" method="getAllCertificates">
+                       <interceptor-ref name="defaultStack"></interceptor-ref>
                        <result name="success">all_certificates.jsp</result>
                        <result name="error">index.jsp</result>
                </action>
 
-               <action name="get_user_for_update" class="action.UserAction" method="getUserByID">
+               <action name="get_user_for_student" class="action.UserAction" method="getUserByID">
+                       <interceptor-ref name="defaultStack"></interceptor-ref>
                        <result name="success">user_settings.jsp</result>
                        <result name="error">index.jsp</result>
                </action>
+               <action name="get_user_for_admin" class="action.UserAction" method="getUserByID">
+                       <interceptor-ref name="defaultStack"></interceptor-ref>
+                       <result name="success">edit_user.jsp</result>
+                       <result name="error">index.jsp</result>
+               </action>
                <action name="update_user" class="action.UserAction" method="updateUser">
+                       <interceptor-ref name="defaultStack"></interceptor-ref>
                        <result name="redirect" type="redirect">
                                <param name="location">home_student.jsp</param>
                                <param name="userID">${userID}</param>
                        </result>
                        <result name="error">index.jsp</result>
+               </action>
+               <action name="ban_user" class="action.UserAction" method="updateUser">
+                       <interceptor-ref name="defaultStack"></interceptor-ref>
+                       <result name="redirect" type="redirect">
+                               <param name="location">home_admin.jsp</param>
+                               <param name="userID">${userID}</param>
+                       </result>
                </action>
        </package>
 

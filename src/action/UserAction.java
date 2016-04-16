@@ -2,7 +2,9 @@ package action;
 
 import bean.User;
 import com.opensymphony.xwork2.ActionSupport;
-import service.UserService;
+import service.user.GetUserByIdService;
+import service.user.UpdateUserService;
+import service.user.UserService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,12 +47,12 @@ public class UserAction extends ActionSupport {
     }
 
     public String getUserByID(){
-        setUser(UserService.getUserByID(getUserID()));
+        setUser(GetUserByIdService.execute(getUserID()));
         return SUCCESS;
     }
 
     public String updateUser(){
-        Integer userID  = UserService.updateUser(getUser());
+        Integer userID  = UpdateUserService.execute(getUser());
         setUserID(String.valueOf(userID));
         if(userID != null)
             return "redirect";

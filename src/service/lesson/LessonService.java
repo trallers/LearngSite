@@ -1,4 +1,4 @@
-package service;
+package service.lesson;
 
 import bean.Lesson;
 import dao.DaoFactory;
@@ -20,4 +20,5 @@ public class LessonService {
         LessonDao dao = DaoFactory.getLessonDao();
         return dao.getAllLessons();
     }
+
 }

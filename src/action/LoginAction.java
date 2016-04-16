@@ -2,13 +2,17 @@ package action;
 
 import bean.User;
 import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.ModelDriven;
 import constant.JSPName;
-import service.UserService;
+import org.apache.struts2.interceptor.SessionAware;
+import service.user.LoginUserService;
+
+import java.util.Map;
 
 /**
  * Created by Антон on 02.04.2016.
  */
-public class LoginAction extends ActionSupport {
+public class LoginAction extends ActionSupport implements SessionAware, ModelDriven<User> {
 
     private final static String REDIRECT = "redirect";
 
@@ -17,6 +21,7 @@ public class LoginAction extends ActionSupport {
     private User user;
     private String url;
     private Integer userID;
+    private Map<String, Object> sessionAttributes = null;
 
     public Integer getUserID() {
         return userID;
@@ -61,10 +66,11 @@ public class LoginAction extends ActionSupport {
     @Override
     public String execute() throws Exception {
 
-        user = UserService.login(login, password);
+        user = LoginUserService.execute(login, password);
 
         if(user != null){
             setUserID(user.getId());
+
             switch (user.getRole()){
                 case "admin" : setUrl(JSPName.HOME_ADMIN);
                     break;
@@ -72,7 +78,9 @@ public class LoginAction extends ActionSupport {
                     break;
                 case "lecturer" : setUrl(JSPName.HOME_LECTURER);
             }
+            sessionAttributes.put("USER", user);
             return REDIRECT;
+
         }else{
             addActionError("Invalid login or password!");
             return ERROR;
@@ -81,4 +89,13 @@ public class LoginAction extends ActionSupport {
     }
 
 
+    @Override
+    public User getModel() {
+       return user;
+    }
+
+    @Override
+    public void setSession(Map<String, Object> map) {
+        this.sessionAttributes = map;
+    }
 }

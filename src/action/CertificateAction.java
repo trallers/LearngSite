@@ -3,7 +3,8 @@ package action;
 import bean.Certificate;
 import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.ServletActionContext;
-import service.CertificateService;
+import service.certificate.GetAllCertificatesService;
+import service.certificate.GetCertificatesByUserIdService;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -35,12 +36,12 @@ public class CertificateAction extends ActionSupport {
     public String getCertificatesByUserID(){
         request = ServletActionContext.getRequest();
         setUserID(request.getParameter("userID"));
-        certificateList = CertificateService.getCertificatesByUserID(getUserID());
+        certificateList = GetCertificatesByUserIdService.execute(userID);
         return SUCCESS;
     }
 
     public String getAllCertificates(){
-        certificateList = CertificateService.getAllCertificates();
+        certificateList = GetAllCertificatesService.execute();
         return SUCCESS;
     }
 

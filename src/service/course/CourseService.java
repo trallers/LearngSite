@@ -1,4 +1,4 @@
-package service;
+package service.course;
 
 import bean.Course;
 import dao.CourseDao;

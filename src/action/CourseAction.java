@@ -3,7 +3,8 @@ package action;
 import bean.Course;
 import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.ServletActionContext;
-import service.CourseService;
+import service.course.GetAllCoursesService;
+import service.course.GetCoursesByUserIdService;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -36,12 +37,12 @@ public class CourseAction extends ActionSupport {
     public String getCoursesByUserID() throws Exception {
         request  = ServletActionContext.getRequest();
         setUserID(request.getParameter("userID"));
-        courseList = CourseService.getCoursesByUserID(userID);
+        courseList = GetCoursesByUserIdService.execute(userID);
         return SUCCESS;
     }
 
     public String getAllCourses(){
-        courseList = CourseService.getAllCourses();
+        courseList = GetAllCoursesService.execute();
         return SUCCESS;
     }
 }

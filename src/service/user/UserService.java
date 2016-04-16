@@ -1,4 +1,4 @@
-package service;
+package service.user;
 
 import bean.User;
 import dao.DaoFactory;
