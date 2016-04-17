@@ -28,11 +28,7 @@ public class DBUtil {
                 String password = properties.getProperty("password");
                 Class.forName(driver);
                 connection = DriverManager.getConnection(url, login, password);
-            } catch (SQLException e) {
-                e.printStackTrace();
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
+            } catch (SQLException | ClassNotFoundException | IOException e) {
                 e.printStackTrace();
             }
         }

@@ -12,7 +12,7 @@ import java.util.List;
 public class CertificateService {
     public static List<Certificate> getCertificatesByUserID(String userID){
         CertificateDao dao = DaoFactory.getCertificateDao();
-        return dao.getCertificatesByUserID(userID);
+        return dao.getByUserId(userID);
     }
 
     public static List<Certificate> getAllCertificates(){

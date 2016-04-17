@@ -29,7 +29,7 @@ public class CertificateDao {
         return instance;
     }
 
-    public List<Certificate> getCertificatesByUserID(String userID){
+    public List<Certificate> getByUserId(String userID){
 
         List<Certificate> certificateList = new ArrayList<>();
 

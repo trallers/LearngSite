@@ -12,6 +12,6 @@ import java.util.List;
 public class GetCertificatesByUserIdService{
     public static List<Certificate> execute(String userID){
         CertificateDao dao = DaoFactory.getCertificateDao();
-        return dao.getCertificatesByUserID(userID);
+        return dao.getByUserId(userID);
     }
 }

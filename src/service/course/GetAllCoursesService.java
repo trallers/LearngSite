@@ -12,6 +12,6 @@ import java.util.List;
 public class GetAllCoursesService {
     public static List<Course> execute(){
         CourseDao dao = DaoFactory.getCourseDao();
-        return dao.getAllCourses();
+        return dao.getAll();
     }
 }

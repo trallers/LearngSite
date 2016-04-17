@@ -13,11 +13,11 @@ public class CourseService {
 
     public static List<Course> getCoursesByUserID(String userID){
         CourseDao dao = DaoFactory.getCourseDao();
-        return dao.getCoursesByUserID(userID);
+        return dao.getByUserId(userID);
     }
 
     public static List<Course> getAllCourses(){
         CourseDao dao = DaoFactory.getCourseDao();
-        return dao.getAllCourses();
+        return dao.getAll();
     }
 }

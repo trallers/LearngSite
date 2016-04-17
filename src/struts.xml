@@ -79,7 +79,7 @@
 
         <action name="list_courses_for_admin" class="action.CourseAction" method="getAllCourses">
             <interceptor-ref name="AuthStack"/>
-            <result name="success">all_courses.jsp</result>
+            <result name="success">all_courses_admin.jsp</result>
             <result name="login" type="chain">home</result>
         </action>
 
@@ -132,6 +132,19 @@
             <result name="login" type="chain">login</result>
         </action>
 
+        <action name="get_course_for_admin" class="action.CourseAction" method="getCourseById">
+            <result name="success">edit_course.jsp</result>
+            <result name="login" type="chain">login</result>
+            <result name="error" type="chain">list_courses_for_admin</result>
+        </action>
+
+        <action name="delete_course" class="action.CourseAction" method="deleteCourse">
+            <result name="success" type="chain">list_courses_for_admin</result>
+        </action>
+
+        <action name="create_or_update_course" class="action.CourseAction" method="createOrUpdateCourse">
+            <result name="success" type="chain">list_courses_for_admin</result>
+        </action>
 
     </package>
 
