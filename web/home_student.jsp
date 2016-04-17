@@ -34,6 +34,12 @@
       <a href="<s:url action="get_user_for_student"><s:param name="userID">${param["userID"]}</s:param></s:url>">Settings</a>
     </h2>
   </li>
+  <li>
+    <h5>
+      <a href="<s:url action="logout"></s:url>">Logout</a>
+    </h5>
+  </li>
+
 </ul>
 </body>
 </html>

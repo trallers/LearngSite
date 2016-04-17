@@ -2,7 +2,6 @@ package action;
 
 import bean.User;
 import com.opensymphony.xwork2.ActionSupport;
-import com.opensymphony.xwork2.ModelDriven;
 import constant.JSPName;
 import org.apache.struts2.interceptor.SessionAware;
 import service.user.LoginUserService;
@@ -12,7 +11,7 @@ import java.util.Map;
 /**
  * Created by Антон on 02.04.2016.
  */
-public class LoginAction extends ActionSupport implements SessionAware, ModelDriven<User> {
+public class AuthAction extends ActionSupport implements SessionAware{
 
     private final static String REDIRECT = "redirect";
 
@@ -21,7 +20,7 @@ public class LoginAction extends ActionSupport implements SessionAware, ModelDri
     private User user;
     private String url;
     private Integer userID;
-    private Map<String, Object> sessionAttributes = null;
+    private Map<String, Object> session = null;
 
     public Integer getUserID() {
         return userID;
@@ -63,8 +62,7 @@ public class LoginAction extends ActionSupport implements SessionAware, ModelDri
         this.url = url;
     }
 
-    @Override
-    public String execute() throws Exception {
+    public String login() throws Exception {
 
         user = LoginUserService.execute(login, password);
 
@@ -78,24 +76,23 @@ public class LoginAction extends ActionSupport implements SessionAware, ModelDri
                     break;
                 case "lecturer" : setUrl(JSPName.HOME_LECTURER);
             }
-            sessionAttributes.put("USER", user);
+            session.put("loginId", user);
             return REDIRECT;
 
         }else{
             addActionError("Invalid login or password!");
-            return ERROR;
+            return LOGIN;
         }
 
     }
 
-
-    @Override
-    public User getModel() {
-       return user;
+    public String logout() {
+        session.remove("loginId");
+        addActionMessage("You have been Successfully Logged Out");
+        return SUCCESS;
     }
-
     @Override
     public void setSession(Map<String, Object> map) {
-        this.sessionAttributes = map;
+        this.session = map;
     }
 }

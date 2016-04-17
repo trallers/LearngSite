@@ -2,6 +2,7 @@ package action;
 
 import bean.User;
 import com.opensymphony.xwork2.ActionSupport;
+import service.user.DeleteUserByIdService;
 import service.user.GetUserByIdService;
 import service.user.UpdateUserService;
 import service.user.UserService;
@@ -58,4 +59,11 @@ public class UserAction extends ActionSupport {
             return "redirect";
         return ERROR;
     }
+
+    public String deleteUser(){
+        DeleteUserByIdService.execute(getUserID());
+        return SUCCESS;
+    }
+
+
 }

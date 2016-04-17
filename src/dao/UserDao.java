@@ -20,6 +20,7 @@ public class UserDao {
     private static final String GET_ALL_USERS_QUERY = "SELECT * FROM USER";
     private static final String GET_USER_BY_ID_QUERY = "SELECT * FROM USER WHERE id = ?";
     public static final String UPDATE_USER_QUERY = "UPDATE USER set password = ?, name = ?, surname = ?, phone = ?, email = ?, ban_status = ?  WHERE id = ?";
+    public static final String DELETE_USER_BY_ID_QUERY = "DELETE FROM USER where id = ?";
 
     private final static UserDao instance = new UserDao();
 
@@ -147,5 +148,17 @@ public class UserDao {
             return user.getId();
         }
         return user.getId();
+    }
+
+    public void deleteUserById(String id){
+        try{
+            PreparedStatement ps = DBUtil.getConnection().prepareStatement(DELETE_USER_BY_ID_QUERY);
+            ps.setString(1, id);
+            ps.execute();
+
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+
     }
 }

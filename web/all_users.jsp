@@ -45,8 +45,8 @@
             <s:a href="%{editURL}">Edit</s:a>
           </td>
           <td>
-            <s:url id="deleteURL" action="deleteUser">
-              <s:param name="id" value="%{id}"></s:param>
+            <s:url id="deleteURL" action="delete_user">
+              <s:param name="userID" value="%{id}"></s:param>
             </s:url>
             <s:a href="%{deleteURL}">Delete</s:a>
           </td>
