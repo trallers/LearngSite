@@ -43,7 +43,7 @@ public class UserDao {
                 ps.setString(6, user.getPhone());
                 ps.setString(7, user.getEmail());
                 ps.setByte(8, user.getBanStatus());
-                ps.execute();
+                ps.executeUpdate();
 
                 ResultSet rs = ps.getGeneratedKeys();
 
@@ -58,7 +58,6 @@ public class UserDao {
 
 
     }
-
 
     public User login(String login, String password) {
         User currentUser = null;

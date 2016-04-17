@@ -4,14 +4,12 @@ import bean.Certificate;
 import dao.CertificateDao;
 import dao.DaoFactory;
 
-import java.util.List;
-
 /**
- * Created by Антон on 15.04.2016.
+ * Created by Антон on 17.04.2016.
  */
-public class GetAllCertificatesService {
-    public static List<Certificate> execute(){
+public class GetCertificateByIdService {
+    public static Certificate execute(String id){
         CertificateDao dao = DaoFactory.getCertificateDao();
-        return dao.getAll();
+        return dao.getById(id);
     }
 }

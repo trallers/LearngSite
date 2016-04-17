@@ -17,6 +17,6 @@ public class CertificateService {
 
     public static List<Certificate> getAllCertificates(){
         CertificateDao dao = DaoFactory.getCertificateDao();
-        return dao.getAllCertificates();
+        return dao.getAll();
     }
 }

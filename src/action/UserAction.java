@@ -56,7 +56,7 @@ public class UserAction extends ActionSupport {
         Integer userID  = UpdateUserService.execute(getUser());
         setUserID(String.valueOf(userID));
         if(userID != null)
-            return "redirect";
+            return SUCCESS;
         return ERROR;
     }
 

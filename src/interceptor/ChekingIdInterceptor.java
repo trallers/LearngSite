@@ -11,15 +11,14 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
 /**
- * Created by Антон on 15.04.2016.
+ * Created by Антон on 17.04.2016.
  */
-public class AuthInterceptor extends AbstractInterceptor implements StrutsStatics{
-
-
+public class ChekingIdInterceptor extends AbstractInterceptor implements StrutsStatics{
     @Override
     public String intercept(ActionInvocation actionInvocation) throws Exception {
-        Map<String, Object> session = actionInvocation.getInvocationContext().getSession();
         HttpServletRequest request;
+        Map<String, Object> session = actionInvocation.getInvocationContext().getSession();
+
         User user = (User) session.get("loginId");
 
         if (user == null)
@@ -30,13 +29,6 @@ public class AuthInterceptor extends AbstractInterceptor implements StrutsStatic
         {
             request = ServletActionContext.getRequest();
             String idParam = request.getParameter("userID");
-            Byte banStatus = user.getBanStatus();
-            if(banStatus != 0){
-                return Action.ERROR;
-            }
-            if(idParam == null){
-                return actionInvocation.invoke();
-            }
             if(idParam.equals(user.getId().toString()))
                 return actionInvocation.invoke();
             else return Action.LOGIN;

@@ -24,9 +24,7 @@ public class DBUtil {
                 properties.load(inputStream);
                 String driver = properties.getProperty("driver");
                 String url = properties.getProperty("url");
-                String login = properties.getProperty("login")
-
-                        ;
+                String login = properties.getProperty("login");
                 String password = properties.getProperty("password");
                 Class.forName(driver);
                 connection = DriverManager.getConnection(url, login, password);

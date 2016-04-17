@@ -4,109 +4,135 @@
         "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
         "http://struts.apache.org/dtds/struts-2.3.dtd">
 <struts>
-        <constant
-                name="struts.devMode" value="true">
-        </constant>
+    <constant
+            name="struts.devMode" value="true">
+    </constant>
 
-        <package name="common" namespace="/" extends="struts-default">
-            <interceptors>
-                <interceptor class="interceptor.AuthInterceptor" name="loginInterceptor">
-                </interceptor>
-                <interceptor-stack name="loginStack">
-                    <interceptor-ref name="loginInterceptor" />
-                    <interceptor-ref name="defaultStack" />
-                </interceptor-stack>
-            </interceptors>
+    <package name="common" namespace="/" extends="struts-default">
+        <interceptors>
 
-            <action name="home" class="action.HomeAction" method="execute">
-                <result name="success">index.jsp</result>
-            </action>
+            <interceptor class="interceptor.AuthInterceptor" name="AuthInterceptor"/>
+            <interceptor-stack name="AuthStack">
+                <interceptor-ref name="AuthInterceptor"/>
+                <interceptor-ref name="defaultStack"/>
+            </interceptor-stack>
 
-               <action name="register" class="action.RegisterAction" method="execute">
-                       <result name="success">/index.jsp</result>
-               </action>
+            <interceptor name="banInterceptor" class="interceptor.BanInterceptor"> </interceptor>
 
-               <action name="login" class="action.AuthAction" method="login">
-                       <result name="redirect" type="redirect">
-                               <param name="location">${url}</param>
-                               <param name="userID">${userID}</param>
-                       </result>
-                       <result name="login">/index.jsp</result>
-               </action>
+            <interceptor-stack name="banStack">
+                <interceptor-ref name="banInterceptor"/>
+                <interceptor-ref name="defaultStack"/>
+            </interceptor-stack>
 
-                <action name="logout" class="action.AuthAction" method="logout">
-                    <result name="success" type="chain">home</result>
-                </action>
+        </interceptors>
 
-               <action name="list_courses_for_student" class="action.CourseAction" method="getCoursesByUserID">
-                   <interceptor-ref name="loginStack" />
-                       <result name="success">all_courses.jsp</result>
-                       <result name="login" type="chain">home</result>
-               </action>
+        <action name="home" class="action.HomeAction" method="execute">
+            <result name="success">index.jsp</result>
+        </action>
 
-               <action name="list_certificates_for_students" class="action.CertificateAction" method="getCertificatesByUserID">
-                   <interceptor-ref name="loginStack" />
-                       <result name="success">all_certificates.jsp</result>
-                       <result name="login" type="chain">home</result>
-               </action>
+        <action name="register" class="action.RegisterAction" method="execute">
+            <result name="success">index.jsp</result>
+            <result name="error">index.jsp</result>
 
-               <action name="list_lessons_for_student" class="action.LessonAction" method="getAllLessonsByUserID">
-                   <interceptor-ref name="loginStack" />
-                       <result name="success">all_lessons.jsp</result>
-                       <result name="login" type="chain">home</result>
-               </action>
+        </action>
 
-               <action name="list_lessons_for_admin" class="action.LessonAction" method="getAllLessons">
-                   <interceptor-ref name="loginStack" />
-                       <result name="success">all_lessons.jsp</result>
-                       <result name="login" type="chain">home</result>
-               </action>
+        <action name="login" class="action.AuthAction" method="login">
+            <result name="redirect" type="redirect">
+                <param name="location">${url}</param>
+                <param name="userID">${userID}</param>
+            </result>
+            <result name="login" type="chain">home</result>
+            <result name="error">banned.jsp</result>
+        </action>
 
-               <action name="list_users_for_admin" class="action.UserAction" method="getAllUsers">
-                   <interceptor-ref name="loginStack" />
-                       <result name="success">all_users.jsp</result>
-                       <result name="login" type="chain">home</result>
-               </action>
+        <action name="logout" class="action.AuthAction" method="logout">
+            <result name="success" type="chain">home</result>
+        </action>
 
-               <action name="list_courses_for_admin" class="action.CourseAction" method="getAllCourses">
-                   <interceptor-ref name="loginStack" />
-                       <result name="success">all_courses.jsp</result>
-                       <result name="login" type="chain">home</result>
-               </action>
+        <action name="list_courses_for_student" class="action.CourseAction" method="getCoursesByUserID">
+            <interceptor-ref name="AuthStack"/>
+            <result name="success">all_courses.jsp</result>
+            <result name="login" type="chain">home</result>
+        </action>
 
-               <action name="list_certificates_for_admin" class="action.CertificateAction" method="getAllCertificates">
-                   <interceptor-ref name="loginStack" />
-                       <result name="success">all_certificates.jsp</result>
-                       <result name="login" type="chain">home</result>
-               </action>
+        <action name="list_certificates_for_students" class="action.CertificateAction" method="getCertificatesByUserID">
+            <interceptor-ref name="AuthStack"/>
+            <result name="success">all_certificates.jsp</result>
+            <result name="login" type="chain">home</result>
+        </action>
 
-               <action name="get_user_for_student" class="action.UserAction" method="getUserByID">
-                   <interceptor-ref name="loginStack" />
-                       <result name="success">user_settings.jsp</result>
-                       <result name="login" type="chain">home</result>
-               </action>
-               <action name="get_user_for_admin" class="action.UserAction" method="getUserByID">
-                   <interceptor-ref name="loginStack" />
-                       <result name="success">edit_user.jsp</result>
-                       <result name="login" type="chain">home</result>
-               </action>
-               <action name="update_user" class="action.UserAction" method="updateUser">
-                       <result name="redirect" type="redirect">
-                               <param name="location">home_student.jsp</param>
-                               <param name="userID">${userID}</param>
-                       </result>
-                       <result name="error">index.jsp</result>
-               </action>
-               <action name="ban_user" class="action.UserAction" method="updateUser">
-                       <result name="redirect" type="redirect">
-                               <param name="location">home_admin.jsp</param>
-                               <param name="userID">${userID}</param>
-                       </result>
-               </action>
+        <action name="list_lessons_for_student" class="action.LessonAction" method="getAllLessonsByUserID">
+            <interceptor-ref name="AuthStack"/>
+            <result name="success">all_lessons.jsp</result>
+            <result name="login" type="chain">home</result>
+        </action>
 
-            <action name="delete_user" class="action.UserAction" method="deleteUser">
-                <result name="success" type="chain">list_users_for_admin</result>
-            </action>
-       </package>
+        <action name="list_lessons_for_admin" class="action.LessonAction" method="getAllLessons">
+            <result name="success">all_lessons.jsp</result>
+            <result name="login" type="chain">home</result>
+        </action>
+
+        <action name="list_users_for_admin" class="action.UserAction" method="getAllUsers">
+            <result name="success">all_users.jsp</result>
+            <result name="login" type="chain">home</result>
+        </action>
+
+        <action name="list_courses_for_admin" class="action.CourseAction" method="getAllCourses">
+            <interceptor-ref name="AuthStack"/>
+            <result name="success">all_courses.jsp</result>
+            <result name="login" type="chain">home</result>
+        </action>
+
+        <action name="list_certificates_for_admin" class="action.CertificateAction" method="getAllCertificates">
+            <interceptor-ref name="AuthStack"/>
+            <result name="success">all_certificates_admin.jsp</result>
+            <result name="login" type="chain">home</result>
+        </action>
+
+        <action name="get_user_for_student" class="action.UserAction" method="getUserByID">
+            <interceptor-ref name="AuthStack"/>
+            <result name="success">user_settings.jsp</result>
+            <result name="login" type="chain">home</result>
+        </action>
+
+        <action name="get_user_for_admin" class="action.UserAction" method="getUserByID">
+            <result name="success">edit_user.jsp</result>
+            <result name="login" type="chain">home</result>
+        </action>
+
+        <action name="update_user" class="action.UserAction" method="updateUser">
+            <result name="redirect" type="redirect">
+                <param name="location">home_student.jsp</param>
+                <param name="userID">${userID}</param>
+            </result>
+            <result name="error">index.jsp</result>
+        </action>
+
+        <action name="ban_user" class="action.UserAction" method="updateUser">
+            <result name="success" type="chain">list_users_for_admin</result>
+        </action>
+
+        <action name="delete_user" class="action.UserAction" method="deleteUser">
+            <result name="success" type="chain">list_users_for_admin</result>
+        </action>
+
+       <action name="get_certificate_for_admin" class="action.CertificateAction" method="getCertificateById">
+           <result name="success">edit_certificate.jsp</result>
+           <result name="login" type="chain">login</result>
+           <result name="error">list_certificates_for_admin.action</result>
+       </action>
+
+        <action name="delete_certificate" class="action.CertificateAction" method="deleteCertificate">
+            <result name="success" type="chain">list_certificates_for_admin</result>
+            <result name="login" type="chain">login</result>
+        </action>
+
+        <action name="create_or_update_certificate" class="action.CertificateAction" method="updateCertificate">
+            <result name="success" type="chain">list_certificates_for_admin</result>
+            <result name="login" type="chain">login</result>
+        </action>
+
+
+    </package>
 
 </struts>

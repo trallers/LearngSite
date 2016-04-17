@@ -32,14 +32,27 @@
           <td><s:property value="idCourse" /></td>
           <td><s:property value="data" /></td>
           <td><s:property value="date" /></td>
-          <s:url id="editURL" action="edit">
-            <s:param name="id" value="%{id}"></s:param>
-          </s:url>
-          <s:a href="%{editURL}">Edit</s:a>
+          <td>
+            <s:url id="editURL" action="get_certificate_for_admin">
+              <s:param name="certificateId" value="%{id}"></s:param>
+            </s:url>
+            <s:a href="%{editURL}">Edit</s:a>
+          </td>
+          <td>
+            <s:url id="deleteURL" action="delete_certificate">
+              <s:param name="certificateId" value="%{id}"></s:param>
+            </s:url>
+            <s:a href="%{deleteURL}">Delete</s:a>
+          </td>
+
         </tr>
       </s:iterator>
     </table>
   </div>
 </s:if>
+<s:url id="addURL" action="get_certificate_for_admin">
+  <s:param name="certificateId" value="%{null}"></s:param>
+</s:url>
+<s:a href="%{addURL}">Create</s:a>
 </body>
 </html>
