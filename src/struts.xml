@@ -53,23 +53,27 @@
             <interceptor-ref name="AuthStack"/>
             <result name="success">all_courses.jsp</result>
             <result name="login" type="chain">home</result>
+            <result name="error">banned.jsp</result>
         </action>
 
         <action name="list_certificates_for_students" class="action.CertificateAction" method="getCertificatesByUserID">
             <interceptor-ref name="AuthStack"/>
             <result name="success">all_certificates.jsp</result>
             <result name="login" type="chain">home</result>
+            <result name="error">banned.jsp</result>
         </action>
 
         <action name="list_lessons_for_student" class="action.LessonAction" method="getAllLessonsByUserID">
             <interceptor-ref name="AuthStack"/>
             <result name="success">all_lessons.jsp</result>
             <result name="login" type="chain">home</result>
+            <result name="error">banned.jsp</result>
         </action>
 
         <action name="list_lessons_for_admin" class="action.LessonAction" method="getAllLessons">
             <result name="success">all_lessons.jsp</result>
             <result name="login" type="chain">home</result>
+
         </action>
 
         <action name="list_users_for_admin" class="action.UserAction" method="getAllUsers">
@@ -93,6 +97,7 @@
             <interceptor-ref name="AuthStack"/>
             <result name="success">user_settings.jsp</result>
             <result name="login" type="chain">home</result>
+            <result name="error">banned.jsp</result>
         </action>
 
         <action name="get_user_for_admin" class="action.UserAction" method="getUserByID">
@@ -144,6 +149,23 @@
 
         <action name="create_or_update_course" class="action.CourseAction" method="createOrUpdateCourse">
             <result name="success" type="chain">list_courses_for_admin</result>
+        </action>
+
+        <action name="list_lessons_for_lecturer" class="action.LessonAction" method="getLessonsByLecturerId">
+            <interceptor-ref name="AuthStack"/>
+            <result name="success">all_lessons_lecturer.jsp</result>
+        </action>
+
+        <action name="get_lesson_for_lecturer" class="action.LessonAction" method="getLessonById">
+            <result name="success">edit_lesson.jsp</result>
+        </action>
+
+        <action name="create_or_update_lesson" class="action.LessonAction" method="createOrUpdateLesson">
+            <result name="success" type="chain">list_lessons_for_lecturer</result>
+        </action>
+
+        <action name="delete_lesson" class="action.LessonAction" method="deleteLesson">
+            <result name="success" type="chain">list_lessons_for_lecturer</result>
         </action>
 
     </package>

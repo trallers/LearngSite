@@ -35,9 +35,9 @@
     </h2>
   </li>
   <li>
-    <h5>
+    <h3>
       <a href="<s:url action="logout"></s:url>">Logout</a>
-    </h5>
+    </h3>
   </li>
 
 </ul>

@@ -35,6 +35,11 @@
       <a href="<s:url action="list_certificates_for_admin"></s:url>">Certificates</a>
     </h2>
   </li>
+  <li>
+    <h3>
+      <a href="<s:url action="logout"></s:url>">Logout</a>
+    </h3>
+  </li>
 </ul>
 </body>
 </html>
