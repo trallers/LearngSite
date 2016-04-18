@@ -9,9 +9,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title></title>
+    <title>Lessons</title>
 </head>
 <body>
+<h1>All lessons</h1>
 <s:if test="lessonList.size() > 0">
   <div class="content">
     <table class="certificates_table" cellpadding="5px">

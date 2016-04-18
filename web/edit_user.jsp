@@ -9,7 +9,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title></title>
+    <title>User</title>
 </head>
 <body>
   <s:form action="ban_user" class="Center">

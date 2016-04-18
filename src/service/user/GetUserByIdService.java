@@ -10,6 +10,6 @@ import dao.UserDao;
 public class GetUserByIdService {
     public static User execute(String id){
         UserDao dao = DaoFactory.getUserDao();
-        return dao.getUserByID(id);
+        return dao.geByID(id);
     }
 }

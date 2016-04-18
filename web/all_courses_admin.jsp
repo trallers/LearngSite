@@ -12,7 +12,7 @@
     <title></title>
 </head>
 <body>
-  <h1>All courses</h1>
+  <h1>Courses</h1>
   <s:if test="courseList.size() > 0">
     <div class="content">
       <table class="coursesTable" cellpadding="5px">

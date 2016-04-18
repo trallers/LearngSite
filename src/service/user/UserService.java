@@ -23,12 +23,12 @@ public class UserService {
 
     public static List<User> getAllUsers(){
         UserDao dao = DaoFactory.getUserDao();
-        return dao.getAllUsers();
+        return dao.getAll();
     }
 
     public static User getUserByID(String id){
         UserDao dao = DaoFactory.getUserDao();
-        return dao.getUserByID(id);
+        return dao.geByID(id);
     }
 
     public static Integer updateUser(User user){

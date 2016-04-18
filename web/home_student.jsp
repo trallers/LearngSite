@@ -9,7 +9,7 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <html>
 <head>
-    <title></title>
+    <title>Student</title>
 </head>
 <body>
 <h1>HALLO, STUDENT</h1>

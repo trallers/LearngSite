@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * Created by Антон on 04.04.2016.
  */
-public class LessonAction extends ActionSupport {
+public class LessonAction extends ActionSupport  implements UserAware{
 
     private HttpServletRequest request;
     private String userID;

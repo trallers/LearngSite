@@ -9,7 +9,7 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <html>
 <head>
-    <title></title>
+    <title>Certificates</title>
 </head>
 <body>
 

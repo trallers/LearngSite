@@ -9,6 +9,6 @@ import dao.UserDao;
 public class DeleteUserByIdService {
     public static void execute(String id){
         UserDao dao = DaoFactory.getUserDao();
-        dao.deleteUserById(id);
+        dao.delete(id);
     }
 }

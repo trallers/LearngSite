@@ -9,7 +9,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title></title>
+    <title>Certificate</title>
 </head>
 <body>
   <s:form action="create_or_update_certificate">

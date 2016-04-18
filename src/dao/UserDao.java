@@ -92,7 +92,7 @@ public class UserDao {
 
     }
     
-    public List<User> getAllUsers(){
+    public List<User> getAll(){
         List<User> userList = new ArrayList<>();
         try {
             PreparedStatement ps = DBUtil.getConnection().prepareStatement(GET_ALL_USERS_QUERY);
@@ -107,7 +107,7 @@ public class UserDao {
         return userList;
     }
 
-    public User getUserByID(String id) {
+    public User geByID(String id) {
         User user = new User();
             try {
                 PreparedStatement ps = DBUtil.getConnection().prepareStatement(GET_USER_BY_ID_QUERY);
@@ -149,7 +149,7 @@ public class UserDao {
         return user.getId();
     }
 
-    public void deleteUserById(String id){
+    public void delete(String id){
         try{
             PreparedStatement ps = DBUtil.getConnection().prepareStatement(DELETE_USER_BY_ID_QUERY);
             ps.setString(1, id);

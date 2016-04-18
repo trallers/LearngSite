@@ -152,7 +152,6 @@
         </action>
 
         <action name="list_lessons_for_lecturer" class="action.LessonAction" method="getLessonsByLecturerId">
-            <interceptor-ref name="AuthStack"/>
             <result name="success">all_lessons_lecturer.jsp</result>
         </action>
 
@@ -161,7 +160,7 @@
         </action>
 
         <action name="create_or_update_lesson" class="action.LessonAction" method="createOrUpdateLesson">
-            <result name="success" type="chain">list_lessons_for_lecturer</result>
+            <result name="success" type="redirectAction">list_lessons_for_lecturer?userID=${userID}</result>
         </action>
 
         <action name="delete_lesson" class="action.LessonAction" method="deleteLesson">

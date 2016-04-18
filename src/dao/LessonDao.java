@@ -6,6 +6,7 @@ import util.DBUtil;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,11 +20,12 @@ public class LessonDao {
     private static final String GET_LESSONS_BY_LECTURER_ID_QUERY = "SELECT lesson.id, course.name, data_for_lesson.data FROM lesson INNER JOIN course on lesson.id_course = course.id INNER JOIN data_for_lesson ON lesson.id_data = data_for_lesson.id WHERE course.id_lecturer = ?";
     private static final String GET_LESSON_BY_ID = "SELECT lesson.id, course.name, data_for_lesson.data FROM lesson INNER JOIN course on lesson.id_course = course.id INNER JOIN data_for_lesson ON lesson.id_data = data_for_lesson.id WHERE lesson.id = ?";
     private static final String UPDATE_LESSON_QUERY = "";
-    private static final String INSERT_LESSON_QUERY = "";
+    private static final String INSERT_DATA_QUERY = "INSERT INTO data_for_lesson (data) VALUES (?)";
     private static final String DELETE_LESSON_QUERY = "";
 
     private final static LessonDao instance = new LessonDao();
-
+    private static final String GET_COURSE_ID = "SELECT course.id FROM course WHERE course.name = ?";
+    private static final String INSERT_LESSON_QUERY = "INSERT INTO lesson (id_course, id_data) VALUES (?,?)";
 
 
     private LessonDao(){}
@@ -96,11 +98,26 @@ public class LessonDao {
     }
 
     public void create(Lesson lesson){
+        int idCourse=0;
+        int idData=0;
         try {
-            PreparedStatement ps = DBUtil.getConnection().prepareStatement(INSERT_LESSON_QUERY);
-            ps.setString(1, lesson.getCourseName());
-            ps.setString(2, lesson.getData());
+            PreparedStatement ps = DBUtil.getConnection().prepareStatement(INSERT_DATA_QUERY, Statement.RETURN_GENERATED_KEYS);
+            ps.setString(1, lesson.getData());
             ps.executeUpdate();
+            ResultSet result = ps.getGeneratedKeys();
+            while (result.next()){
+                idData = result.getInt(1);
+            }
+            PreparedStatement prSt =DBUtil.getConnection().prepareStatement(GET_COURSE_ID);
+            prSt.setString(1, lesson.getCourseName());
+            ResultSet rs = prSt.executeQuery();
+            while (rs.next()){
+                idCourse = rs.getInt(1);
+            }
+            PreparedStatement pst = DBUtil.getConnection().prepareStatement(INSERT_LESSON_QUERY);
+            pst.setInt(1, idCourse);
+            pst.setInt(2, idData);
+            pst.execute();
         } catch (SQLException e) {
             e.printStackTrace();
         }

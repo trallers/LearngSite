@@ -1,5 +1,6 @@
 package interceptor;
 
+import action.UserAware;
 import bean.User;
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionInvocation;
@@ -35,6 +36,11 @@ public class AuthInterceptor extends AbstractInterceptor implements StrutsStatic
                 return Action.ERROR;
             }
             if(idParam == null){
+                if(actionInvocation instanceof UserAware) {
+                    UserAware action = (UserAware) actionInvocation;
+                    action.setUserID(user.getId().toString());
+                    return actionInvocation.invoke();
+                }
                 return actionInvocation.invoke();
             }
             if(idParam.equals(user.getId().toString()))

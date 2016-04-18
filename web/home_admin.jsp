@@ -9,7 +9,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title></title>
+    <title>Admin</title>
 </head>
 <body>
 <h1>HALLO, ODMEN</h1>
