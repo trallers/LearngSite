@@ -60,17 +60,19 @@ public class CertificateDao {
         return certificateList;
     }
 
-    public void delete(String id){
+    public boolean delete(String id){
         try{
             PreparedStatement ps = DBUtil.getConnection().prepareStatement(DELETE_CERTIFICATE_BY_ID_QUERY);
             ps.setString(1, id);
             ps.execute();
         }catch (SQLException e){
             e.printStackTrace();
+            return false;
         }
+        return true;
     }
 
-    public void create(Certificate certificate){
+    public boolean create(Certificate certificate){
             try{
                 PreparedStatement ps = DBUtil.getConnection().prepareStatement(INSERT_CERTIFICATE_QUERY);
                 ps.setString(1, String.valueOf(certificate.getIdStudent()));
@@ -80,10 +82,12 @@ public class CertificateDao {
                 ps.executeUpdate();
             } catch (SQLException e) {
                 e.printStackTrace();
+                return false;
             }
+        return true;
     }
 
-    public void update(Certificate certificate){
+    public boolean update(Certificate certificate){
         if (certificate.getId() != null) {
             try {
                 PreparedStatement ps = DBUtil.getConnection().prepareStatement(UPDATE_CERTIFICATE_QUERY);
@@ -93,10 +97,13 @@ public class CertificateDao {
                 ps.setDate(4, certificate.getDate());
                 ps.setInt(5, certificate.getId());
                 ps.execute();
+                return true;
             } catch (SQLException e) {
                 e.printStackTrace();
+                return false;
             }
         }else create(certificate);
+        return true;
     }
 
     public Certificate getById(String id){

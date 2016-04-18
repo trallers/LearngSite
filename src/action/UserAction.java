@@ -61,8 +61,10 @@ public class UserAction extends ActionSupport {
     }
 
     public String deleteUser(){
-        DeleteUserByIdService.execute(getUserID());
-        return SUCCESS;
+        boolean success = DeleteUserByIdService.execute(getUserID());
+        if(success)
+            return SUCCESS;
+        else return ERROR;
     }
 
 

@@ -84,12 +84,17 @@ public class LessonAction extends ActionSupport  implements UserAware{
     }
 
     public String createOrUpdateLesson(){
-        CreateOrUpdateLessonService.execute(lesson);
-        return SUCCESS;
+        boolean success = CreateOrUpdateLessonService.execute(lesson);
+        if(success)
+            return SUCCESS;
+        else return ERROR;
     }
 
     public String deleteLesson(){
-        DeleteLessonService.execute(lessonId);
-        return SUCCESS;
+        boolean success = DeleteLessonService.execute(lessonId);
+        if(success)
+           return SUCCESS;
+        else
+            return ERROR;
     }
 }

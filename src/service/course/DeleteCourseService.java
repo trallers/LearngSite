@@ -7,8 +7,8 @@ import dao.DaoFactory;
  * Created by Антон on 18.04.2016.
  */
 public class DeleteCourseService {
-    public static void execute(String id){
+    public static boolean  execute(String id){
         CourseDao dao = DaoFactory.getCourseDao();
-        dao.delete(id);
+        return dao.delete(id);
     }
 }

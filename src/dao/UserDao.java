@@ -69,12 +69,12 @@ public class UserDao {
             while (rs.next()){
             currentUser = new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getByte(9));
             }
-            return currentUser;
+
 
         } catch (SQLException e) {
             e.printStackTrace();
-            return null;
         }
+        return currentUser;
     }
 
     private  boolean isLoginExist(String login){
@@ -149,14 +149,15 @@ public class UserDao {
         return user.getId();
     }
 
-    public void delete(String id){
+    public boolean delete(String id){
         try{
             PreparedStatement ps = DBUtil.getConnection().prepareStatement(DELETE_USER_BY_ID_QUERY);
             ps.setString(1, id);
             ps.execute();
-
+            return true;
         }catch (SQLException e){
             e.printStackTrace();
+            return false;
         }
 
     }

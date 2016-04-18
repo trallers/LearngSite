@@ -37,12 +37,10 @@ public class CourseDao {
             while (rs.next()){
                 coursesList.add(new Course(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getInt(5)));
             }
-            return coursesList;
         } catch (SQLException e) {
             e.printStackTrace();
-            return coursesList;
         }
-
+        return coursesList;
     }
     
     public List<Course> getAll(){
@@ -59,7 +57,7 @@ public class CourseDao {
         return courseList;
     }
 
-    public void create(Course course){
+    public boolean create(Course course){
         try {
             PreparedStatement ps = DBUtil.getConnection().prepareStatement(INSERT_COURSE_QUERY);
             ps.setString(1, course.getName());
@@ -67,22 +65,26 @@ public class CourseDao {
             ps.setInt(3, course.getIdLecturer());
             ps.setInt(4, course.getPrice());
             ps.executeUpdate();
+            return true;
         } catch (SQLException e) {
             e.printStackTrace();
+            return false;
         }
     }
 
-    public void delete(String id){
+    public boolean delete(String id){
         try {
             PreparedStatement ps = DBUtil.getConnection().prepareStatement(DELETE_COURSE_QUERY);
             ps.setString(1, id);
             ps.execute();
+            return true;
         } catch (SQLException e) {
             e.printStackTrace();
+            return false;
         }
     }
 
-    public void update(Course course){
+    public boolean update(Course course){
         if(course.getId() != null){
             try {
                 PreparedStatement ps = DBUtil.getConnection().prepareStatement(UPDATE_COURSE_QUERY);
@@ -92,10 +94,13 @@ public class CourseDao {
                 ps.setInt(4, course.getPrice());
                 ps.setInt(5, course.getId());
                 ps.execute();
+                return true;
             } catch (SQLException e) {
                 e.printStackTrace();
+                return false;
             }
         }else create(course);
+        return true;
     }
 
     public Course getById(String id){

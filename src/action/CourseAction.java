@@ -69,12 +69,22 @@ public class CourseAction extends ActionSupport {
     }
 
     public String createOrUpdateCourse(){
-        UpdateCourseService.execute(course);
-        return SUCCESS;
+        boolean success = UpdateCourseService.execute(course);
+        if(success)
+            return SUCCESS;
+        else{
+            addActionError("Can't create/update course. Check fields filling.");
+            return ERROR;
+        }
     }
 
     public String deleteCourse(){
-        DeleteCourseService.execute(courseId);
-        return SUCCESS;
+        boolean success = DeleteCourseService.execute(courseId);
+        if(success)
+            return SUCCESS;
+        else {
+            addActionError("Can't delete course.");
+            return ERROR;
+        }
     }
 }

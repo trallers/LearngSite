@@ -12,6 +12,6 @@ import java.util.List;
 public class GetLessonsByUserIdService {
     public static List<Lesson> execute(String userID){
         LessonDao dao = DaoFactory.getLessonDao();
-        return dao.getLessonsByUserID(userID);
+        return dao.getByUserID(userID);
     }
 }

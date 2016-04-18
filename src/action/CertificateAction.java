@@ -4,7 +4,6 @@ import bean.Certificate;
 import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.ServletActionContext;
 import service.certificate.*;
-import service.user.DeleteUserByIdService;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -70,19 +69,24 @@ public class CertificateAction extends ActionSupport {
         }
         return ERROR;
     }
-    public String updateCertificate(){
-        UpdateCertificateService.execute(certificate);
-        return SUCCESS;
+    public String createOrUpdateCertificate(){
+        boolean success = UpdateCertificateService.execute(certificate);
+        if(success)
+            return SUCCESS;
+        else {
+            addActionError("Invalid values. Please, fill all fields.");
+            return ERROR;
+        }
     }
 
     public String deleteCertificate(){
-        DeleteUserByIdService.execute(certificateId);
+        boolean success = DeleteCertificateService.execute(certificateId);
+        if(success)
         return SUCCESS;
-    }
-
-    public String createCertificate(){
-        CreateCertificateService.execute(certificate);
-        return SUCCESS;
+        else {
+            addActionError("Can't delete current certificate.");
+            return ERROR;
+        }
     }
 
 }

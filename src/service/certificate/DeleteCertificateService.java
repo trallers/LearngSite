@@ -7,8 +7,8 @@ import dao.DaoFactory;
  * Created by Антон on 17.04.2016.
  */
 public class DeleteCertificateService {
-    public static void execute(String id){
+    public static boolean execute(String id){
         CertificateDao dao = DaoFactory.getCertificateDao();
-        dao.delete(id);
+        return dao.delete(id);
     }
 }

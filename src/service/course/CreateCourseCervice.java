@@ -8,8 +8,8 @@ import dao.DaoFactory;
  * Created by Антон on 18.04.2016.
  */
 public class CreateCourseCervice {
-    public static void execute(Course course){
+    public static boolean execute(Course course){
         CourseDao dao = DaoFactory.getCourseDao();
-        dao.create(course);
+        return dao.create(course);
     }
 }

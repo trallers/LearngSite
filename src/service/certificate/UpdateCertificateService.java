@@ -8,8 +8,8 @@ import dao.DaoFactory;
  * Created by Антон on 17.04.2016.
  */
 public class UpdateCertificateService {
-    public static void execute(Certificate certificate){
+    public static boolean execute(Certificate certificate){
         CertificateDao dao = DaoFactory.getCertificateDao();
-        dao.update(certificate);
+        return dao.update(certificate);
     }
 }

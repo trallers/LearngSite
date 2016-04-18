@@ -8,8 +8,8 @@ import dao.LessonDao;
  * Created by Антон on 18.04.2016.
  */
 public class CreateOrUpdateLessonService {
-    public static void execute(Lesson lesson){
+    public static boolean execute(Lesson lesson){
         LessonDao dao = DaoFactory.getLessonDao();
-        dao.update(lesson);
+        return dao.update(lesson);
     }
 }

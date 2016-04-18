@@ -34,7 +34,7 @@ public class LessonDao {
         return instance;
     }
 
-    public  List<Lesson> getLessonsByUserID(String userID){
+    public  List<Lesson> getByUserID(String userID){
         List<Lesson> lessonList = new ArrayList<>();
         try {
             PreparedStatement ps = DBUtil.getConnection().prepareStatement(GET_LESSONS_BY_USER_ID_QUERY);
@@ -50,7 +50,7 @@ public class LessonDao {
         return lessonList;
     }
 
-    public List<Lesson> getAllLessons(){
+    public List<Lesson> getAll(){
         List<Lesson> lessonList = new ArrayList<>();
         try {
             PreparedStatement ps = DBUtil.getConnection().prepareStatement(GET_ALL_LESSONS);
@@ -97,7 +97,7 @@ public class LessonDao {
         return lesson;
     }
 
-    public void create(Lesson lesson){
+    public boolean create(Lesson lesson){
         int idCourse=0;
         int idData=0;
         try {
@@ -118,22 +118,27 @@ public class LessonDao {
             pst.setInt(1, idCourse);
             pst.setInt(2, idData);
             pst.execute();
+            return true;
         } catch (SQLException e) {
             e.printStackTrace();
+            return false;
         }
     }
 
-    public void delete(String id){
+    public boolean delete(String id){
         try {
             PreparedStatement ps = DBUtil.getConnection().prepareStatement(DELETE_LESSON_QUERY);
             ps.setString(1, id);
             ps.execute();
+            return true;
         } catch (SQLException e) {
             e.printStackTrace();
+            return false;
         }
+
     }
 
-    public void update(Lesson lesson){
+    public boolean update(Lesson lesson){
         if(lesson.getId() != null){
             try {
                 PreparedStatement ps = DBUtil.getConnection().prepareStatement(UPDATE_LESSON_QUERY);
@@ -141,9 +146,12 @@ public class LessonDao {
                 ps.setString(2, lesson.getData());
                 ps.setInt(3, lesson.getId());
                 ps.execute();
+                return true;
             } catch (SQLException e) {
                 e.printStackTrace();
+                return false;
             }
         }else create(lesson);
+        return true;
     }
 }

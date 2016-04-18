@@ -13,12 +13,12 @@ public class LessonService {
 
     public static List<Lesson> getLessonsByUserID(String userID){
         LessonDao dao = DaoFactory.getLessonDao();
-        return dao.getLessonsByUserID(userID);
+        return dao.getByUserID(userID);
     }
 
     public static List<Lesson> getAllLessons(){
         LessonDao dao = DaoFactory.getLessonDao();
-        return dao.getAllLessons();
+        return dao.getAll();
     }
 
 }
