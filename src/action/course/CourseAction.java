@@ -1,4 +1,4 @@
-package action;
+package action.course;
 
 import bean.Course;
 import com.opensymphony.xwork2.ActionSupport;

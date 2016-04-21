@@ -66,7 +66,7 @@
             <result name="success">login.jsp</result>
         </action>
 
-        <action name="list_courses_for_student" class="action.CourseAction" method="getCoursesByUserID">
+        <action name="list_courses_for_student" class="action.course.CourseAction" method="getCoursesByUserID">
             <interceptor-ref name="StudentRoleStack"/>
             <result name="success">all_courses.jsp</result>
             <result name="login" type="chain">logout</result>
@@ -100,7 +100,7 @@
             <result name="login" type="chain">logout</result>
         </action>
 
-        <action name="list_courses_for_admin" class="action.CourseAction" method="getAllCourses">
+        <action name="list_courses_for_admin" class="action.course.CourseAction" method="getAllCourses">
             <interceptor-ref name="AdminRoleStack"/>
             <result name="success">all_courses_admin.jsp</result>
             <result name="login" type="chain">logout</result>
@@ -165,18 +165,18 @@
             <result name="login" type="chain">logout</result>
         </action>
 
-        <action name="get_course_for_admin" class="action.CourseAction" method="getCourseById">
+        <action name="get_course_for_admin" class="action.course.CourseAction" method="getCourseById">
             <interceptor-ref name="AdminRoleStack"/>
             <result name="success">edit_course.jsp</result>
             <result name="login" type="chain">login</result>
             <result name="error" type="chain">list_courses_for_admin</result>
         </action>
 
-        <action name="delete_course" class="action.CourseAction" method="deleteCourse">
+        <action name="delete_course" class="action.course.CourseAction" method="deleteCourse">
             <result name="success" type="chain">list_courses_for_admin</result>
         </action>
 
-        <action name="create_or_update_course" class="action.CourseAction" method="createOrUpdateCourse">
+        <action name="create_or_update_course" class="action.course.CourseAction" method="createOrUpdateCourse">
             <interceptor-ref name="AdminRoleStack"/>
             <result name="success" type="chain">list_courses_for_admin</result>
             <result name="login" type="chain">logout</result>
