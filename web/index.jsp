@@ -25,8 +25,8 @@
                 <li><a href="index.jsp" style="border-bottom: 3px solid #848484;">Home</a></li>
                 <li><a href="all_courses.jsp">Courses</a></li>
                 <li><a href="#">News</a></li>
-                <li><a href="#login">Login</a></li>
-
+                <li><a href="login.jsp">Login</a></li>
+                <li><a href="register.jsp">Register</a></li>
             </ul>
         </nav>
         <!--end menu-->
@@ -35,10 +35,9 @@
         <a href="#x" class="overlay" id="login"></a>
         <div class="popup">
             <div class="Registration">
-                <s:actionerror/>
-                <s:form action="register" class="Center">
+                <s:form action="register" method="post" class="Center" validate="true">
                     <h2>Registration</h2>
-                    <s:textfield name="user.login" label="Login"></s:textfield>
+                    <s:textfield name="user.login" label="Login"/>
                     <s:password name="user.password" label="Password"></s:password>
                     <s:select class="ListU" list="{'student','lecturer'}" name="user.role" label="Role"></s:select>
                     <s:textfield name="user.name" label="Name"></s:textfield>
@@ -50,7 +49,7 @@
                 </s:form>
             </div>
             <div class="Login">
-                <s:form action="login" class="Center">
+                <s:form action="login" class="Center" validate="true">
                     <h2>Login</h2>
                     <s:textfield name="login" label="Login"></s:textfield>
                     <s:password name="password" label="Password"></s:password>
@@ -81,6 +80,7 @@
 
         <section class="group5">
             <h1>Welcome</h1>
+            <s:actionerror/>
         </section>
     </div>
     <div class="holder_content">

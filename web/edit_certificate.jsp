@@ -13,7 +13,7 @@
 </head>
 <body>
   <s:form action="create_or_update_certificate">
-    <s:textfield name="certificate.id" readonly="true" label="ID"></s:textfield>
+    <s:textfield name="certificate.id" readonly="true" label="ID" maxLength="50"></s:textfield>
     <s:textfield name="certificate.idStudent" label="Id student"></s:textfield>
     <s:textfield name="certificate.idCourse" label="Id course"></s:textfield>
     <s:textarea name="certificate.data" label="Data"></s:textarea>

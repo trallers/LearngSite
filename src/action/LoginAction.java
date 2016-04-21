@@ -1,6 +1,7 @@
 package action;
 
 import bean.User;
+import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionSupport;
 import constant.JSPName;
 import org.apache.struts2.interceptor.SessionAware;
@@ -9,10 +10,9 @@ import service.user.LoginUserService;
 import java.util.Map;
 
 /**
- * Created by Антон on 02.04.2016.
+ * Created by Антон on 21.04.2016.
  */
-public class AuthAction extends ActionSupport implements SessionAware{
-
+public class LoginAction extends ActionSupport implements SessionAware {
     private final static String REDIRECT = "redirect";
 
     private String login;
@@ -62,12 +62,16 @@ public class AuthAction extends ActionSupport implements SessionAware{
         this.url = url;
     }
 
-    public String login() throws Exception {
+    public String execute() throws Exception {
 
         user = LoginUserService.execute(login, password);
 
         if(user != null){
             setUserID(user.getId());
+            if(user.getBanStatus() != 0){
+                addActionError("U are banned on this site!!!");
+                return Action.LOGIN;
+            }
 
             switch (user.getRole()){
                 case "admin" : setUrl(JSPName.HOME_ADMIN);
@@ -81,16 +85,11 @@ public class AuthAction extends ActionSupport implements SessionAware{
 
         }else{
             addActionError("Invalid login or password!");
-            return LOGIN;
+            return ERROR;
         }
 
     }
 
-    public String logout() {
-        session.remove("loginId");
-        addActionMessage("You have been Successfully Logged Out");
-        return SUCCESS;
-    }
     @Override
     public void setSession(Map<String, Object> map) {
         this.session = map;

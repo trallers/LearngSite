@@ -15,7 +15,7 @@
 <h1>All lessons</h1>
 <s:if test="lessonList.size() > 0">
   <div class="content">
-    <table class="certificates_table" cellpadding="5px">
+    <table class="lessons_table" cellpadding="5px">
       <tr class="even">
         <th>Course name</th>
         <th>Lesson data</th>
@@ -23,16 +23,18 @@
       <s:iterator value="lessonList" status="userStatus">
         <tr>
           <td><s:property value="courseName" /></td>
-          <td><s:property value="date" /></td>
+          <td><s:property value="data" /></td>
           <td>
             <s:url id="editURL" action="get_lesson_for_lecturer">
               <s:param name="lessonId" value="%{id}"></s:param>
+              <s:param name="userID" value="%{userID}"></s:param>
             </s:url>
             <s:a href="%{editURL}">Edit</s:a>
           </td>
           <td>
             <s:url id="deleteURL" action="delete_lesson">
               <s:param name="lessonId" value="%{id}"></s:param>
+              <s:param name="userID" value="%{userID}"></s:param>
             </s:url>
             <s:a href="%{deleteURL}">Delete</s:a>
           </td>
@@ -42,6 +44,7 @@
   </div>
 </s:if>
 <s:url id="addURL" action="get_lesson_for_lecturer">
+  <s:param name="userID" value="%{userID}"></s:param>
   <s:param name="lessonId" value="%{null}"></s:param>
 </s:url>
 <s:a href="%{addURL}">Create</s:a>

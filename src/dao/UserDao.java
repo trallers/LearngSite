@@ -32,26 +32,28 @@ public class UserDao {
 
     public Integer create(User user) {
         Integer resultUserID = null;
-        if (!isLoginExist(user.getLogin())) {
-            try {
-                PreparedStatement ps = DBUtil.getConnection().prepareStatement(REGISTER_USER_QUERY);
-                ps.setString(1, user.getLogin());
-                ps.setString(2, user.getPassword());
-                ps.setString(3, user.getRole());
-                ps.setString(4, user.getName());
-                ps.setString(5, user.getSurname());
-                ps.setString(6, user.getPhone());
-                ps.setString(7, user.getEmail());
-                ps.setByte(8, user.getBanStatus());
-                ps.executeUpdate();
+        if(user != null) {
+            if (!isLoginExist(user.getLogin())) {
+                try {
+                    PreparedStatement ps = DBUtil.getConnection().prepareStatement(REGISTER_USER_QUERY);
+                    ps.setString(1, user.getLogin());
+                    ps.setString(2, user.getPassword());
+                    ps.setString(3, user.getRole());
+                    ps.setString(4, user.getName());
+                    ps.setString(5, user.getSurname());
+                    ps.setString(6, user.getPhone());
+                    ps.setString(7, user.getEmail());
+                    ps.setByte(8, user.getBanStatus());
+                    ps.executeUpdate();
 
-                ResultSet rs = ps.getGeneratedKeys();
+                    ResultSet rs = ps.getGeneratedKeys();
 
-                while (rs.next()){
-                    resultUserID =rs.getInt(1);
+                    while (rs.next()) {
+                        resultUserID = rs.getInt(1);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-            } catch (Exception e) {
-                e.printStackTrace();
             }
         }
         return resultUserID;
@@ -61,18 +63,19 @@ public class UserDao {
 
     public User login(String login, String password) {
         User currentUser = null;
-        try {
-            PreparedStatement ps = DBUtil.getConnection().prepareStatement(LOGIN_USER_QUERY);
-            ps.setString(1, login);
-            ps.setString(2, password);
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()){
-            currentUser = new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getByte(9));
+        if(login != null && password != null) {
+            try {
+                PreparedStatement ps = DBUtil.getConnection().prepareStatement(LOGIN_USER_QUERY);
+                ps.setString(1, login);
+                ps.setString(2, password);
+                ResultSet rs = ps.executeQuery();
+                while (rs.next()) {
+                    currentUser = new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getByte(9));
+                }
+
+            } catch (SQLException e) {
+                e.printStackTrace();
             }
-
-
-        } catch (SQLException e) {
-            e.printStackTrace();
         }
         return currentUser;
     }
@@ -109,11 +112,12 @@ public class UserDao {
 
     public User geByID(String id) {
         User user = new User();
+        if(id != null) {
             try {
                 PreparedStatement ps = DBUtil.getConnection().prepareStatement(GET_USER_BY_ID_QUERY);
                 ps.setString(1, id);
                 ResultSet rs = ps.executeQuery();
-                while (rs.next()){
+                while (rs.next()) {
                     user.setId(rs.getInt(1));
                     user.setLogin(rs.getString(2));
                     user.setPassword(rs.getString(3));
@@ -127,6 +131,7 @@ public class UserDao {
             } catch (SQLException e) {
                 e.printStackTrace();
             }
+        }
 
         return user;
     }

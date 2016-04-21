@@ -12,7 +12,7 @@
     <title>Course</title>
 </head>
 <body>
-  <s:form action="create_or_update_course">
+  <s:form action="create_or_update_course" method="POST">
     <s:textfield name="course.id" readonly="true" label="Id"></s:textfield>
     <s:textfield name="course.name" label="Name"></s:textfield>
     <s:textfield name="course.technology" label="Technology"></s:textfield>

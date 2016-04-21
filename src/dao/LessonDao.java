@@ -21,7 +21,7 @@ public class LessonDao {
     private static final String GET_LESSON_BY_ID = "SELECT lesson.id, course.name, data_for_lesson.data FROM lesson INNER JOIN course on lesson.id_course = course.id INNER JOIN data_for_lesson ON lesson.id_data = data_for_lesson.id WHERE lesson.id = ?";
     private static final String UPDATE_LESSON_QUERY = "";
     private static final String INSERT_DATA_QUERY = "INSERT INTO data_for_lesson (data) VALUES (?)";
-    private static final String DELETE_LESSON_QUERY = "";
+    private static final String DELETE_LESSON_QUERY = "DELETE FROM lesson WHERE id = ?  ";
 
     private final static LessonDao instance = new LessonDao();
     private static final String GET_COURSE_ID = "SELECT course.id FROM course WHERE course.name = ?";

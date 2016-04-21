@@ -5,10 +5,11 @@
     <title>Lesson</title>
 </head>
 <body>
-<s:form action="create_or_update_lesson">
+<s:form action="create_or_update_lesson" method="POST">
     <s:textfield name="lesson.id" readonly="true" label="Id"></s:textfield>
     <s:textfield name="lesson.courseName" label="Course name"></s:textfield>
     <s:textarea name="lesson.data" label="Data"></s:textarea>
+    <s:hidden name="userID" value="%{userID}"></s:hidden>
     <s:submit value="Save"></s:submit>
 </s:form>
 </body>

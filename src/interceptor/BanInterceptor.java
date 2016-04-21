@@ -20,7 +20,7 @@ public class BanInterceptor extends AbstractInterceptor {
         if(user != null) {
             Byte banStatus = user.getBanStatus();
             if (banStatus != 0) {
-                return Action.ERROR;
+                return Action.LOGIN;
             }
         }
         return "redirect";

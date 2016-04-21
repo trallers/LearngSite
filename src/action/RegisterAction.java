@@ -9,6 +9,15 @@ import service.user.RegisterUserService;
  */
 public class RegisterAction extends ActionSupport {
     private User user;
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public User getUser() {
         return user;
@@ -22,10 +31,11 @@ public class RegisterAction extends ActionSupport {
     public String execute(){
 
         Integer result = RegisterUserService.execute(user);
-        if(result != null){
+        if(result != null) {
             return SUCCESS;
+        }else {
+            addActionError("User with this login already exists");
+            return ERROR;
         }
-        addActionError("User with this login already exists");
-        return ERROR;
     }
 }
