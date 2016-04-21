@@ -32,6 +32,7 @@ public class RegisterAction extends ActionSupport {
 
         Integer result = RegisterUserService.execute(user);
         if(result != null) {
+            addActionMessage("Registration completed successfully. You can log in to your account.");
             return SUCCESS;
         }else {
             addActionError("User with this login already exists");

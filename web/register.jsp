@@ -10,8 +10,10 @@
 <html>
 <head>
     <title></title>
+    <s:head/>
 </head>
 <body>
+<s:actionerror/>
 <s:form action="register" method="post" class="Center" validate="true">
   <h2>Registration</h2>
   <s:textfield name="user.login" label="Login"/>

@@ -6,6 +6,7 @@ import util.DBUtil;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,7 +36,7 @@ public class UserDao {
         if(user != null) {
             if (!isLoginExist(user.getLogin())) {
                 try {
-                    PreparedStatement ps = DBUtil.getConnection().prepareStatement(REGISTER_USER_QUERY);
+                    PreparedStatement ps = DBUtil.getConnection().prepareStatement(REGISTER_USER_QUERY, Statement.RETURN_GENERATED_KEYS);
                     ps.setString(1, user.getLogin());
                     ps.setString(2, user.getPassword());
                     ps.setString(3, user.getRole());

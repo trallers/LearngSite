@@ -3,7 +3,7 @@
 <!doctype html>
 <head>
     <meta charset="UTF-8">
-    <title>Lerning portal</title>
+    <title>Learning portal</title>
     <link rel="stylesheet" type="text/css" href="css/styles.css"/>
 </head>
 <body>
