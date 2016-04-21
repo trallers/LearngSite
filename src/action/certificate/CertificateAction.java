@@ -1,4 +1,4 @@
-package action;
+package action.certificate;
 
 import bean.Certificate;
 import com.opensymphony.xwork2.ActionSupport;

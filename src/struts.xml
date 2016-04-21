@@ -73,7 +73,7 @@
             <result name="error">banned.jsp</result>
         </action>
 
-        <action name="list_certificates_for_students" class="action.CertificateAction" method="getCertificatesByUserID">
+        <action name="list_certificates_for_students" class="action.certificate.CertificateAction" method="getCertificatesByUserID">
             <interceptor-ref name="StudentRoleStack"/>
             <result name="success">all_certificates.jsp</result>
             <result name="login" type="chain">logout</result>
@@ -106,7 +106,7 @@
             <result name="login" type="chain">logout</result>
         </action>
 
-        <action name="list_certificates_for_admin" class="action.CertificateAction" method="getAllCertificates">
+        <action name="list_certificates_for_admin" class="action.certificate.CertificateAction" method="getAllCertificates">
             <interceptor-ref name="AdminRoleStack"/>
             <result name="success">all_certificates_admin.jsp</result>
             <result name="login" type="chain">logout</result>
@@ -146,20 +146,20 @@
             <result name="login" type="chain">logout</result>
         </action>
 
-       <action name="get_certificate_for_admin" class="action.CertificateAction" method="getCertificateById">
+       <action name="get_certificate_for_admin" class="action.certificate.CertificateAction" method="getCertificateById">
            <interceptor-ref name="AdminRoleStack"/>
            <result name="success">edit_certificate.jsp</result>
            <result name="login" type="chain">login</result>
            <result name="error">list_certificates_for_admin.action</result>
        </action>
 
-        <action name="delete_certificate" class="action.CertificateAction" method="deleteCertificate">
+        <action name="delete_certificate" class="action.certificate.CertificateAction" method="deleteCertificate">
             <interceptor-ref name="AdminRoleStack"/>
             <result name="success" type="chain">list_certificates_for_admin</result>
             <result name="login" type="chain">logout</result>
         </action>
 
-        <action name="create_or_update_certificate" class="action.CertificateAction" method="createOrUpdateCertificate">
+        <action name="create_or_update_certificate" class="action.certificate.CertificateAction" method="createOrUpdateCertificate">
             <interceptor-ref name="AdminRoleStack"/>
             <result name="success" type="chain">list_certificates_for_admin</result>
             <result name="login" type="chain">logout</result>
