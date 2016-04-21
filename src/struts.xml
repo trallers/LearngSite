@@ -94,7 +94,7 @@
 
         </action>
 
-        <action name="list_users_for_admin" class="action.UserAction" method="getAllUsers">
+        <action name="list_users_for_admin" class="action.user.GetAllUsersAction" method="execute">
             <interceptor-ref name="AdminRoleStack"/>
             <result name="success">all_users.jsp</result>
             <result name="login" type="chain">logout</result>
@@ -112,35 +112,35 @@
             <result name="login" type="chain">logout</result>
         </action>
 
-        <action name="get_user_for_student" class="action.UserAction" method="getUserByID">
+        <action name="get_user_for_student" class="action.user.GetUserByIdAction" method="execute">
             <interceptor-ref name="StudentRoleStack"/>
             <result name="success">user_settings.jsp</result>
             <result name="login" type="chain">logout</result>
             <result name="error">banned.jsp</result>
         </action>
 
-        <action name="get_user_for_admin" class="action.UserAction" method="getUserByID">
+        <action name="get_user_for_admin" class="action.user.GetUserByIdAction" method="execute">
             <interceptor-ref name="AdminRoleStack"/>
             <result name="success">edit_user.jsp</result>
             <result name="login" type="chain">logout</result>
         </action>
 
-        <action name="update_user" class="action.UserAction" method="updateUser">
+        <action name="update_user" class="action.user.CreateOrUpdateUserAction" method="execute">
             <result name="redirect" type="redirect">
                 <param name="location">home_student.jsp</param>
-                <param name="userID">${userID}</param>
+                <param name="userId">${userID}</param>
             </result>
             <result name="login" type="chain">logout</result>
             <result name="error">index.jsp</result>
         </action>
 
-        <action name="ban_user" class="action.UserAction" method="updateUser">
+        <action name="ban_user" class="action.user.CreateOrUpdateUserAction" method="execute">
             <interceptor-ref name="AdminRoleStack"/>
             <result name="success" type="chain">list_users_for_admin</result>
             <result name="login" type="chain">logout</result>
         </action>
 
-        <action name="delete_user" class="action.UserAction" method="deleteUser">
+        <action name="delete_user" class="action.user.DeleteUserAction" method="execute">
             <interceptor-ref name="AdminRoleStack"/>
             <result name="success" type="chain">list_users_for_admin</result>
             <result name="login" type="chain">logout</result>
@@ -196,7 +196,7 @@
 
         <action name="create_or_update_lesson" class="action.LessonAction" method="createOrUpdateLesson">
             <interceptor-ref name="LecturerRoleStack"/>
-            <result name="success" type="redirectAction">list_lessons_for_lecturer?userID=${userID}</result>
+            <result name="success" type="redirectAction">list_lessons_for_lecturer?userId=${userID}</result>
             <result name="login" type="chain">logout</result>
         </action>
 

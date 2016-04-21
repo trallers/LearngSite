@@ -54,5 +54,9 @@
   <s:param name="certificateId" value="%{null}"></s:param>
 </s:url>
 <s:a href="%{addURL}">Create</s:a>
+<s:url id="back" value="home_admin.jsp">
+  <s:param name="userID" value="%{userID}"></s:param>
+</s:url>
+<s:a href="%{back}">Back</s:a>
 </body>
 </html>

@@ -41,13 +41,13 @@
           <td><s:property value="banStatus" /></td>
           <td>
             <s:url id="editURL" action="get_user_for_admin">
-              <s:param name="userID" value="%{id}"></s:param>
+              <s:param name="userId" value="%{id}"></s:param>
             </s:url>
             <s:a href="%{editURL}">Edit</s:a>
           </td>
           <td>
             <s:url id="deleteURL" action="delete_user">
-              <s:param name="userID" value="%{id}"></s:param>
+              <s:param name="userId" value="%{id}"></s:param>
             </s:url>
             <s:a href="%{deleteURL}">Delete</s:a>
           </td>

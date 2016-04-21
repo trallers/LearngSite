@@ -1,4 +1,4 @@
-package action;
+package action.user;
 
 import bean.User;
 import com.opensymphony.xwork2.ActionSupport;

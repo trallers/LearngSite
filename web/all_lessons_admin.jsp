@@ -1,3 +1,4 @@
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: Антон
@@ -11,6 +12,9 @@
     <title></title>
 </head>
 <body>
-
+<s:url id="back" value="home_admin.jsp">
+  <s:param name="userID" value="%{userID}"></s:param>
+</s:url>
+<s:a href="%{back}">Back</s:a>
 </body>
 </html>
