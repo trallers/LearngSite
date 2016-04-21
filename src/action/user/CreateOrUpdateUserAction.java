@@ -32,7 +32,7 @@ public class CreateOrUpdateUserAction extends ActionSupport {
         Integer userID  = UpdateUserService.execute(getUser());
         setUserId(String.valueOf(userID));
         if(userID != null)
-            return SUCCESS;
+            return "redirect";
         return ERROR;
     }
 }

@@ -16,22 +16,22 @@
 <ul>
   <li>
     <h2>
-      <a href="<s:url action="list_courses_for_student"><s:param name="userID">${param["userID"]}</s:param></s:url>">My courses</a>
+      <a href="<s:url action="list_courses_for_student"><s:param name="userId">${param["userId"]}</s:param></s:url>">My courses</a>
     </h2>
   </li>
   <li>
   <h2>
-    <a href="<s:url action="list_lessons_for_student"><s:param name="userID">${param["userID"]}</s:param></s:url>">Passed lessons</a>
+    <a href="<s:url action="list_lessons_for_student"><s:param name="userId">${param["userId"]}</s:param></s:url>">Passed lessons</a>
   </h2>
   </li>
   <li>
     <h2>
-      <a href="<s:url action="list_certificates_for_students"><s:param name="userID">${param["userID"]}</s:param></s:url>">My certificates</a>
+      <a href="<s:url action="list_certificates_for_students"><s:param name="userId">${param["userId"]}</s:param></s:url>">My certificates</a>
     </h2>
   </li>
   <li>
     <h2>
-      <a href="<s:url action="get_user_for_student"><s:param name="userId">${param["userID"]}</s:param></s:url>">Settings</a>
+      <a href="<s:url action="get_user_for_student"><s:param name="userId">${param["userId"]}</s:param></s:url>">Settings</a>
     </h2>
   </li>
   <li>

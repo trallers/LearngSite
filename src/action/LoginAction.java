@@ -19,15 +19,15 @@ public class LoginAction extends ActionSupport implements SessionAware {
     private String password;
     private User user;
     private String url;
-    private Integer userID;
+    private Integer userId;
     private Map<String, Object> session = null;
 
-    public Integer getUserID() {
-        return userID;
+    public Integer getUserId() {
+        return userId;
     }
 
-    public void setUserID(Integer userID) {
-        this.userID = userID;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
     public User getUser() {
@@ -67,7 +67,7 @@ public class LoginAction extends ActionSupport implements SessionAware {
         user = LoginUserService.execute(login, password);
 
         if(user != null){
-            setUserID(user.getId());
+            setUserId(user.getId());
             if(user.getBanStatus() != 0){
                 addActionError("U are banned on this site!!!");
                 return Action.LOGIN;

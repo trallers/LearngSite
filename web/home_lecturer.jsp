@@ -16,7 +16,7 @@
 <ul>
   <li>
     <h2>
-      <a href="<s:url action="list_lessons_for_lecturer"><s:param name="userID">${param["userID"]}</s:param></s:url>">My lessons</a>
+      <a href="<s:url action="list_lessons_for_lecturer"><s:param name="userId">${param["userId"]}</s:param></s:url>">My lessons</a>
     </h2>
     <h3>
       <a href="<s:url action="logout"></s:url>">Logout</a>

@@ -27,14 +27,14 @@
           <td>
             <s:url id="editURL" action="get_lesson_for_lecturer">
               <s:param name="lessonId" value="%{id}"></s:param>
-              <s:param name="userID" value="%{userID}"></s:param>
+              <s:param name="userId" value="%{userId}"></s:param>
             </s:url>
             <s:a href="%{editURL}">Edit</s:a>
           </td>
           <td>
             <s:url id="deleteURL" action="delete_lesson">
               <s:param name="lessonId" value="%{id}"></s:param>
-              <s:param name="userID" value="%{userID}"></s:param>
+              <s:param name="userId" value="%{userID}"></s:param>
             </s:url>
             <s:a href="%{deleteURL}">Delete</s:a>
           </td>
@@ -44,7 +44,7 @@
   </div>
 </s:if>
 <s:url id="addURL" action="get_lesson_for_lecturer">
-  <s:param name="userID" value="%{userID}"></s:param>
+  <s:param name="userId" value="%{userId}"></s:param>
   <s:param name="lessonId" value="%{null}"></s:param>
 </s:url>
 <s:a href="%{addURL}">Create</s:a>

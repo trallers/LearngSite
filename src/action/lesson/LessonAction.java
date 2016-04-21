@@ -1,5 +1,6 @@
-package action;
+package action.lesson;
 
+import action.UserAware;
 import bean.Lesson;
 import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.ServletActionContext;
@@ -12,7 +13,7 @@ import java.util.List;
 /**
  * Created by Антон on 04.04.2016.
  */
-public class LessonAction extends ActionSupport  implements UserAware{
+public class LessonAction extends ActionSupport  implements UserAware {
 
     private HttpServletRequest request;
     private String userID;

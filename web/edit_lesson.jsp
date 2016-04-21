@@ -9,7 +9,7 @@
     <s:textfield name="lesson.id" readonly="true" label="Id"></s:textfield>
     <s:textfield name="lesson.courseName" label="Course name"></s:textfield>
     <s:textarea name="lesson.data" label="Data"></s:textarea>
-    <s:hidden name="userID" value="%{userID}"></s:hidden>
+    <s:hidden name="userId" value="%{userId}"></s:hidden>
     <s:submit value="Save"></s:submit>
 </s:form>
 </body>

@@ -28,7 +28,7 @@ public class ChekingIdInterceptor extends AbstractInterceptor implements StrutsS
         else
         {
             request = ServletActionContext.getRequest();
-            String idParam = request.getParameter("userID");
+            String idParam = request.getParameter("userId");
             if(idParam.equals(user.getId().toString()))
                 return actionInvocation.invoke();
             else return Action.LOGIN;

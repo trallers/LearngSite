@@ -35,12 +35,6 @@
                 <interceptor-ref name="defaultStack"/>
             </interceptor-stack>
 
-            <interceptor name="banInterceptor" class="interceptor.BanInterceptor"> </interceptor>
-            <interceptor-stack name="banStack">
-                <interceptor-ref name="banInterceptor"/>
-                <interceptor-ref name="defaultStack"/>
-            </interceptor-stack>
-
         </interceptors>
 
         <action name="home" class="action.HomeAction" method="execute">
@@ -56,7 +50,7 @@
         <action name="login" class="action.LoginAction" method="execute">
             <result name="redirect" type="redirect">
                 <param name="location">${url}</param>
-                <param name="userID">${userID}</param>
+                <param name="userId">${userId}</param>
             </result>
             <result name="input">login.jsp</result>
             <result name="error">login.jsp</result>
@@ -66,28 +60,28 @@
             <result name="success">login.jsp</result>
         </action>
 
-        <action name="list_courses_for_student" class="action.course.CourseAction" method="getCoursesByUserID">
+        <action name="list_courses_for_student" class="action.course.GetCoursesByUserIdAction" method="execute">
             <interceptor-ref name="StudentRoleStack"/>
             <result name="success">all_courses.jsp</result>
             <result name="login" type="chain">logout</result>
             <result name="error">banned.jsp</result>
         </action>
 
-        <action name="list_certificates_for_students" class="action.certificate.CertificateAction" method="getCertificatesByUserID">
+        <action name="list_certificates_for_students" class="action.certificate.GetCertificateByUserIdAction" method="execute">
             <interceptor-ref name="StudentRoleStack"/>
             <result name="success">all_certificates.jsp</result>
             <result name="login" type="chain">logout</result>
             <result name="error">banned.jsp</result>
         </action>
 
-        <action name="list_lessons_for_student" class="action.LessonAction" method="getAllLessonsByUserID">
+        <action name="list_lessons_for_student" class="action.lesson.GetLessonsByUserIdAction" method="execute">
             <interceptor-ref name="StudentRoleStack"/>
             <result name="success">all_lessons.jsp</result>
             <result name="login" type="chain">logout</result>
             <result name="error">banned.jsp</result>
         </action>
 
-        <action name="list_lessons_for_admin" class="action.LessonAction" method="getAllLessons">
+        <action name="list_lessons_for_admin" class="action.lesson.GetAllLessonsAction" method="execute">
             <interceptor-ref name="AdminRoleStack"/>
             <result name="success">all_lessons.jsp</result>
             <result name="login" type="chain">logout</result>
@@ -100,13 +94,13 @@
             <result name="login" type="chain">logout</result>
         </action>
 
-        <action name="list_courses_for_admin" class="action.course.CourseAction" method="getAllCourses">
+        <action name="list_courses_for_admin" class="action.course.GetAllCoursesAction" method="execute">
             <interceptor-ref name="AdminRoleStack"/>
             <result name="success">all_courses_admin.jsp</result>
             <result name="login" type="chain">logout</result>
         </action>
 
-        <action name="list_certificates_for_admin" class="action.certificate.CertificateAction" method="getAllCertificates">
+        <action name="list_certificates_for_admin" class="action.certificate.GetAllCertificatesAction" method="execute">
             <interceptor-ref name="AdminRoleStack"/>
             <result name="success">all_certificates_admin.jsp</result>
             <result name="login" type="chain">logout</result>
@@ -128,7 +122,7 @@
         <action name="update_user" class="action.user.CreateOrUpdateUserAction" method="execute">
             <result name="redirect" type="redirect">
                 <param name="location">home_student.jsp</param>
-                <param name="userId">${userID}</param>
+                <param name="userId">${userId}</param>
             </result>
             <result name="login" type="chain">logout</result>
             <result name="error">index.jsp</result>
@@ -146,63 +140,63 @@
             <result name="login" type="chain">logout</result>
         </action>
 
-       <action name="get_certificate_for_admin" class="action.certificate.CertificateAction" method="getCertificateById">
+       <action name="get_certificate_for_admin" class="action.certificate.GetCertificateByIdAction" method="execute">
            <interceptor-ref name="AdminRoleStack"/>
            <result name="success">edit_certificate.jsp</result>
            <result name="login" type="chain">login</result>
            <result name="error">list_certificates_for_admin.action</result>
        </action>
 
-        <action name="delete_certificate" class="action.certificate.CertificateAction" method="deleteCertificate">
+        <action name="delete_certificate" class="action.certificate.DeleteCertificateAction" method="execute">
             <interceptor-ref name="AdminRoleStack"/>
             <result name="success" type="chain">list_certificates_for_admin</result>
             <result name="login" type="chain">logout</result>
         </action>
 
-        <action name="create_or_update_certificate" class="action.certificate.CertificateAction" method="createOrUpdateCertificate">
+        <action name="create_or_update_certificate" class="action.certificate.CreateOrUpdateCertificateAction" method="execute">
             <interceptor-ref name="AdminRoleStack"/>
             <result name="success" type="chain">list_certificates_for_admin</result>
             <result name="login" type="chain">logout</result>
         </action>
 
-        <action name="get_course_for_admin" class="action.course.CourseAction" method="getCourseById">
+        <action name="get_course_for_admin" class="action.course.GetCourseByIdAction" method="execute">
             <interceptor-ref name="AdminRoleStack"/>
             <result name="success">edit_course.jsp</result>
             <result name="login" type="chain">login</result>
             <result name="error" type="chain">list_courses_for_admin</result>
         </action>
 
-        <action name="delete_course" class="action.course.CourseAction" method="deleteCourse">
+        <action name="delete_course" class="action.course.DeleteCourseAction" method="execute">
             <result name="success" type="chain">list_courses_for_admin</result>
         </action>
 
-        <action name="create_or_update_course" class="action.course.CourseAction" method="createOrUpdateCourse">
+        <action name="create_or_update_course" class="action.course.CreateOrUpdateCourseAction" method="execute">
             <interceptor-ref name="AdminRoleStack"/>
             <result name="success" type="chain">list_courses_for_admin</result>
             <result name="login" type="chain">logout</result>
         </action>
 
-        <action name="list_lessons_for_lecturer" class="action.LessonAction" method="getLessonsByLecturerId">
+        <action name="list_lessons_for_lecturer" class="action.lesson.GetLessonsByUserIdAction" method="execute">
             <interceptor-ref name="LecturerRoleStack"/>
             <result name="success">all_lessons_lecturer.jsp</result>
             <result name="login" type="chain">logout</result>
         </action>
 
-        <action name="get_lesson_for_lecturer" class="action.LessonAction" method="getLessonById">
+        <action name="get_lesson_for_lecturer" class="action.lesson.GetLessonByIdAction" method="execute">
             <interceptor-ref name="LecturerRoleStack"/>
             <result name="success">edit_lesson.jsp</result>
             <result name="login" type="chain">logout</result>
         </action>
 
-        <action name="create_or_update_lesson" class="action.LessonAction" method="createOrUpdateLesson">
+        <action name="create_or_update_lesson" class="action.lesson.CreateOrUpdateLessonAction" method="execute">
             <interceptor-ref name="LecturerRoleStack"/>
-            <result name="success" type="redirectAction">list_lessons_for_lecturer?userId=${userID}</result>
+            <result name="success" type="redirectAction">list_lessons_for_lecturer?userId=${userId}</result>
             <result name="login" type="chain">logout</result>
         </action>
 
-        <action name="delete_lesson" class="action.LessonAction" method="deleteLesson">
+        <action name="delete_lesson" class="action.lesson.DeleteLessonAction" method="execute">
             <interceptor-ref name="LecturerRoleStack"/>
-            <result name="success" type="redirectAction">list_lessons_for_lecturer?userID=${userID}</result>
+            <result name="success" type="redirectAction">list_lessons_for_lecturer?userId=${userId}</result>
             <result name="login" type="chain">login</result>
         </action>
 

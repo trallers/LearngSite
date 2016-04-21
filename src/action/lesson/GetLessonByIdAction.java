@@ -1,16 +1,19 @@
 package action.lesson;
 
+import bean.Lesson;
 import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.ServletActionContext;
-import service.lesson.DeleteLessonService;
+import service.lesson.GetLessonByIdService;
 
 import javax.servlet.http.HttpServletRequest;
 
 /**
  * Created by Антон on 21.04.2016.
  */
-public class DeleteLessonAction extends ActionSupport {
+public class GetLessonByIdAction extends ActionSupport {
+    private Lesson lesson;
     private String lessonId;
+    private String userId;
     private HttpServletRequest request;
 
     public String getUserId() {
@@ -21,9 +24,6 @@ public class DeleteLessonAction extends ActionSupport {
         this.userId = userId;
     }
 
-    private String userId;
-
-
     public String getLessonId() {
         return lessonId;
     }
@@ -32,14 +32,19 @@ public class DeleteLessonAction extends ActionSupport {
         this.lessonId = lessonId;
     }
 
+    public Lesson getLesson() {
+        return lesson;
+    }
+
+    public void setLesson(Lesson lesson) {
+        this.lesson = lesson;
+    }
+
     @Override
     public String execute(){
         request = ServletActionContext.getRequest();
         userId = request.getParameter("userId");
-        boolean success = DeleteLessonService.execute(lessonId);
-        if(success)
-            return SUCCESS;
-        else
-            return ERROR;
+        lesson = GetLessonByIdService.execute(lessonId);
+        return SUCCESS;
     }
 }

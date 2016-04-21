@@ -23,6 +23,7 @@
     <s:textfield name="user.surname" label="Surname"></s:textfield>
     <s:textfield name="user.phone" label="Phone"></s:textfield>
     <s:textfield name="user.email" label="Email"></s:textfield>
+    <s:hidden name="userId" value="%{userId}"></s:hidden>
     <s:submit value="Save changes"></s:submit>
   </s:form>
 </body>

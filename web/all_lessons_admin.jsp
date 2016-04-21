@@ -13,7 +13,7 @@
 </head>
 <body>
 <s:url id="back" value="home_admin.jsp">
-  <s:param name="userID" value="%{userID}"></s:param>
+  <s:param name="userId" value="%{userId}"></s:param>
 </s:url>
 <s:a href="%{back}">Back</s:a>
 </body>
