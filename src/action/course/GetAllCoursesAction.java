@@ -1,8 +1,10 @@
 package action.course;
 
 import bean.Course;
+import bean.User;
 import com.opensymphony.xwork2.ActionSupport;
 import service.course.GetAllCoursesService;
+import service.user.GetAllLecturersService;
 
 import java.util.List;
 
@@ -11,6 +13,15 @@ import java.util.List;
  */
 public class GetAllCoursesAction extends ActionSupport {
     private List<Course> courseList;
+    private List<User> lecturerList;
+
+    public List<User> getLecturerList() {
+        return lecturerList;
+    }
+
+    public void setLecturerList(List<User> lecturerList) {
+        this.lecturerList = lecturerList;
+    }
 
     public List<Course> getCourseList() {
         return courseList;
@@ -23,6 +34,7 @@ public class GetAllCoursesAction extends ActionSupport {
     @Override
     public String execute(){
         courseList = GetAllCoursesService.execute();
+        lecturerList = GetAllLecturersService.execute();
         return SUCCESS;
     }
 }

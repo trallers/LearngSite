@@ -24,6 +24,7 @@ public class UserDao {
     public static final String DELETE_USER_BY_ID_QUERY = "DELETE FROM USER where id = ?";
 
     private final static UserDao instance = new UserDao();
+    private static final String GET_ALL_LECTURERS_QUERY = "SELECT * FROM user WHERE role = \"lecturer\"";
 
     private UserDao(){}
 
@@ -166,5 +167,19 @@ public class UserDao {
             return false;
         }
 
+    }
+
+    public List<User> getLecturerss(){
+        List<User> lecturerList = new ArrayList<>();
+        try {
+            PreparedStatement ps = DBUtil.getConnection().prepareStatement(GET_ALL_LECTURERS_QUERY);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                lecturerList.add(new User(rs.getInt(1), rs.getString(2), rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getByte(9)));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return lecturerList;
     }
 }

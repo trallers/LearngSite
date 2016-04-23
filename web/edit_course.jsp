@@ -16,7 +16,13 @@
     <s:textfield name="course.id" readonly="true" label="Id"></s:textfield>
     <s:textfield name="course.name" label="Name"></s:textfield>
     <s:textfield name="course.technology" label="Technology"></s:textfield>
-    <s:textfield name="course.idLecturer" label="Id lecturer"></s:textfield>
+    <s:select
+              name="lecturerID"
+              label="Lecturers"
+              list="lecturerList"
+              listKey="id"
+              listValue="surname"
+              required="true"/>
     <s:textfield name="course.price" label="Price"></s:textfield>
     <s:submit value="Save"></s:submit>
   </s:form>
