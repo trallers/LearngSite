@@ -17,7 +17,6 @@
     <div class="content">
       <table class="coursesTable" cellpadding="5px">
         <tr class="even">
-          <th>ID</th>
           <th>Name</th>
           <th>Technology</th>
           <th>Id lecturer</th>
@@ -27,7 +26,7 @@
         </tr>
         <s:iterator value="courseList" status="userStatus">
           <tr>
-            <td><s:property value="id" /></td>
+            <s:hidden value="id" />
             <td><s:property value="name" /></td>
             <td><s:property value="technology" /></td>
             <td><s:property value="idLecturer" /></td>
