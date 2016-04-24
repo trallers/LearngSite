@@ -21,6 +21,7 @@ public class CourseDao {
     private static final String DELETE_COURSE_QUERY = "DELETE FROM course WHERE id = ?";
 
     private final static CourseDao instance = new CourseDao();
+    private static final String GET_BY_LECTURER_ID = "SELECT * FROM course WHERE id_lecturer = ?";
 
     private CourseDao(){}
 
@@ -118,5 +119,20 @@ public class CourseDao {
             e.printStackTrace();
         }
         return course;
+    }
+
+    public List<Course> getByLecturerId(String lecturerId){
+        List<Course> courseList = new ArrayList<>();
+        try {
+            PreparedStatement ps = DBUtil.getConnection().prepareStatement(GET_BY_LECTURER_ID);
+            ps.setString(1,lecturerId);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()){
+                courseList.add(new Course(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getInt(5)));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return courseList;
     }
 }

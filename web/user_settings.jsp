@@ -10,21 +10,22 @@
 <html>
 <head>
     <title>Settings</title>
+    <s:head/>
 </head>
 <body>
   <s:form action="update_user" class="Center">
     <h2>Settings</h2>
-    <s:hidden name="user.id"></s:hidden>
-    <s:hidden name="user.role"></s:hidden>
-    <s:hidden name="user.banStatus"></s:hidden>
-    <s:textfield name="user.login" label="Login" readonly="true"></s:textfield>
-    <s:password name="user.password" label="Password"></s:password>
-    <s:textfield name="user.name" label="Name"></s:textfield>
-    <s:textfield name="user.surname" label="Surname"></s:textfield>
-    <s:textfield name="user.phone" label="Phone"></s:textfield>
-    <s:textfield name="user.email" label="Email"></s:textfield>
-    <s:hidden name="userId" value="%{userId}"></s:hidden>
-    <s:submit value="Save changes"></s:submit>
+    <s:hidden name="user.id"/>
+    <s:hidden name="user.role"/>
+    <s:hidden name="user.banStatus"/>
+    <s:textfield name="user.login" label="Login" readonly="true"/>
+    <s:password name="user.password" label="Password"/>
+    <s:textfield name="user.name" label="Name"/>
+    <s:textfield name="user.surname" label="Surname"/>
+    <s:textfield name="user.phone" label="Phone"/>
+    <s:textfield name="user.email" label="Email"/>
+    <s:hidden name="userId" value="%{userId}"/>
+    <s:submit value="Save changes"/>
   </s:form>
 </body>
 </html>

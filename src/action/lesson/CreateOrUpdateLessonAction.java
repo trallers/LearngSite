@@ -14,6 +14,15 @@ public class CreateOrUpdateLessonAction extends ActionSupport {
     private Lesson lesson;
     private HttpServletRequest request;
     private String userId;
+    private String courseName;
+
+    public String getCourseName() {
+        return courseName;
+    }
+
+    public void setCourseName(String courseName) {
+        this.courseName = courseName;
+    }
 
     public String getUserId() {
         return userId;
@@ -35,6 +44,7 @@ public class CreateOrUpdateLessonAction extends ActionSupport {
     public String execute(){
         request = ServletActionContext.getRequest();
         userId = request.getParameter("userId");
+        lesson.setCourseName(courseName);
         boolean success = CreateOrUpdateLessonService.execute(lesson);
         if(success)
             return SUCCESS;
