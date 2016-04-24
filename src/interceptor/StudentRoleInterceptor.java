@@ -30,7 +30,7 @@ public class StudentRoleInterceptor extends AbstractInterceptor implements Strut
             if(user.getRole().equals("student")) {
                 request = ServletActionContext.getRequest();
                 String idParam = request.getParameter("userId");
-                if(idParam.equals(user.getId()))
+                if(idParam.equals(user.getId().toString()))
                     return actionInvocation.invoke();
                 else return Action.LOGIN;
             }

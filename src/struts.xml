@@ -66,6 +66,7 @@
                 <param name="location">${url}</param>
                 <param name="userId">${userId}</param>
             </result>
+            <result name="login">banned.jsp</result>
             <result name="input">login.jsp</result>
             <result name="error">login.jsp</result>
         </action>

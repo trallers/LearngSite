@@ -30,7 +30,7 @@ public class LecturerRoleInterceptor extends AbstractInterceptor implements Stru
             if(user.getRole().equals("lecturer")) {
                 request = ServletActionContext.getRequest();
                 String idParam = request.getParameter("userId");
-                if(idParam.equals(user.getId()))
+                if(idParam.equals(user.getId().toString()))
                     return actionInvocation.invoke();
                 else return Action.LOGIN;
             }
