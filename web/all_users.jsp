@@ -18,7 +18,6 @@
     <div class="content">
         <table class="courses_table" cellpadding="5px">
             <tr class="even">
-                <th>Id</th>
                 <th>Login</th>
                 <th>Role</th>
                 <th>Name</th>
@@ -31,7 +30,7 @@
             </tr>
             <s:iterator value="userList" status="userStatus">
                 <tr>
-                    <td><s:property value="id"/></td>
+                    <s:hidden name="id" value="id"/>
                     <td><s:property value="login"/></td>
                     <td><s:property value="role"/></td>
                     <td><s:property value="name"/></td>
