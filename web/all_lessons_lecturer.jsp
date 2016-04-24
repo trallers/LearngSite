@@ -34,7 +34,7 @@
           <td>
             <s:url id="deleteURL" action="delete_lesson">
               <s:param name="lessonId" value="%{id}"></s:param>
-              <s:param name="userId" value="%{userID}"></s:param>
+              <s:param name="userId" value="%{userId}"></s:param>
             </s:url>
             <s:a href="%{deleteURL}">Delete</s:a>
           </td>

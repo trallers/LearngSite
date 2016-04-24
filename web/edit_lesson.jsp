@@ -6,7 +6,7 @@
 </head>
 <body>
 <s:form action="create_or_update_lesson" method="POST">
-    <s:textfield name="lesson.id" readonly="true" label="Id"></s:textfield>
+    <s:hidden name="lesson.id"/>
     <s:select
             name="courseName"
             label="Course name"
