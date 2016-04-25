@@ -49,7 +49,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1>Registration</h1>
+                <h1>Register</h1>
                 <s:actionerror/>
                 <s:form action="register" method="post" validate="true">
                     <s:textfield name="user.login" label="Login"  class="form-control"
