@@ -59,8 +59,6 @@
                     <s:hidden name="lesson.id" class="form-control"
                               placeholder="Enter login"/>
                     <s:select
-                            headerKey="0"
-                            headerValue="---Select course---"
                             name="courseName"
                             label="Course name"
                             list="courseList"

@@ -31,16 +31,16 @@
                     <a href="home_admin.jsp">Home</a>
                 </li>
                 <li>
-                    <a href="<s:url action="list_users_for_admin" ></s:url>">Users</a>
+                    <a href="<s:url action="list_users_for_admin" />">Users</a>
                 </li>
                 <li>
-                    <a href="<s:url action="list_courses_for_admin"></s:url>">Courses</a>
+                    <a href="<s:url action="list_courses_for_admin"/>">Courses</a>
                 </li>
                 <li>
-                    <a href="<s:url action="list_lessons_for_admin"></s:url>">Lessons</a>
+                    <a href="<s:url action="list_lessons_for_admin"/>">Lessons</a>
                 </li>
                 <li>
-                    <a href="<s:url action="list_certificates_for_admin"></s:url>">Certificates</a>
+                    <a href="<s:url action="list_certificates_for_admin"/>">Certificates</a>
                 </li>
                 <li>
                     <a href="<s:url action="logout"/>" data-toggle="modal">Logout <span
@@ -59,8 +59,7 @@
                 <s:hidden name="certificate.id" readonly="true" label="ID" class="form-control"
                           placeholder="Enter id"/>
                 <s:select
-                        headerKey="0"
-                        headerValue="--Select student-"
+
                         name="idStudent"
                         label="Student"
                         list="studentList"
@@ -69,8 +68,7 @@
                         required="true"
                         class="form-control"/>
                 <s:select
-                        headerKey="0"
-                        headerValue="--Select course-"
+
                         name="idCourse"
                         label="Course"
                         list="courseList"
