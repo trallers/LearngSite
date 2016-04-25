@@ -56,7 +56,7 @@
         <div class="row">
             <div class="col-md-12">
                 <h2>User info</h2>
-                <s:form action="ban_user" class="Center">
+                <s:form action="ban_user" class="Center" validate="true">
                     <s:textfield name="user.id" readonly="true" class="form-control"
                                  placeholder="Enter id" cssStyle="display: none"/>
                     <s:textfield name="user.role" readonly="true" label="Role" class="form-control"

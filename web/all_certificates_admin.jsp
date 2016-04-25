@@ -59,8 +59,8 @@
                     <div class="content">
                         <table class="table table-hover" class="certificates_table">
                             <thead>
-                            <th>Id student</th>
-                            <th>Id course</th>
+                            <th>Student</th>
+                            <th>Course</th>
                             <th>Data</th>
                             <th>Date</th>
                             <th>Edit</th>
@@ -68,7 +68,7 @@
                             </thead>
                             <s:iterator value="certificateList" status="userStatus">
                                 <tr>
-                                    <td><s:property value="id"/></td>
+                                    <s:hidden name="id"/>
                                     <td><s:property value="idStudent"/></td>
                                     <td><s:property value="idCourse"/></td>
                                     <td><s:property value="data"/></td>
