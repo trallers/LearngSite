@@ -4,7 +4,6 @@ import bean.Course;
 import bean.User;
 import com.opensymphony.xwork2.ActionSupport;
 import service.course.UpdateCourseService;
-import service.user.GetAllLecturersService;
 
 import java.util.List;
 
@@ -42,7 +41,6 @@ public class CreateOrUpdateCourseAction extends ActionSupport{
 
     @Override
     public String execute(){
-        lecturerList = GetAllLecturersService.execute();
         course.setIdLecturer(Integer.parseInt(lecturerID));
         boolean success = UpdateCourseService.execute(course);
         if(success)
@@ -51,15 +49,5 @@ public class CreateOrUpdateCourseAction extends ActionSupport{
             addActionError("Can't create/update course. Check fields filling.");
             return ERROR;
         }
-    }
-
-    private Integer getLecturerIdBySurname(String lecturerSurname){
-        for(User lecturer : lecturerList){
-            if (lecturer.getName().equals(lecturerSurname)){
-                return lecturer.getId();
-            }
-
-        }
-        return null;
     }
 }

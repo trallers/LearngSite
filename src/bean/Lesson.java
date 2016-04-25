@@ -6,16 +6,23 @@ package bean;
 public class Lesson {
 
     private Integer id;
-    private String courseName;
-    private String data;
+    private Course course;
+    private Data data;
 
-    public Lesson(Integer id, String courseName, String data) {
-        this.id = id;
-        this.courseName = courseName;
-        this.data = data;
+    public Course getCourse() {
+        return course;
     }
 
-    public Lesson() {
+    public void setCourse(Course course) {
+        this.course = course;
+    }
+
+    public Data getData() {
+        return data;
+    }
+
+    public void setData(Data data) {
+        this.data = data;
     }
 
     public Integer getId() {
@@ -26,19 +33,15 @@ public class Lesson {
         this.id = id;
     }
 
-    public String getCourseName() {
-        return courseName;
-    }
 
-    public void setCourseName(String courseName) {
-        this.courseName = courseName;
-    }
 
-    public String getData() {
-        return data;
-    }
 
-    public void setData(String data) {
+    public Lesson(Integer id, Course course, Data data) {
+        this.id = id;
+        this.course = course;
         this.data = data;
+    }
+
+    public Lesson() {
     }
 }

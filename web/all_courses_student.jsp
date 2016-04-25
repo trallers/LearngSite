@@ -24,7 +24,7 @@
         </tr>
         <s:iterator value="courseList" status="userStatus">
           <tr>
-            <s:hidden name="id" value="id"></s:hidden>
+            <s:hidden name="id" value="id"/>
             <td><s:property value="name" /></td>
             <td><s:property value="technology" /></td>
             <td><s:property value="price" /></td>

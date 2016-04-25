@@ -12,6 +12,6 @@ import java.util.List;
 public class GetAllLecturersService {
     public static List<User> execute(){
         UserDao dao = DaoFactory.getUserDao();
-        return dao.getLecturerss();
+        return dao.getLecturers();
     }
 }

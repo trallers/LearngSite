@@ -16,16 +16,16 @@
 <s:form action="add_admin" class="Center" validate="true">
   <h2>Add admin</h2>
   <s:actionerror></s:actionerror>
-  <s:hidden name="user.id"></s:hidden>
-  <s:hidden name="user.role" value="admin"></s:hidden>
-  <s:textfield name="user.login" label="Login"></s:textfield>
-  <s:password name="user.password" label="Password"></s:password>
-  <s:textfield name="user.name" label="Name"></s:textfield>
-  <s:textfield name="user.surname" label="Surname"></s:textfield>
-  <s:textfield name="user.phone" label="Phone"></s:textfield>
-  <s:textfield name="user.email" label="Email"></s:textfield>
-  <s:hidden name="user.banStatus" value="0"></s:hidden>
-  <s:submit value="Add admin"></s:submit>
+  <s:hidden name="user.id"/>
+  <s:hidden name="user.role" value="admin"/>
+  <s:textfield name="user.login" label="Login"/>
+  <s:password name="user.password" label="Password"/>
+  <s:textfield name="user.name" label="Name"/>
+  <s:textfield name="user.surname" label="Surname"/>
+  <s:textfield name="user.phone" label="Phone"/>
+  <s:textfield name="user.email" label="Email"/>
+  <s:hidden name="user.banStatus" value="0"/>
+  <s:submit value="Add admin"/>
 </s:form>
 </body>
 </html>

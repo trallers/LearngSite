@@ -44,7 +44,6 @@ public class CreateOrUpdateLessonAction extends ActionSupport {
     public String execute(){
         request = ServletActionContext.getRequest();
         userId = request.getParameter("userId");
-        lesson.setCourseName(courseName);
         boolean success = CreateOrUpdateLessonService.execute(lesson);
         if(success)
             return SUCCESS;

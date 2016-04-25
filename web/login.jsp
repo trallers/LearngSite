@@ -16,12 +16,12 @@
 <body>
 
 <h2>Login</h2>
-<s:actionmessage></s:actionmessage>
-<s:actionerror></s:actionerror>
+<s:actionmessage/>
+<s:actionerror/>
 <s:form action="login" method="post" validate="true">
-  <s:textfield name="login" label="Login"></s:textfield>
-  <s:password name="password" label="Password"></s:password>
-  <s:submit value="Login"></s:submit>
+  <s:textfield name="login" label="Login"/>
+  <s:password name="password" label="Password"/>
+  <s:submit value="Login"/>
 </s:form>
 </body>
 </html>

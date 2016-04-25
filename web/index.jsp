@@ -23,7 +23,7 @@
         <nav>
             <ul>
                 <li><a href="index.jsp" style="border-bottom: 3px solid #848484;">Home</a></li>
-                <li><a href="all_courses.jsp">Courses</a></li>
+                <li><a href="all_courses_student.jsp">Courses</a></li>
                 <li><a href="#">News</a></li>
                 <li><a href="login.jsp">Login</a></li>
                 <li><a href="register.jsp">Register</a></li>
@@ -38,22 +38,22 @@
                 <s:form action="register" method="post" class="Center" validate="true">
                     <h2>Registration</h2>
                     <s:textfield name="user.login" label="Login"/>
-                    <s:password name="user.password" label="Password"></s:password>
-                    <s:select class="ListU" list="{'student','lecturer'}" name="user.role" label="Role"></s:select>
-                    <s:textfield name="user.name" label="Name"></s:textfield>
-                    <s:textfield name="user.surname" label="Surname"></s:textfield>
-                    <s:textfield name="user.phone" label="Phone"></s:textfield>
-                    <s:textfield name="user.email" label="Email"></s:textfield>
-                    <s:hidden name="user.banStatus" value="0"></s:hidden>
-                    <s:submit value="Register"></s:submit>
+                    <s:password name="user.password" label="Password"/>
+                    <s:select class="ListU" list="{'student','lecturer'}" name="user.role" label="Role"/>
+                    <s:textfield name="user.name" label="Name"/>
+                    <s:textfield name="user.surname" label="Surname"/>
+                    <s:textfield name="user.phone" label="Phone"/>
+                    <s:textfield name="user.email" label="Email"/>
+                    <s:hidden name="user.banStatus" value="0"/>
+                    <s:submit value="Register"/>
                 </s:form>
             </div>
             <div class="Login">
                 <s:form action="login" class="Center" validate="true">
                     <h2>Login</h2>
-                    <s:textfield name="login" label="Login"></s:textfield>
-                    <s:password name="password" label="Password"></s:password>
-                    <s:submit value="Login"></s:submit>
+                    <s:textfield name="login" label="Login"/>
+                    <s:password name="password" label="Password"/>
+                    <s:submit value="Login"/>
                 </s:form>
             </div>
             <a class="close"title="Закрыть" href="#close"></a>

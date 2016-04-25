@@ -1,6 +1,9 @@
 package dao;
 
+import bean.Course;
+import bean.Data;
 import bean.Lesson;
+import service.course.GetCourseByIdService;
 import util.DBUtil;
 
 import java.sql.PreparedStatement;
@@ -14,18 +17,20 @@ import java.util.List;
  * Created by Антон on 04.04.2016.
  */
 public class LessonDao {
-    public static final String GET_LESSONS_BY_USER_ID_QUERY = "SELECT passed_lesson.id_lesson, course.name, data_for_lesson.data FROM passed_lesson INNER JOIN lesson ON passed_lesson.id_lesson = lesson.id INNER JOIN course ON lesson.id_course = course.id INNER JOIN data_for_lesson ON lesson.id_data = data_for_lesson.id WHERE passed_lesson.id_student = ?";
+    public static final String GET_LESSONS_BY_USER_ID_QUERY = "SELECT passed_lesson.id_lesson, lesson.id_course, lesson.id_data FROM passed_lesson INNER JOIN lesson ON passed_lesson.id_lesson = lesson.id  WHERE passed_lesson.id_student = ?";
 
-    public static final String GET_ALL_LESSONS = "SELECT  lesson.id, course.name, data_for_lesson.data FROM lesson INNER JOIN course ON lesson.id_course = course.id INNER JOIN data_for_lesson ON lesson.id_data = data_for_lesson.id";
-    private static final String GET_LESSONS_BY_LECTURER_ID_QUERY = "SELECT lesson.id, course.name, data_for_lesson.data FROM lesson INNER JOIN course on lesson.id_course = course.id INNER JOIN data_for_lesson ON lesson.id_data = data_for_lesson.id WHERE course.id_lecturer = ?";
-    private static final String GET_LESSON_BY_ID = "SELECT lesson.id, course.name, data_for_lesson.data FROM lesson INNER JOIN course on lesson.id_course = course.id INNER JOIN data_for_lesson ON lesson.id_data = data_for_lesson.id WHERE lesson.id = ?";
-    private static final String UPDATE_LESSON_QUERY = "";
+    public static final String GET_ALL_LESSONS = "SELECT  * FROM lesson";
+    private static final String GET_LESSONS_BY_LECTURER_ID_QUERY = "SELECT lesson.id, lesson.id_course, lesson.id_data FROM lesson INNER JOIN course on lesson.id_course = course.id WHERE course.id_lecturer = ?";
+    private static final String GET_LESSON_BY_ID = "SELECT * FROM lesson WHERE id = ?";
+    private static final String UPDATE_LESSON_QUERY = "UPDATE lesson SET id_course = ?, id_data = ? WHERE id = ?";
     private static final String INSERT_DATA_QUERY = "INSERT INTO data_for_lesson (data) VALUES (?)";
+    private static final String UPDATE_DATA_QUERY = "UPDATE data_for_lesson SET data = ? WHERE id = ?";
     private static final String DELETE_LESSON_QUERY = "DELETE FROM lesson WHERE id = ?  ";
 
     private final static LessonDao instance = new LessonDao();
     private static final String GET_COURSE_ID = "SELECT course.id FROM course WHERE course.name = ?";
     private static final String INSERT_LESSON_QUERY = "INSERT INTO lesson (id_course, id_data) VALUES (?,?)";
+    private static final String GET_DATA_BY_ID_QUERY = "SELECT * FROM data_for_lesson WHERE id = ?";
 
 
     private LessonDao(){}
@@ -41,7 +46,10 @@ public class LessonDao {
             ps.setString(1,userID);
             ResultSet rs = ps.executeQuery();
             while (rs.next()){
-                lessonList.add(new Lesson(rs.getInt(1), rs.getString(2), rs.getString(3)));
+                Integer dataId = rs.getInt(3);
+                Data data = getDataById(dataId);
+                Course course = GetCourseByIdService.execute(rs.getString(2));
+                lessonList.add(new Lesson(rs.getInt(1), course, data));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -50,13 +58,31 @@ public class LessonDao {
         return lessonList;
     }
 
+    public Data getDataById(Integer dataId){
+        PreparedStatement ps = null;
+        try {
+            ps = DBUtil.getConnection().prepareStatement(GET_DATA_BY_ID_QUERY);
+            ps.setInt(1, dataId);
+            ResultSet resultSet = ps.executeQuery();
+            while (resultSet.next()) {
+              return  new Data(resultSet.getInt(1), resultSet.getString(2));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
     public List<Lesson> getAll(){
         List<Lesson> lessonList = new ArrayList<>();
         try {
             PreparedStatement ps = DBUtil.getConnection().prepareStatement(GET_ALL_LESSONS);
             ResultSet rs  = ps.executeQuery();
-            while (rs.next())
-                lessonList.add(new Lesson(rs.getInt(1), rs.getString(2), rs.getString(3)));
+            while (rs.next()) {
+                Integer dataId = rs.getInt(3);
+                Data data = getDataById(dataId);
+                Course course = GetCourseByIdService.execute(rs.getString(2));
+                lessonList.add(new Lesson(rs.getInt(1), course, data));
+            }
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -71,7 +97,10 @@ public class LessonDao {
             ps.setString(1, id);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                lessonList.add(new Lesson(rs.getInt(1), rs.getString(2), rs.getString(3)));
+                Integer dataId = rs.getInt(3);
+                Data data = getDataById(dataId);
+                Course course = GetCourseByIdService.execute(rs.getString(2));
+                lessonList.add(new Lesson(rs.getInt(1), course, data));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -88,8 +117,12 @@ public class LessonDao {
             PreparedStatement ps = DBUtil.getConnection().prepareStatement(GET_LESSON_BY_ID);
             ps.setString(1, id);
             ResultSet rs = ps.executeQuery();
-            while (rs.next())
-                lesson = new Lesson(rs.getInt(1), rs.getString(2), rs.getString(3));
+            while (rs.next()) {
+                Integer dataId = rs.getInt(3);
+                Data data = getDataById(dataId);
+                Course course = GetCourseByIdService.execute(rs.getString(2));
+                lesson = new Lesson(rs.getInt(1), course, data);
+            }
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -102,22 +135,16 @@ public class LessonDao {
         int idData=0;
         try {
             PreparedStatement ps = DBUtil.getConnection().prepareStatement(INSERT_DATA_QUERY, Statement.RETURN_GENERATED_KEYS);
-            ps.setString(1, lesson.getData());
+            ps.setString(1, lesson.getData().getData());
             ps.executeUpdate();
             ResultSet result = ps.getGeneratedKeys();
             while (result.next()){
                 idData = result.getInt(1);
             }
-            PreparedStatement prSt =DBUtil.getConnection().prepareStatement(GET_COURSE_ID);
-            prSt.setString(1, lesson.getCourseName());
-            ResultSet rs = prSt.executeQuery();
-            while (rs.next()){
-                idCourse = rs.getInt(1);
-            }
-            PreparedStatement pst = DBUtil.getConnection().prepareStatement(INSERT_LESSON_QUERY);
-            pst.setInt(1, idCourse);
-            pst.setInt(2, idData);
-            pst.execute();
+            ps = DBUtil.getConnection().prepareStatement(INSERT_LESSON_QUERY);
+            ps.setInt(1, lesson.getCourse().getId());
+            ps.setInt(2, idData);
+            ps.execute();
             return true;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -141,9 +168,13 @@ public class LessonDao {
     public boolean update(Lesson lesson){
         if(lesson.getId() != null){
             try {
-                PreparedStatement ps = DBUtil.getConnection().prepareStatement(UPDATE_LESSON_QUERY);
-                ps.setString(1, lesson.getCourseName());
-                ps.setString(2, lesson.getData());
+                PreparedStatement ps = DBUtil.getConnection().prepareStatement(UPDATE_DATA_QUERY);
+                ps.setString(1, lesson.getData().getData());
+                ps.setInt(2, lesson.getData().getId());
+                ps.execute();
+                ps = DBUtil.getConnection().prepareStatement(UPDATE_LESSON_QUERY);
+                ps.setInt(1, lesson.getCourse().getId());
+                ps.setInt(2, lesson.getData().getId());
                 ps.setInt(3, lesson.getId());
                 ps.execute();
                 return true;

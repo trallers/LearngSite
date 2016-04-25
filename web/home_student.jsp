@@ -36,7 +36,7 @@
   </li>
   <li>
     <h3>
-      <a href="<s:url action="logout"></s:url>">Logout</a>
+      <a href="<s:url action="logout"/>">Logout</a>
     </h3>
   </li>
 

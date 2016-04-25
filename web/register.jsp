@@ -17,14 +17,14 @@
 <s:form action="register" method="post" class="Center" validate="true">
   <h2>Registration</h2>
   <s:textfield name="user.login" label="Login"/>
-  <s:password name="user.password" label="Password"></s:password>
-  <s:select class="ListU" list="{'student','lecturer'}" name="user.role" label="Role"></s:select>
-  <s:textfield name="user.name" label="Name"></s:textfield>
-  <s:textfield name="user.surname" label="Surname"></s:textfield>
-  <s:textfield name="user.phone" label="Phone"></s:textfield>
-  <s:textfield name="user.email" label="Email"></s:textfield>
-  <s:hidden name="user.banStatus" value="0"></s:hidden>
-  <s:submit value="Register"></s:submit>
+  <s:password name="user.password" label="Password"/>
+  <s:select class="ListU" list="{'student','lecturer'}" name="user.role" label="Role"/>
+  <s:textfield name="user.name" label="Name"/>
+  <s:textfield name="user.surname" label="Surname"/>
+  <s:textfield name="user.phone" label="Phone"/>
+  <s:textfield name="user.email" label="Email"/>
+  <s:hidden name="user.banStatus" value="0"/>
+  <s:submit value="Register"/>
 </s:form>
 </body>
 </html>

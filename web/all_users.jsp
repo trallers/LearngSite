@@ -39,10 +39,13 @@
                     <td><s:property value="email"/></td>
                     <td><s:property value="banStatus"/></td>
                     <td>
-                        <s:url id="editURL" action="get_user_for_admin">
-                            <s:param name="userId" value="%{id}"></s:param>
-                        </s:url>
-                        <s:a href="%{editURL}">Edit</s:a>
+                        <s:if test="!role.equals(\"admin\")">
+                            <s:url id="editURL" action="get_user_for_admin">
+                                <s:param name="userId" value="%{id}"></s:param>
+                            </s:url>
+                            <s:a href="%{editURL}">Edit</s:a>
+                        </s:if>
+
                     </td>
                     <td>
                         <s:if test="!role.equals(\"admin\")">

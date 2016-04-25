@@ -38,7 +38,7 @@
         </interceptors>
 
         <action name="home" class="action.HomeAction" method="execute">
-            <result name="success">all_courses.jsp</result>
+            <result name="success">all_courses_student.jsp</result>
         </action>
 
         <action name="register" class="action.RegisterAction" method="execute">
@@ -77,28 +77,28 @@
 
         <action name="list_courses_for_student" class="action.course.GetCoursesByUserIdAction" method="execute">
             <interceptor-ref name="StudentRoleStack"/>
-            <result name="success">all_courses.jsp</result>
+            <result name="success">all_courses_student.jsp</result>
             <result name="login" type="chain">logout</result>
             <result name="error">banned.jsp</result>
         </action>
 
         <action name="list_certificates_for_students" class="action.certificate.GetCertificateByUserIdAction" method="execute">
             <interceptor-ref name="StudentRoleStack"/>
-            <result name="success">all_certificates.jsp</result>
+            <result name="success">all_certificates_student.jsp</result>
             <result name="login" type="chain">logout</result>
             <result name="error">banned.jsp</result>
         </action>
 
         <action name="list_lessons_for_student" class="action.lesson.GetLessonsByUserIdAction" method="execute">
             <interceptor-ref name="StudentRoleStack"/>
-            <result name="success">all_lessons.jsp</result>
+            <result name="success">all_lessons_student.jsp</result>
             <result name="login" type="chain">logout</result>
             <result name="error">banned.jsp</result>
         </action>
 
         <action name="list_lessons_for_admin" class="action.lesson.GetAllLessonsAction" method="execute">
             <interceptor-ref name="AdminRoleStack"/>
-            <result name="success">all_lessons.jsp</result>
+            <result name="success">all_lessons_student.jsp</result>
             <result name="login" type="chain">logout</result>
 
         </action>
@@ -156,7 +156,7 @@
             <result name="login" type="chain">logout</result>
         </action>
 
-       <action name="get_certificate_for_admin" class="action.certificate.GetCertificateByIdAction" method="execute">
+       <action name="get_certificate_for_admin" class="action.certificate.EditCertificateAction" method="getById">
            <interceptor-ref name="AdminRoleStack"/>
            <result name="success">edit_certificate.jsp</result>
            <result name="login" type="chain">login</result>
@@ -169,13 +169,15 @@
             <result name="login" type="chain">logout</result>
         </action>
 
-        <action name="create_or_update_certificate" class="action.certificate.CreateOrUpdateCertificateAction" method="execute">
+        <action name="create_or_update_certificate" class="action.certificate.EditCertificateAction" method="createOrUpdate">
             <interceptor-ref name="AdminRoleStack"/>
             <result name="success" type="chain">list_certificates_for_admin</result>
             <result name="login" type="chain">logout</result>
+            <result name="input">edit_certificate.jsp</result>
+            <result name="error">edit_certificate.jsp</result>
         </action>
 
-        <action name="get_course_for_admin" class="action.course.GetCourseByIdAction" method="execute">
+        <action name="get_course_for_admin" class="action.course.EditCourseAction" method="getById">
             <interceptor-ref name="AdminRoleStack"/>
             <result name="success">edit_course.jsp</result>
             <result name="login" type="chain">login</result>
@@ -186,10 +188,11 @@
             <result name="success" type="chain">list_courses_for_admin</result>
         </action>
 
-        <action name="create_or_update_course" class="action.course.CreateOrUpdateCourseAction" method="execute">
+        <action name="create_or_update_course" class="action.course.EditCourseAction" method="createOrUpdate">
             <interceptor-ref name="AdminRoleStack"/>
             <result name="success" type="chain">list_courses_for_admin</result>
             <result name="login" type="chain">logout</result>
+            <result name="input">edit_course.jsp</result>
         </action>
 
         <action name="list_lessons_for_lecturer" class="action.lesson.GetLessonByLecturerIdAction" method="execute">
@@ -198,16 +201,17 @@
             <result name="login" type="chain">logout</result>
         </action>
 
-        <action name="get_lesson_for_lecturer" class="action.lesson.GetLessonByIdAction" method="execute">
+        <action name="get_lesson_for_lecturer" class="action.lesson.EditLessonAction" method="getById">
             <interceptor-ref name="LecturerRoleStack"/>
             <result name="success">edit_lesson.jsp</result>
             <result name="login" type="chain">logout</result>
         </action>
 
-        <action name="create_or_update_lesson" class="action.lesson.CreateOrUpdateLessonAction" method="execute">
+        <action name="create_or_update_lesson" class="action.lesson.EditLessonAction" method="createOrUpdate">
             <interceptor-ref name="LecturerRoleStack"/>
             <result name="success" type="redirectAction">list_lessons_for_lecturer?userId=${userId}</result>
             <result name="login" type="chain">logout</result>
+            <result name="input">edit_lesson.jsp</result>
         </action>
 
         <action name="delete_lesson" class="action.lesson.DeleteLessonAction" method="execute">

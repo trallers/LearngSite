@@ -33,13 +33,13 @@
             <td><s:property value="price" /></td>
             <td>
               <s:url id="editURL" action="get_course_for_admin">
-                <s:param name="courseId" value="%{id}"></s:param>
+                <s:param name="courseId" value="%{id}"/>
               </s:url>
               <s:a href="%{editURL}">Edit</s:a>
             </td>
             <td>
               <s:url id="deleteURL" action="delete_course">
-                <s:param name="courseId" value="%{id}"></s:param>
+                <s:param name="courseId" value="%{id}"/>
               </s:url>
               <s:a href="%{deleteURL}">Delete</s:a>
             </td>
@@ -49,11 +49,11 @@
     </div>
   </s:if>
   <s:url id="addURL" action="get_course_for_admin">
-    <s:param name="courseId" value="%{null}"></s:param>
+    <s:param name="courseId" value="%{null}"/>
   </s:url>
   <s:a href="%{addURL}">Create</s:a>
   <s:url id="back" value="home_admin.jsp">
-    <s:param name="userID" value="%{userID}"></s:param>
+    <s:param name="userID" value="%{userID}"/>
   </s:url>
   <s:a href="%{back}">Back</s:a>
 </body>

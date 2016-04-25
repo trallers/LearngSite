@@ -17,9 +17,8 @@
   <div class="content">
     <table class="certificates_table" cellpadding="5px">
       <tr class="even">
-        <th>ID</th>
-        <th>ID student</th>
-        <th>ID course</th>
+        <th>Id student</th>
+        <th>Id course</th>
         <th>Data</th>
         <th>Date</th>
         <th>Edit</th>
@@ -34,13 +33,13 @@
           <td><s:property value="date" /></td>
           <td>
             <s:url id="editURL" action="get_certificate_for_admin">
-              <s:param name="certificateId" value="%{id}"></s:param>
+              <s:param name="certificateId" value="%{id}"/>
             </s:url>
             <s:a href="%{editURL}">Edit</s:a>
           </td>
           <td>
             <s:url id="deleteURL" action="delete_certificate">
-              <s:param name="certificateId" value="%{id}"></s:param>
+              <s:param name="certificateId" value="%{id}"/>
             </s:url>
             <s:a href="%{deleteURL}">Delete</s:a>
           </td>
@@ -51,11 +50,11 @@
   </div>
 </s:if>
 <s:url id="addURL" action="get_certificate_for_admin">
-  <s:param name="certificateId" value="%{null}"></s:param>
+  <s:param name="certificateId" value="%{null}"/>
 </s:url>
 <s:a href="%{addURL}">Create</s:a>
 <s:url id="back" value="home_admin.jsp">
-  <s:param name="userId" value="%{userId}"></s:param>
+  <s:param name="userId" value="%{userId}"/>
 </s:url>
 <s:a href="%{back}">Back</s:a>
 </body>

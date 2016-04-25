@@ -17,27 +17,27 @@
 
   <li>
     <h2>
-      <a href="<s:url action="list_users_for_admin" ></s:url>">Users</a>
+      <a href="<s:url action="list_users_for_admin"/>">Users</a>
     </h2>
   </li>
   <li>
     <h2>
-      <a href="<s:url action="list_courses_for_admin"></s:url>">Courses</a>
+      <a href="<s:url action="list_courses_for_admin"/>">Courses</a>
     </h2>
   </li>
   <li>
     <h2>
-      <a href="<s:url action="list_lessons_for_admin"></s:url>">Lessons</a>
+      <a href="<s:url action="list_lessons_for_admin"/>">Lessons</a>
     </h2>
   </li>
   <li>
     <h2>
-      <a href="<s:url action="list_certificates_for_admin"></s:url>">Certificates</a>
+      <a href="<s:url action="list_certificates_for_admin"/>">Certificates</a>
     </h2>
   </li>
   <li>
     <h3>
-      <a href="<s:url action="logout"></s:url>">Logout</a>
+      <a href="<s:url action="logout"/>">Logout</a>
     </h3>
   </li>
 </ul>

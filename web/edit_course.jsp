@@ -10,21 +10,25 @@
 <html>
 <head>
     <title>Course</title>
+    <s:head></s:head>
 </head>
 <body>
-  <s:form action="create_or_update_course" method="POST">
-    <s:textfield name="course.id" readonly="true" label="Id"></s:textfield>
-    <s:textfield name="course.name" label="Name"></s:textfield>
-    <s:textfield name="course.technology" label="Technology"></s:textfield>
-    <s:select
+  <s:form action="create_or_update_course"  validate="true" method="POST">
+      <s:actionerror></s:actionerror>
+      <s:hidden name="course.id" readonly="true" label="Id"/>
+      <s:textfield name="course.name" label="Name"/>
+      <s:textfield name="course.technology" label="Technology"/>
+      <s:select
+              headerKey="0"
+              headerValue="--Select lecturer-"
               name="lecturerID"
-              label="Lecturers"
+              label="Lecturer"
               list="lecturerList"
               listKey="id"
               listValue="surname"
               required="true"/>
-    <s:textfield name="course.price" label="Price"></s:textfield>
-    <s:submit value="Save"></s:submit>
+      <s:textfield name="course.price" label="Price"/>
+      <s:submit value="Save"/>
   </s:form>
 </body>
 </html>

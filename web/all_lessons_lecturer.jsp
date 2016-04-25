@@ -22,8 +22,8 @@
       </tr>
       <s:iterator value="lessonList" status="userStatus">
         <tr>
-          <td><s:property value="courseName" /></td>
-          <td><s:property value="data" /></td>
+          <td><s:property value="course.name" /></td>
+          <td><s:property value="data.data" /></td>
           <td>
             <s:url id="editURL" action="get_lesson_for_lecturer">
               <s:param name="lessonId" value="%{id}"></s:param>
@@ -48,5 +48,10 @@
   <s:param name="lessonId" value="%{null}"></s:param>
 </s:url>
 <s:a href="%{addURL}">Create</s:a>
+
+<s:url id="back" value="home_lecturer.jsp">
+  <s:param name="userId" value="%{userId}"></s:param>
+</s:url>
+<s:a href="%{back}">Back</s:a>
 </body>
 </html>
