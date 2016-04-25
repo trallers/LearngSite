@@ -75,10 +75,10 @@ public class CertificateDao {
     public boolean create(Certificate certificate){
             try{
                 PreparedStatement ps = DBUtil.getConnection().prepareStatement(INSERT_CERTIFICATE_QUERY);
-                ps.setString(1, String.valueOf(certificate.getIdStudent()));
-                ps.setString(2, String.valueOf(certificate.getIdCourse()));
+                ps.setInt(1, certificate.getIdStudent());
+                ps.setInt(2,certificate.getIdCourse());
                 ps.setString(3, certificate.getData());
-                ps.setString(4, String.valueOf(certificate.getDate()));
+                ps.setDate(4,parseDateToSql(certificate.getDate()));
                 ps.executeUpdate();
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -101,7 +101,6 @@ public class CertificateDao {
                 ps.setInt(1, certificate.getIdStudent());
                 ps.setInt(2, certificate.getIdCourse());
                 ps.setString(3, certificate.getData());
-
                 ps.setDate(4, parseDateToSql(certificate.getDate()));
                 ps.setInt(5, certificate.getId());
                 ps.execute();
