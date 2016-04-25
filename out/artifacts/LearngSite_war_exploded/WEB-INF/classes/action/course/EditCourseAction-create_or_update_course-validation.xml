@@ -17,7 +17,7 @@
         </field>
         <field name="course.price">
                 <field-validator type="regex">
-                        <param name="regex">^\d$</param>
+                        <param name="regex">^[0-9]*$</param>
                         <message>Enter valid value</message>
                 </field-validator>
         </field>

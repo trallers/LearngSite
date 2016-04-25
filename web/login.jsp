@@ -55,13 +55,13 @@
                 <s:form action="login" method="post" validate="true">
                     <s:div class="form-group">
                         <s:textfield label="Login" name="login" class="form-control"
-                                     placeholder="Enter login" cssStyle="padding: 10px;"></s:textfield>
+                                     placeholder="Enter login" cssStyle="padding: 10px;"/>
                     </s:div>
                     <s:div class="form-group">
                         <s:password label="Password" name="password" class="form-control"
-                                    placeholder="Enter password" cssStyle="padding: 10px;"></s:password>
+                                    placeholder="Enter password" cssStyle="padding: 10px;"/>
                     </s:div>
-                    <s:submit value="Login" class="active btn btn-primary"></s:submit>
+                    <s:submit value="Login" class="active btn btn-primary"/>
                 </s:form>
             </div>
 
@@ -78,7 +78,7 @@
                     <a href="#">Privacy</a>
                 </div>
                 <div class="col-md-4">
-                    <p class="muted pull-right">© 2016 Trellers. All rights reserved</p>
+                    <p class="muted pull-right">© 2016 Trallers. All rights reserved</p>
                 </div>
             </div>
         </div>

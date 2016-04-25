@@ -44,13 +44,13 @@
   </div>
 </s:if>
 <s:url id="addURL" action="get_lesson_for_lecturer">
-  <s:param name="userId" value="%{userId}"></s:param>
-  <s:param name="lessonId" value="%{null}"></s:param>
+  <s:param name="userId" value="%{userId}"/>
+  <s:param name="lessonId" value="%{null}"/>
 </s:url>
 <s:a href="%{addURL}">Create</s:a>
 
 <s:url id="back" value="home_lecturer.jsp">
-  <s:param name="userId" value="%{userId}"></s:param>
+  <s:param name="userId" value="%{userId}"/>
 </s:url>
 <s:a href="%{back}">Back</s:a>
 </body>

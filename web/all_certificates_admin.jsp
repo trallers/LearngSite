@@ -31,16 +31,16 @@
                     <a href="home_admin.jsp">Home</a>
                 </li>
                 <li>
-                    <a href="<s:url action="list_users_for_admin" ></s:url>">Users</a>
+                    <a href="<s:url action="list_users_for_admin"/>">Users</a>
                 </li>
                 <li>
-                    <a href="<s:url action="list_courses_for_admin"></s:url>">Courses</a>
+                    <a href="<s:url action="list_courses_for_admin"/>">Courses</a>
                 </li>
                 <li>
-                    <a href="<s:url action="list_lessons_for_admin"></s:url>">Lessons</a>
+                    <a href="<s:url action="list_lessons_for_admin"/>">Lessons</a>
                 </li>
                 <li>
-                    <a class="active" href="<s:url action="list_certificates_for_admin"></s:url>">Certificates</a>
+                    <a class="active" href="<s:url action="list_certificates_for_admin"/>">Certificates</a>
                 </li>
                 <li>
                     <a href="/login.jsp" data-toggle="modal">Logout <span
@@ -112,7 +112,7 @@
                     <a href="#">Privacy</a>
                 </div>
                 <div class="col-md-4">
-                    <p class="muted pull-right">© 2016 Trellers. All rights reserved</p>
+                    <p class="muted pull-right">© 2016 Trallers. All rights reserved</p>
                 </div>
             </div>
         </div>

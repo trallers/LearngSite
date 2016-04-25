@@ -49,26 +49,26 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1>Registration form</h1>
+                <h1>Registration</h1>
                 <s:actionerror/>
                 <s:form action="register" method="post" validate="true">
                     <s:textfield name="user.login" label="Login"  class="form-control"
-                                 placeholder="Enter login"></s:textfield>
+                                 placeholder="Enter login"/>
                     <s:password name="user.password" label="Password"  class="form-control"
-                                placeholder="Enter password"></s:password>
+                                placeholder="Enter password"/>
                     <s:select class="ListU form-control" list="{'student','lecturer'}" name="user.role" label="Role"
-                              placeholder="student"></s:select>
+                              placeholder="student"/>
                     <s:textfield name="user.name" label="Name"  class="form-control"
-                                 placeholder="Enter name"></s:textfield>
+                                 placeholder="Enter name"/>
                     <s:textfield name="user.surname" label="Surname"  class="form-control"
-                                 placeholder="Enter surname"></s:textfield>
+                                 placeholder="Enter surname"/>
                     <s:textfield name="user.phone" label="Phone"  class="form-control"
-                                 placeholder="Enter phone"></s:textfield>
+                                 placeholder="Enter phone"/>
                     <s:textfield name="user.email" label="Email"  class="form-control"
-                                 placeholder="Enter email"></s:textfield>
+                                 placeholder="Enter email"/>
                     <s:hidden name="user.banStatus" value="0"  class="form-control"
-                              placeholder=""></s:hidden>
-                    <s:submit value="Register" class="active btn btn-primary"></s:submit>
+                              placeholder=""/>
+                    <s:submit value="Register" class="active btn btn-primary"/>
                 </s:form>
             </div>
 
@@ -85,7 +85,7 @@
                     <a href="#">Privacy</a>
                 </div>
                 <div class="col-md-4">
-                    <p class="muted pull-right">© 2016 Trellers. All rights reserved</p>
+                    <p class="muted pull-right">© 2016 Trallers. All rights reserved</p>
                 </div>
             </div>
         </div>

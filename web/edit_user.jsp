@@ -12,6 +12,7 @@
           type="text/css">
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <s:head/>
 </head>
 <body>
 <div class="navbar navbar-default navbar-inverse navbar-static-top">

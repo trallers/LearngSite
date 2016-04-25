@@ -81,7 +81,7 @@
                                     <td>
                                         <s:if test="!role.equals(\"admin\")">
                                             <s:url id="editURL" action="get_user_for_admin">
-                                                <s:param name="userId" value="%{id}"></s:param>
+                                                <s:param name="userId" value="%{id}"/>
                                             </s:url>
                                             <s:a href="%{editURL}">Edit</s:a>
                                         </s:if>
@@ -90,7 +90,7 @@
                                     <td>
                                         <s:if test="!role.equals(\"admin\")">
                                             <s:url id="deleteURL" action="delete_user">
-                                                <s:param name="userId" value="%{id}"></s:param>
+                                                <s:param name="userId" value="%{id}"/>
                                             </s:url>
                                             <s:a href="%{deleteURL}">Delete</s:a>
                                         </s:if>
@@ -102,10 +102,10 @@
                     </div>
 
                 </s:if>
-                <s:url id="createURL" action="create_admin"></s:url>
+                <s:url id="createURL" action="create_admin"/>
                 <s:a href="%{createURL}">Add admin</s:a>
                 <s:url id="back" value="home_admin.jsp">
-                    <s:param name="userID" value="%{userID}"></s:param>
+                    <s:param name="userID" value="%{userID}"/>
                 </s:url>
             </div>
         </div>
@@ -121,7 +121,7 @@
                     <a href="#">Privacy</a>
                 </div>
                 <div class="col-md-4">
-                    <p class="muted pull-right">© 2016 Trellers. All rights reserved</p>
+                    <p class="muted pull-right">© 2016 Trallers. All rights reserved</p>
                 </div>
             </div>
         </div>

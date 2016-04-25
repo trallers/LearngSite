@@ -9,5 +9,9 @@
                 <field-validator type="requiredstring">
                         <message>Data is required</message>
                 </field-validator>
+                <field-validator type="stringlength">
+                        <param name="minLength">1</param>
+                        <message>Too small data</message>
+                </field-validator>
         </field>
 </validators>

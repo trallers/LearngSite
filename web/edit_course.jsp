@@ -92,7 +92,7 @@
                     <a href="#">Privacy</a>
                 </div>
                 <div class="col-md-4">
-                    <p class="muted pull-right">© 2016 Trellers. All rights reserved</p>
+                    <p class="muted pull-right">© 2016 Trallers. All rights reserved</p>
                 </div>
             </div>
         </div>

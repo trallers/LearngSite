@@ -22,6 +22,9 @@ public class EditLessonAction extends ActionSupport {
     private List<Course> courseList;
     private String lessonId;
 
+
+
+
     public String getLessonId() {
         return lessonId;
     }
@@ -67,6 +70,11 @@ public class EditLessonAction extends ActionSupport {
         userId = request.getParameter("userId");
         courseList = GetCoursesByLecturerIdService.execute(userId);
         Course course = getCourseByName(courseName);
+        if(course == null)
+        {
+            addActionError("Try to select valid course name");
+            return ERROR;
+        }
         lesson.setCourse(course);
         boolean success = CreateOrUpdateLessonService.execute(lesson);
         if(success)
