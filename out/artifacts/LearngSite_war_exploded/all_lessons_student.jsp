@@ -26,27 +26,7 @@
             <a class="navbar-brand" href="#"><span>Learning portal</span></a>
         </div>
         <div class="collapse navbar-collapse" id="navbar-ex-collapse">
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a href="home_admin.jsp">Home</a>
-                </li>
-                <li>
-                    <a href="<s:url action="list_users_for_admin"/>">Users</a>
-                </li>
-                <li>
-                    <a href="<s:url action="list_courses_for_admin"/>">Courses</a>
-                </li>
-                <li>
-                    <a href="<s:url action="list_lessons_for_admin"/>">Lessons</a>
-                </li>
-                <li>
-                    <a href="<s:url action="list_certificates_for_admin"/>">Certificates</a>
-                </li>
-                <li>
-                    <a href="<s:url action="logout"/>" data-toggle="modal">Logout <span
-                            class="glyphicon glyphicon-log-out"></span></a>
-                </li>
-            </ul>
+
         </div>
     </div>
 </div>

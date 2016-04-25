@@ -10,6 +10,15 @@ import service.user.RegisterUserService;
 public class RegisterAction extends ActionSupport {
     private User user;
     private String name;
+    private String repeatPassword;
+
+    public String getRepeatPassword() {
+        return repeatPassword;
+    }
+
+    public void setRepeatPassword(String repeatPassword) {
+        this.repeatPassword = repeatPassword;
+    }
 
     public String getName() {
         return name;
@@ -29,7 +38,10 @@ public class RegisterAction extends ActionSupport {
 
     @Override
     public String execute(){
-
+        if(!user.getPassword().equals(repeatPassword)){
+            addActionError("Different passwords");
+            return ERROR;
+        }
         Integer result = RegisterUserService.execute(user);
         if(result != null) {
             addActionMessage("Registration completed successfully. You can log in to your account.");

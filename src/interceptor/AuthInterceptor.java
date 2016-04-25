@@ -31,8 +31,8 @@ public class AuthInterceptor extends AbstractInterceptor implements StrutsStatic
         {
             request = ServletActionContext.getRequest();
             String idParam = request.getParameter("userId");
-            Byte banStatus = user.getBanStatus();
-            if(banStatus != 0){
+            Boolean banStatus = user.getBanStatus();
+            if(banStatus){
                 return Action.ERROR;
             }
             if(idParam == null){

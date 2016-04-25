@@ -50,7 +50,7 @@
                 <div id="carousel-example" data-interval="false" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
                         <div class="item active">
-                            <img src="http://fhcchakhar.gov.bd/wp-content/gallery/gal_page/slider-technology2.jpg">
+                            <img src="images/slider1.jpg">
                             <div class="carousel-caption">
                                 <h2>Title</h2>
                                 <p>Description</p>
@@ -97,7 +97,7 @@
                     <a href="#">Privacy</a>
                 </div>
                 <div class="col-md-4">
-                    <p class="muted pull-right">© 2016 Trellers. All rights reserved</p>
+                    <p class="muted pull-right">© 2016 Trallers. All rights reserved</p>
                 </div>
             </div>
         </div>

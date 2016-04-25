@@ -18,8 +18,8 @@ public class BanInterceptor extends AbstractInterceptor {
 
         User user = (User) session.get("loginId");
         if(user != null) {
-            Byte banStatus = user.getBanStatus();
-            if (banStatus != 0) {
+            Boolean banStatus = user.getBanStatus();
+            if (banStatus) {
                 return Action.LOGIN;
             }
         }

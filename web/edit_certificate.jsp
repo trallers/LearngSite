@@ -1,4 +1,5 @@
-<%@ taglib uri="/struts-tags" prefix="s" %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
+<%@ taglib prefix="sx" uri="/struts-dojo-tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -12,6 +13,8 @@
           type="text/css">
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <s:head/>
+    <sx:head/>
 </head>
 <body>
 <div class="navbar navbar-default navbar-inverse navbar-static-top">
@@ -55,12 +58,11 @@
         <div class="row">
             <div class="col-md-12">
                 <h2>Certificate info</h2>
-                <s:form action="create_or_update_certificate" validate="true">
-                <s:hidden name="certificate.id" readonly="true" label="ID" class="form-control"
-                          placeholder="Enter id"/>
+                <s:form action="create_or_update_certificate">
+                    <s:actionerror/>
+                <s:hidden name="certificate.id" readonly="true" label="ID" class="form-control"/>
                 <s:select
-
-                        name="idStudent"
+                        name="certificate.idStudent"
                         label="Student"
                         list="studentList"
                         listKey="id"
@@ -68,8 +70,7 @@
                         required="true"
                         class="form-control"/>
                 <s:select
-
-                        name="idCourse"
+                        name="certificate.idCourse"
                         label="Course"
                         list="courseList"
                         listKey="id"
@@ -78,8 +79,7 @@
                         class="form-control"/>
                 <s:textarea name="certificate.data" label="Data" class="form-control"
                             placeholder="Enter data"/>
-                <s:textfield name="certificate.date" label="Date" class="form-control"
-                             placeholder="Enter date"/>
+                <sx:datetimepicker name="certificate.date" label="Date" displayFormat="yyyy-MM-dd"/>
                 <s:submit value="Save" class="active btn btn-primary"/>
             </s:form>
             </div>

@@ -54,11 +54,23 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <s:url id="back" value="home_admin.jsp">
-                    <s:param name="userId" value="%{userId}"/>
-                </s:url>
-                <s:a href="%{back}">Back</s:a>
-
+                <h2>All lessons</h2>
+                <s:if test="lessonList.size() > 0">
+                    <div class="content">
+                        <table class="table table-hover" class="courses_table">
+                            <thead>
+                            <th>Name of course</th>
+                            <th>Data</th>
+                            </thead>
+                            <s:iterator value="lessonList" status="userStatus">
+                                <tr>
+                                    <td><s:property value="course.name"/></td>
+                                    <td><s:property value="data.data" /></td>
+                                </tr>
+                            </s:iterator>
+                        </table>
+                    </div>
+                </s:if>
             </div>
         </div>
     </div>

@@ -73,8 +73,7 @@
                                  placeholder="Enter phone"/>
                     <s:textfield name="user.email" label="Email" readonly="true" class="form-control"
                                  placeholder="Enter email"/>
-                    <s:textfield name="user.banStatus" label="Ban status" readonly="false" class="form-control"
-                                 placeholder="Enter banstatus"/>
+                    <s:checkbox name="user.banStatus" label="Is banned"/>
                     <s:submit value="Save changes" class="active btn btn-primary"/>
                 </s:form>
             </div>

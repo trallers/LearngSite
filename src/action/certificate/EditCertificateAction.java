@@ -9,6 +9,7 @@ import service.certificate.UpdateCertificateService;
 import service.course.GetAllCoursesService;
 import service.user.GetAllStudentsService;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -21,6 +22,15 @@ public class EditCertificateAction extends ActionSupport {
     private List<Course> courseList;
     private Integer idCourse;
     private Integer idStudent;
+    private String dateTime;
+
+    public String getDateTime() {
+        return dateTime;
+    }
+
+    public void setDateTime(String dateTime) {
+        this.dateTime = dateTime;
+    }
 
     public Integer getIdCourse() {
         return idCourse;
@@ -70,10 +80,14 @@ public class EditCertificateAction extends ActionSupport {
         this.certificate = certificate;
     }
 
+    public EditCertificateAction(){
+        this.courseList = new ArrayList<>();
+        this.studentList = new ArrayList<>();
+    }
 
     public String createOrUpdate(){
-        certificate.setIdCourse(idCourse);
-        certificate.setIdStudent(idStudent);
+        studentList = GetAllStudentsService.execute();
+        courseList = GetAllCoursesService.execute();
         boolean success = UpdateCertificateService.execute(certificate);
         if(success)
             return SUCCESS;
@@ -92,5 +106,18 @@ public class EditCertificateAction extends ActionSupport {
         }
         return ERROR;
     }
+
+    /*private void setDate(String dateTime){
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        Date parsed = null;
+        try {
+            parsed = format.parse(dateTime);
+            java.sql.Date date = new java.sql.Date(parsed.getDate());
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        java.sql.Date sql = new java.sql.Date(parsed.getTime());
+        certificate.setDate(sql);
+    }*/
 
 }

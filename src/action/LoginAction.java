@@ -68,7 +68,7 @@ public class LoginAction extends ActionSupport implements SessionAware {
 
         if(user != null){
             setUserId(user.getId());
-            if(user.getBanStatus() != 0){
+            if(user.getBanStatus()){
                 addActionError("U are banned on this site!!!");
                 return Action.LOGIN;
             }

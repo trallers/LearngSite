@@ -31,7 +31,7 @@
                     <a href="home_admin.jsp">Home</a>
                 </li>
                 <li>
-                    <a href="<s:url action="list_users_for_admin" />">Users</a>
+                    <a href="<s:url action="list_users_for_admin"><s:param name="userId">${param["userId"]}</s:param></s:url>">Users</a>
                 </li>
                 <li>
                     <a href="<s:url action="list_courses_for_admin"/>">Courses</a>
@@ -53,7 +53,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h2>Hello, admin</h2>
+                <h2>Admin panel</h2>
                 <p>You can edit on this page:</p>
                 <ul>
                     <li>Users info</li>

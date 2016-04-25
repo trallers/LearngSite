@@ -12,10 +12,11 @@ public class User {
     private String surname;
     private String phone;
     private String email;
-    private Byte banStatus;
+    private Boolean banStatus;
 
 
-    public User(Integer id, String login, String password, String role, String name, String surname, String phone, String email, Byte banStatus) {
+
+    public User(Integer id, String login, String password, String role, String name, String surname, String phone, String email, Boolean banStatus) {
         this.id = id;
         this.login = login;
         this.password = password;
@@ -94,11 +95,11 @@ public class User {
         this.email = email;
     }
 
-    public Byte getBanStatus() {
+    public Boolean getBanStatus() {
         return banStatus;
     }
 
-    public void setBanStatus(Byte banStatus) {
+    public void setBanStatus(Boolean banStatus) {
         this.banStatus = banStatus;
     }
 }

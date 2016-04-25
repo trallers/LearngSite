@@ -87,6 +87,13 @@ public class CertificateDao {
         return true;
     }
 
+
+    private java.sql.Date parseDateToSql(java.util.Date dateTime){
+        java.sql.Date sqlDate = new java.sql.Date(dateTime.getTime());
+        return sqlDate;
+    }
+
+
     public boolean update(Certificate certificate){
         if (certificate.getId() != null) {
             try {
@@ -94,7 +101,8 @@ public class CertificateDao {
                 ps.setInt(1, certificate.getIdStudent());
                 ps.setInt(2, certificate.getIdCourse());
                 ps.setString(3, certificate.getData());
-                ps.setDate(4, certificate.getDate());
+
+                ps.setDate(4, parseDateToSql(certificate.getDate()));
                 ps.setInt(5, certificate.getId());
                 ps.execute();
                 return true;

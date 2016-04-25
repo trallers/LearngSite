@@ -46,7 +46,7 @@ public class UserDao {
                     ps.setString(5, user.getSurname());
                     ps.setString(6, user.getPhone());
                     ps.setString(7, user.getEmail());
-                    ps.setByte(8, user.getBanStatus());
+                    ps.setBoolean(8, user.getBanStatus());
                     ps.executeUpdate();
 
                     ResultSet rs = ps.getGeneratedKeys();
@@ -73,7 +73,7 @@ public class UserDao {
                 ps.setString(2, password);
                 ResultSet rs = ps.executeQuery();
                 while (rs.next()) {
-                    currentUser = new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getByte(9));
+                    currentUser = new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getBoolean(9));
                 }
 
             } catch (SQLException e) {
@@ -86,6 +86,7 @@ public class UserDao {
     private  boolean isLoginExist(String login){
         try {
             PreparedStatement ps = DBUtil.getConnection().prepareStatement(CHECK_LOGIN_QUERY);
+            login = login.toLowerCase();
             ps.setString(1, login);
             ResultSet rs = ps.executeQuery();
             if(rs.next())
@@ -104,7 +105,7 @@ public class UserDao {
             PreparedStatement ps = DBUtil.getConnection().prepareStatement(GET_ALL_USERS_QUERY);
             ResultSet rs = ps.executeQuery();
             while (rs.next())
-                userList.add(new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7),rs.getString(8), rs.getByte(9)));
+                userList.add(new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7),rs.getString(8), rs.getBoolean(9)));
             return userList;
 
         } catch (SQLException e) {
@@ -129,7 +130,7 @@ public class UserDao {
                     user.setSurname(rs.getString(6));
                     user.setPhone(rs.getString(7));
                     user.setEmail(rs.getString(8));
-                    user.setBanStatus(rs.getByte(9));
+                    user.setBanStatus(rs.getBoolean(9));
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -147,7 +148,7 @@ public class UserDao {
             ps.setString(3, user.getSurname());
             ps.setString(4, user.getPhone());
             ps.setString(5, user.getEmail());
-            ps.setByte(6, user.getBanStatus());
+            ps.setBoolean(6, user.getBanStatus());
             ps.setInt(7, user.getId());
             ps.executeUpdate();
         } catch (SQLException e) {
@@ -176,7 +177,7 @@ public class UserDao {
             PreparedStatement ps = DBUtil.getConnection().prepareStatement(GET_ALL_LECTURERS_QUERY);
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
-                lecturerList.add(new User(rs.getInt(1), rs.getString(2), rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getByte(9)));
+                lecturerList.add(new User(rs.getInt(1), rs.getString(2), rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getBoolean(9)));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -190,7 +191,7 @@ public class UserDao {
             PreparedStatement ps = DBUtil.getConnection().prepareStatement(GET_ALL_STUDENTS_QUERY);
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
-                lecturerList.add(new User(rs.getInt(1), rs.getString(2), rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getByte(9)));
+                lecturerList.add(new User(rs.getInt(1), rs.getString(2), rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getBoolean(9)));
             }
         } catch (SQLException e) {
             e.printStackTrace();

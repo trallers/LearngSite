@@ -1,6 +1,6 @@
 package bean;
 
-import java.sql.Date;
+import java.util.Date;
 
 /**
  * Created by Антон on 03.04.2016.

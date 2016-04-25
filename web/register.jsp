@@ -56,6 +56,8 @@
                                  placeholder="Enter login"/>
                     <s:password name="user.password" label="Password"  class="form-control"
                                 placeholder="Enter password"/>
+                    <s:password name="repeatPassword" label="Repeat password"  class="form-control"
+                                placeholder="Repeat password"/>
                     <s:select class="ListU form-control" list="{'student','lecturer'}" name="user.role" label="Role"
                               placeholder="student"/>
                     <s:textfield name="user.name" label="Name"  class="form-control"

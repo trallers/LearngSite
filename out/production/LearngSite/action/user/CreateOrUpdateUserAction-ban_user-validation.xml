@@ -62,10 +62,4 @@
                         <message>Invalid email</message>
                 </field-validator>
         </field>
-        <field name="user.banStatus">
-                <field-validator type="regex">
-                        <param name="regex">^[0-1]{1}$</param>
-                        <message>Enter valid value</message>
-                </field-validator>
-        </field>
 </validators>

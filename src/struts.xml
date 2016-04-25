@@ -98,7 +98,7 @@
 
         <action name="list_lessons_for_admin" class="action.lesson.GetAllLessonsAction" method="execute">
             <interceptor-ref name="AdminRoleStack"/>
-            <result name="success">all_lessons_student.jsp</result>
+            <result name="success">all_lessons_admin.jsp</result>
             <result name="login" type="chain">logout</result>
 
         </action>

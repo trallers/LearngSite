@@ -79,7 +79,7 @@
                                     <td><s:property value="email"/></td>
                                     <td><s:property value="banStatus"/></td>
                                     <td>
-                                        <s:if test="!role.equals(\"admin\")">
+                                        <s:if test="!currentUser(id)">
                                             <s:url id="editURL" action="get_user_for_admin">
                                                 <s:param name="userId" value="%{id}"/>
                                             </s:url>
