@@ -12,7 +12,6 @@
     <title>Lecturer</title>
 </head>
 <body>
-<h1>HALLO, LECTURER</h1>
 <ul>
   <li>
     <h2>

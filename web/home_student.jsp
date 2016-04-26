@@ -12,7 +12,6 @@
     <title>Student</title>
 </head>
 <body>
-<h1>HALLO, STUDENT</h1>
 <ul>
   <li>
     <h2>
@@ -39,7 +38,6 @@
       <a href="<s:url action="logout"/>">Logout</a>
     </h3>
   </li>
-
 </ul>
 </body>
 </html>

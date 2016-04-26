@@ -62,7 +62,7 @@
                             <th>Student</th>
                             <th>Course</th>
                             <th>Data</th>
-                            <th>Date</th>
+                            <th>Date(Year.Month.Day)</th>
                             <th>Edit</th>
                             <th>Delete</th>
                             </thead>
