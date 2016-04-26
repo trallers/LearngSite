@@ -62,18 +62,18 @@
                     <s:actionerror/>
                 <s:hidden name="certificate.id" readonly="true" label="ID" class="form-control"/>
                 <s:select
-                        name="certificate.idStudent"
+                        name="studentSurname"
                         label="Student"
                         list="studentList"
-                        listKey="id"
+                        listKey="surname"
                         listValue="surname"
                         required="true"
                         class="form-control"/>
                 <s:select
-                        name="certificate.idCourse"
+                        name="courseName"
                         label="Course"
                         list="courseList"
-                        listKey="id"
+                        listKey="name"
                         listValue="name"
                         required="true"
                         class="form-control"/>

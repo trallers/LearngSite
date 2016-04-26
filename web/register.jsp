@@ -5,14 +5,11 @@
     <title>Learning site</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
-
     <link href="font-awesome/css/font-awesome.min.css"  rel="stylesheet"
           type="text/css">
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet" type="text/css">
-    <s:head/>
 </head>
 <body>
 <div class="navbar navbar-default navbar-inverse navbar-static-top">
@@ -51,8 +48,9 @@
             <div class="col-md-12">
                 <h1>Register</h1>
                 <s:actionerror/>
+
                 <s:form action="register" method="post" validate="true">
-                    <s:textfield name="user.login" label="Login"  class="form-control"
+                    <s:textfield name="user.login" label="Login" id="login"  class="form-control"
                                  placeholder="Enter login"/>
                     <s:password name="user.password" label="Password"  class="form-control"
                                 placeholder="Enter password"/>

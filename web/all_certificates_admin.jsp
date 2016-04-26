@@ -69,8 +69,8 @@
                             <s:iterator value="certificateList" status="userStatus">
                                 <tr>
                                     <s:hidden name="id"/>
-                                    <td><s:property value="idStudent"/></td>
-                                    <td><s:property value="idCourse"/></td>
+                                    <td><s:property value="student.surname"/></td>
+                                    <td><s:property value="course.name"/></td>
                                     <td><s:property value="data"/></td>
                                     <td><s:property value="date"/></td>
                                     <td>

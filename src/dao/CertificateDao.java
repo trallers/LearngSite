@@ -1,6 +1,10 @@
 package dao;
 
 import bean.Certificate;
+import bean.Course;
+import bean.User;
+import service.course.GetCourseByIdService;
+import service.user.GetUserByIdService;
 import util.DBUtil;
 
 import java.sql.PreparedStatement;
@@ -38,7 +42,12 @@ public class CertificateDao {
             ps.setString(1, userID);
             ResultSet rs = ps.executeQuery();
             while (rs.next()){
-                certificateList.add(new Certificate(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getDate(5)));
+                Integer studentId =  rs.getInt(2);
+                User student = GetUserByIdService.execute(studentId.toString());
+                Integer courseId = rs.getInt(3);
+                Course course = GetCourseByIdService.execute(courseId.toString());
+                if(student != null && course != null)
+                    certificateList.add(new Certificate(rs.getInt(1), student, course, rs.getString(4), rs.getDate(5)));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -52,7 +61,12 @@ public class CertificateDao {
             PreparedStatement ps = DBUtil.getConnection().prepareStatement(GET_ALL_CERTIFICATES_QUERY);
             ResultSet rs = ps.executeQuery();
             while (rs.next()){
-                certificateList.add(new Certificate(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getDate(5)));
+                Integer studentId =  rs.getInt(2);
+                User student = GetUserByIdService.execute(studentId.toString());
+                Integer courseId = rs.getInt(3);
+                Course course = GetCourseByIdService.execute(courseId.toString());
+                if(student != null && course != null)
+                certificateList.add(new Certificate(rs.getInt(1), student, course, rs.getString(4), rs.getDate(5)));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -75,8 +89,8 @@ public class CertificateDao {
     public boolean create(Certificate certificate){
             try{
                 PreparedStatement ps = DBUtil.getConnection().prepareStatement(INSERT_CERTIFICATE_QUERY);
-                ps.setInt(1, certificate.getIdStudent());
-                ps.setInt(2,certificate.getIdCourse());
+                ps.setInt(1, certificate.getStudent().getId());
+                ps.setInt(2,certificate.getCourse().getId());
                 ps.setString(3, certificate.getData());
                 ps.setDate(4,parseDateToSql(certificate.getDate()));
                 ps.executeUpdate();
@@ -98,8 +112,8 @@ public class CertificateDao {
         if (certificate.getId() != null) {
             try {
                 PreparedStatement ps = DBUtil.getConnection().prepareStatement(UPDATE_CERTIFICATE_QUERY);
-                ps.setInt(1, certificate.getIdStudent());
-                ps.setInt(2, certificate.getIdCourse());
+                ps.setInt(1, certificate.getStudent().getId());
+                ps.setInt(2, certificate.getCourse().getId());
                 ps.setString(3, certificate.getData());
                 ps.setDate(4, parseDateToSql(certificate.getDate()));
                 ps.setInt(5, certificate.getId());
@@ -121,8 +135,14 @@ public class CertificateDao {
             PreparedStatement ps = DBUtil.getConnection().prepareStatement(GET_CERTIFICATE_BY_ID_QUERY);
             ps.setString(1, id);
             ResultSet rs = ps.executeQuery();
-            while (rs.next())
-                certificate = new Certificate(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getDate(5));
+            while (rs.next()){
+                Integer studentId =  rs.getInt(2);
+                User student = GetUserByIdService.execute(studentId.toString());
+                Integer courseId = rs.getInt(3);
+                Course course = GetCourseByIdService.execute(courseId.toString());
+                if(student != null && course != null)
+                certificate = new Certificate(rs.getInt(1), student, course, rs.getString(4), rs.getDate(5));
+            }
 
         } catch (SQLException e) {
             e.printStackTrace();

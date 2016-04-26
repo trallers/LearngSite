@@ -8,11 +8,26 @@ import java.util.Date;
 public class Certificate {
 
     private Integer id;
-    private Integer idStudent;
-    private Integer idCourse;
+    private User student;
+    private Course course;
     private String data;
     private Date date;
 
+    public Course getCourse() {
+        return course;
+    }
+
+    public void setCourse(Course course) {
+        this.course = course;
+    }
+
+    public User getStudent() {
+        return student;
+    }
+
+    public void setStudent(User student) {
+        this.student = student;
+    }
 
     public Integer getId() {
         return id;
@@ -22,21 +37,6 @@ public class Certificate {
         this.id = id;
     }
 
-    public Integer getIdStudent() {
-        return idStudent;
-    }
-
-    public void setIdStudent(Integer idStudent) {
-        this.idStudent = idStudent;
-    }
-
-    public Integer getIdCourse() {
-        return idCourse;
-    }
-
-    public void setIdCourse(Integer idCourse) {
-        this.idCourse = idCourse;
-    }
 
     public String getData() {
         return data;
@@ -55,10 +55,10 @@ public class Certificate {
     }
 
 
-    public Certificate(Integer id, Integer idStudent, Integer idCourse, String data, Date date) {
+    public Certificate(Integer id, User student, Course course, String data, Date date) {
         this.id = id;
-        this.idStudent = idStudent;
-        this.idCourse = idCourse;
+        this.student = student;
+        this.course = course;
         this.data = data;
         this.date = date;
     }

@@ -20,32 +20,23 @@ public class EditCertificateAction extends ActionSupport {
     private String certificateId;
     private List<User> studentList;
     private List<Course> courseList;
-    private Integer idCourse;
-    private Integer idStudent;
-    private String dateTime;
+    private String studentSurname;
+    private String courseName;
 
-    public String getDateTime() {
-        return dateTime;
+    public String getStudentSurname() {
+        return studentSurname;
     }
 
-    public void setDateTime(String dateTime) {
-        this.dateTime = dateTime;
+    public void setStudentSurname(String studentSurname) {
+        this.studentSurname = studentSurname;
     }
 
-    public Integer getIdCourse() {
-        return idCourse;
+    public String getCourseName() {
+        return courseName;
     }
 
-    public void setIdCourse(Integer idCourse) {
-        this.idCourse = idCourse;
-    }
-
-    public Integer getIdStudent() {
-        return idStudent;
-    }
-
-    public void setIdStudent(Integer idStudent) {
-        this.idStudent = idStudent;
+    public void setCourseName(String courseName) {
+        this.courseName = courseName;
     }
 
     public List<User> getStudentList() {
@@ -88,6 +79,8 @@ public class EditCertificateAction extends ActionSupport {
     public String createOrUpdate(){
         studentList = GetAllStudentsService.execute();
         courseList = GetAllCoursesService.execute();
+        certificate.setStudent(getStudentBySurnameName(studentSurname));
+        certificate.setCourse(getCourseByName(courseName));
         boolean success = UpdateCertificateService.execute(certificate);
         if(success)
             return SUCCESS;
@@ -107,17 +100,20 @@ public class EditCertificateAction extends ActionSupport {
         return ERROR;
     }
 
-    /*private void setDate(String dateTime){
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-        Date parsed = null;
-        try {
-            parsed = format.parse(dateTime);
-            java.sql.Date date = new java.sql.Date(parsed.getDate());
-        } catch (ParseException e) {
-            e.printStackTrace();
+    private User getStudentBySurnameName(String surname){
+        for(User student : studentList){
+            if(student.getSurname().equals(surname))
+                return student;
         }
-        java.sql.Date sql = new java.sql.Date(parsed.getTime());
-        certificate.setDate(sql);
-    }*/
+        return null;
+    }
+
+    private Course getCourseByName(String name){
+        for (Course course : courseList){
+            if(course.getName().equals(name))
+                return course;
+        }
+        return null;
+    }
 
 }
