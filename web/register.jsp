@@ -2,14 +2,17 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <script type="text/javascript" src="js/jquery-1.6.js"></script>
     <title>Learning site</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+
     <link href="font-awesome/css/font-awesome.min.css"  rel="stylesheet"
           type="text/css">
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <s:head/>
 </head>
 <body>
 <div class="navbar navbar-default navbar-inverse navbar-static-top">
@@ -50,8 +53,7 @@
                 <s:actionerror/>
 
                 <s:form action="register" method="post" validate="true">
-                    <s:textfield name="user.login" label="Login" id="login"  class="form-control"
-                                 placeholder="Enter login"/>
+                    <s:textfield name="login" id="login" class="form-control" label="Login" placeholder="Enter login"/>
                     <s:password name="user.password" label="Password"  class="form-control"
                                 placeholder="Enter password"/>
                     <s:password name="repeatPassword" label="Repeat password"  class="form-control"
@@ -70,6 +72,25 @@
                               placeholder=""/>
                     <s:submit value="Register" class="active btn btn-primary"/>
                 </s:form>
+
+                <script>
+                    $("#login").change(function(){
+
+                        $.ajax( {
+                            type: "GET",
+                            url : 'check_login_exist.action?userName='+$("#login").val(),
+                            dataType : 'text',
+                            success : function(data) {
+                                if ('exist' === data) {
+                                    alert("User with nickname " + $("#login").val() + " already exist.");
+                                }
+                            },
+                            error : function() {
+                                alert("Abnormal！");
+                            }
+                        });
+                    })
+                </script>
             </div>
 
         </div>
@@ -95,3 +116,5 @@
 
 </body>
 </html>
+
+

@@ -11,6 +11,11 @@
     <package name="common" namespace="/" extends="struts-default">
         <interceptors>
 
+            <interceptor name="json" class="org.apache.struts2.json.JSONInterceptor"/>
+            <interceptor-stack name="jsonStack">
+                <interceptor-ref name="json"/>
+                <interceptor-ref name="defaultStack"/>
+            </interceptor-stack>
             <interceptor class="interceptor.AuthInterceptor" name="AuthInterceptor"/>
             <interceptor-stack name="AuthStack">
                 <interceptor-ref name="AuthInterceptor"/>
@@ -221,6 +226,10 @@
             <result name="login" type="chain">login</result>
         </action>
 
+        <action name="check_login_exist" class="action.RegisterAction" method="isLoginExist">
+            <interceptor-ref name="jsonStack"/>
+            <result name="json">register.jsp</result>
+        </action>
     </package>
 
 </struts>

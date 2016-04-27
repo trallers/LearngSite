@@ -83,7 +83,7 @@ public class UserDao {
         return currentUser;
     }
 
-    private  boolean isLoginExist(String login){
+    public  boolean isLoginExist(String login){
         try {
             PreparedStatement ps = DBUtil.getConnection().prepareStatement(CHECK_LOGIN_QUERY);
             login = login.toLowerCase();
