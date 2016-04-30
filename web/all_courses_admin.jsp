@@ -33,7 +33,7 @@
                 <li>
                     <a href="<s:url action="list_users_for_admin" ></s:url>">Users</a>
                 </li>
-                <li>
+                <li class="active">
                     <a href="<s:url action="list_courses_for_admin"></s:url>">Courses</a>
                 </li>
                 <li>

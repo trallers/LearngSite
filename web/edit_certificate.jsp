@@ -42,7 +42,7 @@
                 <li>
                     <a href="<s:url action="list_lessons_for_admin"/>">Lessons</a>
                 </li>
-                <li>
+                <li class="active">
                     <a href="<s:url action="list_certificates_for_admin"/>">Certificates</a>
                 </li>
                 <li>
@@ -60,28 +60,28 @@
                 <h2>Certificate info</h2>
                 <s:form action="create_or_update_certificate">
                     <s:actionerror/>
-                <s:hidden name="certificate.id" readonly="true" label="ID" class="form-control"/>
-                <s:select
-                        name="studentSurname"
-                        label="Student"
-                        list="studentList"
-                        listKey="surname"
-                        listValue="surname"
-                        required="true"
-                        class="form-control"/>
-                <s:select
-                        name="courseName"
-                        label="Course"
-                        list="courseList"
-                        listKey="name"
-                        listValue="name"
-                        required="true"
-                        class="form-control"/>
-                <s:textarea name="certificate.data" label="Data" class="form-control"
-                            placeholder="Enter data"/>
-                <sx:datetimepicker name="certificate.date" label="Date" displayFormat="yyyy-MM-dd"/>
-                <s:submit value="Save" class="active btn btn-primary"/>
-            </s:form>
+                    <s:hidden name="certificate.id" readonly="true" label="ID" class="form-control"/>
+                    <s:select
+                            name="studentSurname"
+                            label="Student"
+                            list="studentList"
+                            listKey="surname"
+                            listValue="surname"
+                            required="true"
+                            class="form-control"/>
+                    <s:select
+                            name="courseName"
+                            label="Course"
+                            list="courseList"
+                            listKey="name"
+                            listValue="name"
+                            required="true"
+                            class="form-control"/>
+                    <s:textarea name="certificate.data" label="Data" class="form-control"
+                                placeholder="Enter data"/>
+                    <sx:datetimepicker name="certificate.date" label="Date" displayFormat="yyyy-MM-dd"/>
+                    <s:submit value="Save" class="active btn btn-primary"/>
+                </s:form>
             </div>
         </div>
     </div>

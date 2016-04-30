@@ -29,7 +29,7 @@
         <div class="collapse navbar-collapse" id="navbar-ex-collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a href="#">Home</a>
+                    <a href="index.jsp">Home</a>
                 </li>
                 <li>
                     <a href="#">Courses</a>
@@ -56,26 +56,25 @@
                     <s:actionerror/>
                     <s:textfield name="login" id="login"
                                  class="form-control" label="Login"
-                                 placeholder="Enter login"
-                                 cssStyle="margin-bottom: 7px;"/>
+                                 placeholder="Enter login"/>
                     <s:label id="status" name="status"></s:label>
                     <s:password name="user.password" label="Password" class="form-control"
-                                placeholder="Enter password" cssStyle="margin-bottom: 7px;"/>
+                                placeholder="Enter password"/>
                     <s:password name="repeatPassword" label="Repeat password" class="form-control"
-                                placeholder="Repeat password" cssStyle="margin-bottom: 7px;"/>
+                                placeholder="Repeat password"/>
                     <s:select class="ListU form-control" list="{'student','lecturer'}" name="user.role" label="Role"
-                              placeholder="student" cssStyle="margin-bottom: 7px;"/>
+                              placeholder="student"/>
                     <s:textfield name="user.name" label="Name" class="form-control"
-                                 placeholder="Enter name" cssStyle="margin-bottom: 7px;"/>
+                                 placeholder="Enter name"/>
                     <s:textfield name="user.surname" label="Surname" class="form-control"
-                                 placeholder="Enter surname" cssStyle="margin-bottom: 7px;"/>
+                                 placeholder="Enter surname"/>
                     <s:textfield name="user.phone" label="Phone" class="form-control"
-                                 placeholder="Enter phone" cssStyle="margin-bottom: 7px;"/>
+                                 placeholder="Enter phone"/>
                     <s:textfield name="user.email" label="Email" class="form-control"
-                                 placeholder="Enter email" cssStyle="margin-bottom: 7px;"/>
+                                 placeholder="Enter email"/>
                     <s:hidden name="user.banStatus" value="0" class="form-control"
-                              placeholder="" cssStyle="margin-bottom: 7px;"/>
-                    <s:submit value="Register" class="active btn btn-primary" cssStyle="margin-bottom: 7px;"/>
+                              placeholder=""/>
+                    <s:submit value="Register" class="active btn btn-primary"/>
 
                 </s:form>
 

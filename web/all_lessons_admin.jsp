@@ -36,7 +36,7 @@
                 <li>
                     <a href="<s:url action="list_courses_for_admin"/>">Courses</a>
                 </li>
-                <li>
+                <li class="active">
                     <a href="<s:url action="list_lessons_for_admin"/>">Lessons</a>
                 </li>
                 <li>

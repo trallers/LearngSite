@@ -1,43 +1,77 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Антон
-  Date: 02.04.2016
-  Time: 19:45
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <html>
 <head>
-    <title>Student</title>
+    <title>Learning site| Student page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+
+    <link href="font-awesome/css/font-awesome.min.css"  rel="stylesheet"
+          type="text/css">
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<ul>
-  <li>
-    <h2>
-      <a href="<s:url action="list_courses_for_student"><s:param name="userId">${param["userId"]}</s:param></s:url>">My courses</a>
-    </h2>
-  </li>
-  <li>
-  <h2>
-    <a href="<s:url action="list_lessons_for_student"><s:param name="userId">${param["userId"]}</s:param></s:url>">Passed lessons</a>
-  </h2>
-  </li>
-  <li>
-    <h2>
-      <a href="<s:url action="list_certificates_for_students"><s:param name="userId">${param["userId"]}</s:param></s:url>">My certificates</a>
-    </h2>
-  </li>
-  <li>
-    <h2>
-      <a href="<s:url action="get_user_for_student"><s:param name="userId">${param["userId"]}</s:param></s:url>">Settings</a>
-    </h2>
-  </li>
-  <li>
-    <h3>
-      <a href="<s:url action="logout"/>">Logout</a>
-    </h3>
-  </li>
-</ul>
+<div class="navbar navbar-default navbar-inverse navbar-static-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#"><span>Learning portal</span></a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar-ex-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="active">
+                    <a href="home_student.jsp">Home</a>
+                </li>
+                <li>
+                    <a href="all_courses_student.jsp">Courses</a>
+                </li>
+                <li>
+                    <a href="all_lessons_student.jsp">Lessons</a>
+                </li>
+                <li>
+                    <a href="all_certificates_student.jsp">Certificates</a>
+                </li>
+                <li>
+                    <a href="<s:url action="logout"/>" data-toggle="modal">Logout <span
+                            class="glyphicon glyphicon-log-out"></span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h1>Student page</h1>
+                kfljldkfjdfn fdjgul ndldfh nuliig nbdlfk hdnlfjk dnhbgld dfbgl bdldfbl
+            </div>
+        </div>
+    </div>
+</div>
+<footer class="navbar-fixed-bottom">
+    <div class="container">
+        <div class="row" style="background-color: #272b30">
+            <hr>
+            <div class="col-lg-12" >
+                <div class="col-md-8">
+                    <a href="#">Terms of Service</a>|
+                    <a href="#">Privacy</a>
+                </div>
+                <div class="col-md-4">
+                    <p class="muted pull-right">© 2016 Trallers. All rights reserved</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
 </body>
 </html>

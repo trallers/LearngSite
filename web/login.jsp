@@ -29,7 +29,7 @@
         <div class="collapse navbar-collapse" id="navbar-ex-collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a href="#">Home</a>
+                    <a href="index.jsp">Home</a>
                 </li>
                 <li>
                     <a href="#">Courses</a>
@@ -55,13 +55,13 @@
                 <s:form action="login" method="post" validate="true">
                     <s:div class="form-group">
                         <s:textfield label="Login" name="login" class="form-control"
-                                     placeholder="Enter login" cssStyle="padding: 10px;"/>
+                                     placeholder="Enter login"/>
                     </s:div>
                     <s:div class="form-group">
                         <s:password label="Password" name="password" class="form-control"
-                                    placeholder="Enter password" cssStyle="padding: 10px;"/>
+                                    placeholder="Enter password"/>
                     </s:div>
-                    <s:submit value="Login" class="active btn btn-primary"/>
+                    <s:submit value="Login" class="active btn btn-primary allElements"/>
                 </s:form>
             </div>
 

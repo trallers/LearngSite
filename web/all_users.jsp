@@ -30,7 +30,7 @@
                 <li>
                     <a href="home_admin.jsp">Home</a>
                 </li>
-                <li>
+                <li class="active">
                     <a href="<s:url action="list_users_for_admin" ></s:url>">Users</a>
                 </li>
                 <li>

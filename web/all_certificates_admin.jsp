@@ -39,8 +39,8 @@
                 <li>
                     <a href="<s:url action="list_lessons_for_admin"/>">Lessons</a>
                 </li>
-                <li>
-                    <a class="active" href="<s:url action="list_certificates_for_admin"/>">Certificates</a>
+                <li class="active" >
+                    <a href="<s:url action="list_certificates_for_admin"/>">Certificates</a>
                 </li>
                 <li>
                     <a href="/login.jsp" data-toggle="modal">Logout <span
@@ -95,9 +95,6 @@
                     <s:param name="certificateId" value="%{null}"/>
                 </s:url>
                 <s:a href="%{addURL}">Create</s:a>
-                <s:url id="back" value="home_admin.jsp">
-                    <s:param name="userId" value="%{userId}"/>
-                </s:url>
             </div>
         </div>
     </div>
