@@ -2,13 +2,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <script type="text/javascript" src="js/jquery-1.6.js"></script>
+    <script type="text/javascript" src="js/jquery-1.12.3.js"></script>
     <title>Learning site</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 
-    <link href="font-awesome/css/font-awesome.min.css"  rel="stylesheet"
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet"
           type="text/css">
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet" type="text/css">
@@ -53,43 +53,52 @@
                 <s:actionerror/>
 
                 <s:form action="register" method="post" validate="true">
-                    <s:textfield name="login" id="login" class="form-control" label="Login" placeholder="Enter login"/>
-                    <s:password name="user.password" label="Password"  class="form-control"
-                                placeholder="Enter password"/>
-                    <s:password name="repeatPassword" label="Repeat password"  class="form-control"
-                                placeholder="Repeat password"/>
+                    <s:textfield name="login" id="login"
+                                 class="form-control" label="Login"
+                                 placeholder="Enter login"
+                                 cssStyle="margin-bottom: 7px;"/>
+                    <s:label id="status" name="status"></s:label>
+                    <s:password name="user.password" label="Password" class="form-control"
+                                placeholder="Enter password" cssStyle="margin-bottom: 7px;"/>
+                    <s:password name="repeatPassword" label="Repeat password" class="form-control"
+                                placeholder="Repeat password" cssStyle="margin-bottom: 7px;"/>
                     <s:select class="ListU form-control" list="{'student','lecturer'}" name="user.role" label="Role"
-                              placeholder="student"/>
-                    <s:textfield name="user.name" label="Name"  class="form-control"
-                                 placeholder="Enter name"/>
-                    <s:textfield name="user.surname" label="Surname"  class="form-control"
-                                 placeholder="Enter surname"/>
-                    <s:textfield name="user.phone" label="Phone"  class="form-control"
-                                 placeholder="Enter phone"/>
-                    <s:textfield name="user.email" label="Email"  class="form-control"
-                                 placeholder="Enter email"/>
-                    <s:hidden name="user.banStatus" value="0"  class="form-control"
-                              placeholder=""/>
-                    <s:submit value="Register" class="active btn btn-primary"/>
+                              placeholder="student" cssStyle="margin-bottom: 7px;"/>
+                    <s:textfield name="user.name" label="Name" class="form-control"
+                                 placeholder="Enter name" cssStyle="margin-bottom: 7px;"/>
+                    <s:textfield name="user.surname" label="Surname" class="form-control"
+                                 placeholder="Enter surname" cssStyle="margin-bottom: 7px;"/>
+                    <s:textfield name="user.phone" label="Phone" class="form-control"
+                                 placeholder="Enter phone" cssStyle="margin-bottom: 7px;"/>
+                    <s:textfield name="user.email" label="Email" class="form-control"
+                                 placeholder="Enter email" cssStyle="margin-bottom: 7px;"/>
+                    <s:hidden name="user.banStatus" value="0" class="form-control"
+                              placeholder="" cssStyle="margin-bottom: 7px;"/>
+                    <s:submit value="Register" class="active btn btn-primary" cssStyle="margin-bottom: 7px;"/>
+
                 </s:form>
 
                 <script>
-                    $("#login").change(function(){
-
-                        $.ajax( {
+                    $("#login").change(function () {
+                        $("#status").html('<img src="images/loader.gif" width="16" height="16" align="absmiddle">&nbsp;Checking availability...');
+                        $.ajax({
                             type: "GET",
-                            url : 'check_login_exist.action?userName='+$("#login").val(),
-                            dataType : 'text',
-                            success : function(data) {
+                            url: 'check_login_exist.action?userName=' + $("#login").val(),
+                            dataType: 'text',
+                            success: function (data) {
                                 if ('exist' === data) {
-                                    alert("User with nickname " + $("#login").val() + " already exist.");
+                                    $("#status").html('<img src="images/cross.png" width="16" height="16" align="absmiddle">&nbsp;User with thith login already exist');
                                 }
                             },
-                            error : function() {
+                            error: function () {
                                 alert("Abnormal！");
                             }
                         });
-                    })
+                        if ($("#login").val().length > 3)
+                            $("#status").html('<img src="images/tick.png" width="16" height="16" align="absmiddle">&nbsp;Good login');
+                        else
+                            $("#status").html('<img src="images/cross.png" width="16" height="16" align="absmiddle">&nbsp;Login should be longer than 3 characters');
+                    });
                 </script>
             </div>
 
