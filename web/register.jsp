@@ -2,7 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <script type="text/javascript" src="js/jquery-1.6.js"></script>
+    <script type="text/javascript" src="js/jquery-1.12.3.js"></script>
     <title>Learning site</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -75,7 +75,6 @@
 
                 <script>
                     $("#login").change(function(){
-
                         $.ajax( {
                             type: "GET",
                             url : 'check_login_exist.action?userName='+$("#login").val(),
@@ -86,7 +85,7 @@
                                 }
                             },
                             error : function() {
-                                alert("Abnormal！");
+                                alert("error！");
                             }
                         });
                     })
