@@ -50,9 +50,10 @@
         <div class="row">
             <div class="col-md-12">
                 <h1>Register</h1>
-                <s:actionerror/>
 
-                <s:form action="register" method="post" validate="true">
+
+                <s:form action="registration" method="post" validate="true">
+                    <s:actionerror/>
                     <s:textfield name="login" id="login"
                                  class="form-control" label="Login"
                                  placeholder="Enter login"
@@ -79,7 +80,7 @@
                 </s:form>
 
                 <script>
-                    $("#login").change(function () {
+                    $("#login").keyup(function () {
                         $("#status").html('<img src="images/loader.gif" width="16" height="16" align="absmiddle">&nbsp;Checking availability...');
                         $.ajax({
                             type: "GET",
@@ -87,7 +88,7 @@
                             dataType: 'text',
                             success: function (data) {
                                 if ('exist' === data) {
-                                    $("#status").html('<img src="images/cross.png" width="16" height="16" align="absmiddle">&nbsp;User with thith login already exist');
+                                    $("#status").html('<img src="images/cross.png" width="16" height="16" align="absmiddle">&nbsp;User with this login already exist');
                                 }
                             },
                             error: function () {
@@ -95,7 +96,7 @@
                             }
                         });
                         if ($("#login").val().length > 3)
-                            $("#status").html('<img src="images/tick.png" width="16" height="16" align="absmiddle">&nbsp;Good login');
+                            $("#status").html('<img src="images/tick.png" width="16" height="16" align="absmiddle">&nbsp;You can use this login');
                         else
                             $("#status").html('<img src="images/cross.png" width="16" height="16" align="absmiddle">&nbsp;Login should be longer than 3 characters');
                     });
@@ -121,8 +122,6 @@
         </div>
     </div>
 </footer>
-
-
 </body>
 </html>
 
