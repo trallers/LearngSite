@@ -2,4 +2,4 @@ LearngSite.iml
 .idea/
 lib/
 out/
-src/resources
+src/resources/db.properties

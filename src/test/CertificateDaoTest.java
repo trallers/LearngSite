@@ -16,7 +16,6 @@ import org.dbunit.DBTestCase;
 
 import java.io.FileInputStream;
 import java.sql.Date;
-import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Properties;
