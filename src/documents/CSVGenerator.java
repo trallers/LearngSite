@@ -1,5 +1,6 @@
 package documents;
 
+import com.opensymphony.xwork2.ActionSupport;
 import util.DBUtil;
 
 import java.io.FileWriter;
@@ -8,13 +9,27 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class CSVGenerator {
-    private static FileWriter writer;
+public class CSVGenerator  extends ActionSupport {
     private static final String getColumnsNames = "SELECT * FROM ";
 
-    public static boolean generate(String path, String tableName) {
+    private String path;
+    private String tableName;
+
+    public void setPath(String _path){
+        this.path = _path;
+    }
+
+    public void setTableName(String _tableName){
+        this.tableName = _tableName;
+    }
+
+    public String generate(){
+       return generate(path, tableName);
+    }
+
+    public String generate(String path, String tableName) {
         try {
-            writer = new FileWriter(path);
+            FileWriter writer = new FileWriter(path);
 
             PreparedStatement statements = DBUtil.getConnection().prepareStatement(getColumnsNames + tableName);
             ResultSet rs = statements.executeQuery();
@@ -34,13 +49,13 @@ public class CSVGenerator {
             }
             writer.flush();
             writer.close();
-            return true;
+            return SUCCESS;
         } catch (IOException e) {
             //
-            return false;
+            return ERROR;
         } catch (SQLException e) {
             //
-            return false;
+            return ERROR;
         }
     }
 }
