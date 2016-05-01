@@ -31,13 +31,13 @@
                     <a href="home_student.jsp">Home</a>
                 </li>
                 <li>
-                    <a href="all_courses_student.jsp">Courses</a>
+                    <a href="<s:url action="list_courses_for_student"><s:param name="userId">${param["userId"]}</s:param></s:url>">My courses</a>
                 </li>
                 <li>
-                    <a href="all_lessons_student.jsp">Lessons</a>
+                    <a href="<s:url action="list_lessons_for_student"><s:param name="userId">${param["userId"]}</s:param></s:url>">Passed lessons</a>
                 </li>
                 <li>
-                    <a href="all_certificates_student.jsp">Certificates</a>
+                    <a href="<s:url action="list_certificates_for_students"><s:param name="userId">${param["userId"]}</s:param></s:url>">My certificates</a>
                 </li>
                 <li>
                     <a href="<s:url action="logout"/>" data-toggle="modal">Logout <span
