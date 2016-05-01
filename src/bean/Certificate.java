@@ -63,6 +63,31 @@ public class Certificate {
         this.date = date;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Certificate that = (Certificate) o;
+
+        if (!id.equals(that.id)) return false;
+        if (!student.equals(that.student)) return false;
+        if (!course.equals(that.course)) return false;
+        if (!data.equals(that.data)) return false;
+        return date.equals(that.date);
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id.hashCode();
+        result = 31 * result + student.hashCode();
+        result = 31 * result + course.hashCode();
+        result = 31 * result + data.hashCode();
+        result = 31 * result + date.hashCode();
+        return result;
+    }
+
     public Certificate() {
     }
 }

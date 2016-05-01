@@ -49,7 +49,7 @@ public class CertificateDao {
                 if(student != null && course != null)
                     certificateList.add(new Certificate(rs.getInt(1), student, course, rs.getString(4), rs.getDate(5)));
             }
-        } catch (SQLException e) {
+        } catch (SQLException | NullPointerException e) {
             e.printStackTrace();
         }
         return certificateList;
@@ -68,7 +68,7 @@ public class CertificateDao {
                 if(student != null && course != null)
                 certificateList.add(new Certificate(rs.getInt(1), student, course, rs.getString(4), rs.getDate(5)));
             }
-        } catch (SQLException e) {
+        } catch (SQLException | NullPointerException e) {
             e.printStackTrace();
         }
         return certificateList;
@@ -79,7 +79,7 @@ public class CertificateDao {
             PreparedStatement ps = DBUtil.getConnection().prepareStatement(DELETE_CERTIFICATE_BY_ID_QUERY);
             ps.setString(1, id);
             ps.execute();
-        }catch (SQLException e){
+        }catch (SQLException | NullPointerException e){
             e.printStackTrace();
             return false;
         }
@@ -94,7 +94,7 @@ public class CertificateDao {
                 ps.setString(3, certificate.getData());
                 ps.setDate(4,parseDateToSql(certificate.getDate()));
                 ps.executeUpdate();
-            } catch (SQLException e) {
+            } catch (SQLException | NullPointerException e) {
                 e.printStackTrace();
                 return false;
             }
@@ -119,7 +119,7 @@ public class CertificateDao {
                 ps.setInt(5, certificate.getId());
                 ps.execute();
                 return true;
-            } catch (SQLException e) {
+            } catch (SQLException | NullPointerException e) {
                 e.printStackTrace();
                 return false;
             }
@@ -144,7 +144,7 @@ public class CertificateDao {
                 certificate = new Certificate(rs.getInt(1), student, course, rs.getString(4), rs.getDate(5));
             }
 
-        } catch (SQLException e) {
+        } catch (SQLException | NullPointerException e) {
             e.printStackTrace();
         }
         return certificate;

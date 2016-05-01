@@ -19,6 +19,31 @@ public class Course {
 
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Course course = (Course) o;
+
+        if (!id.equals(course.id)) return false;
+        if (!name.equals(course.name)) return false;
+        if (!technology.equals(course.technology)) return false;
+        if (!price.equals(course.price)) return false;
+        return idLecturer.equals(course.idLecturer);
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id.hashCode();
+        result = 31 * result + name.hashCode();
+        result = 31 * result + technology.hashCode();
+        result = 31 * result + price.hashCode();
+        result = 31 * result + idLecturer.hashCode();
+        return result;
+    }
+
     public Course() {
     }
 

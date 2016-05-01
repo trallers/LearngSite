@@ -71,8 +71,22 @@ public class CertificateDaoTest extends DBTestCase {
     public void testRead() throws Exception {
         Certificate actualCertificate = listOfCertificates.get(0);
 
-        Certificate expectedCertificate = new Certificate(1, new User(1,"znexie", "1234", "admin", "Anton", "Shulga", "+375257576982", "znexie@gmail.com", false), new Course(3, "Advanced JS: Natural Simulations", "JS", 3, 200), "10 iz 10 paranek!!", new Date(new SimpleDateFormat("yyyy-mm-dd").parse("2022-03-20").getTime()));
+        Certificate expectedCertificate = new Certificate(1, new User(1,"znexie", "1234", "admin", "Anton", "Shulga", "+375257576982", "znexie@gmail.com", false), new Course(3, "Advanced JS: Natural Simulations", "JS", 3, 200), "10 iz 10 paranek!!", new Date(new SimpleDateFormat("yyyy-MM-dd").parse("2022-03-20").getTime()));
 
-        Assert.assertEquals(actualCertificate.getStudent().getPhone(), expectedCertificate.getStudent().getPhone());
+        Assert.assertEquals(actualCertificate, expectedCertificate);
+    }
+
+    @Test
+    public void testReadNull() {
+        Certificate expectedCertificate = CertificateDao.getInstance().getById("10000");
+
+        Assert.assertNull(expectedCertificate);
+    }
+
+    @Test
+    public void testCreateNull() {
+        Certificate certificate = new Certificate();
+
+        Assert.assertFalse(CertificateDao.getInstance().create(certificate));
     }
 }
