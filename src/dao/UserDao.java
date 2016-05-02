@@ -63,7 +63,7 @@ public class UserDao {
 
 
     }
-///////////
+
     public User login(String login, String password) {
         User currentUser = null;
         if(login != null && password != null) {
@@ -82,7 +82,7 @@ public class UserDao {
         }
         return currentUser;
     }
-///////////////
+
     public  boolean isLoginExist(String login){
         try {
             PreparedStatement ps = DBUtil.getConnection().prepareStatement(CHECK_LOGIN_QUERY);

@@ -33,8 +33,26 @@ public class Lesson {
         this.id = id;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
 
+        Lesson lesson = (Lesson) o;
 
+        if (!id.equals(lesson.id)) return false;
+        if (!course.equals(lesson.course)) return false;
+        return data.equals(lesson.data);
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id.hashCode();
+        result = 31 * result + course.hashCode();
+        result = 31 * result + data.hashCode();
+        return result;
+    }
 
     public Lesson(Integer id, Course course, Data data) {
         this.id = id;

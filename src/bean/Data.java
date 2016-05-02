@@ -28,6 +28,25 @@ public class Data {
         this.data = data;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Data data1 = (Data) o;
+
+        if (!id.equals(data1.id)) return false;
+        return data.equals(data1.data);
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id.hashCode();
+        result = 31 * result + data.hashCode();
+        return result;
+    }
+
     public Data() {
     }
 }
