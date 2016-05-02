@@ -29,13 +29,9 @@ CREATE TABLE `certificate` (
   `data` varchar(256) NOT NULL,
   `date` date NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `asdasd` (`id_student`),
   KEY `Student_idx` (`id_student`),
-  KEY `lllal` (`id_student`),
-  KEY `Course_idx` (`id_course`),
-  CONSTRAINT `CourseIDFK` FOREIGN KEY (`id_course`) REFERENCES `course` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `StudID` FOREIGN KEY (`id_student`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8;
+  KEY `lllal` (`id_student`)
+) ENGINE=InnoDB AUTO_INCREMENT=69 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -61,10 +57,8 @@ CREATE TABLE `course` (
   `technology` varchar(256) NOT NULL,
   `id_lecturer` int(11) NOT NULL,
   `price` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `Lecturer_idxs` (`id_lecturer`),
-  CONSTRAINT `id_lecturerFK` FOREIGN KEY (`id_lecturer`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -88,7 +82,7 @@ CREATE TABLE `data_for_lesson` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `data` longtext NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -97,7 +91,7 @@ CREATE TABLE `data_for_lesson` (
 
 LOCK TABLES `data_for_lesson` WRITE;
 /*!40000 ALTER TABLE `data_for_lesson` DISABLE KEYS */;
-INSERT INTO `data_for_lesson` VALUES (1,'data1');
+INSERT INTO `data_for_lesson` VALUES (1,'data1'),(45,'data1'),(46,'data1'),(47,'data1'),(48,'data1'),(49,'data1'),(50,'data1'),(51,'data1'),(52,'data1');
 /*!40000 ALTER TABLE `data_for_lesson` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -112,12 +106,8 @@ CREATE TABLE `lesson` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_course` int(11) NOT NULL,
   `id_data` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `CourseForLesson_idx` (`id_course`),
-  KEY `data_for_lesson_idx` (`id_data`),
-  CONSTRAINT `CourseForLesson` FOREIGN KEY (`id_course`) REFERENCES `course` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `data_for_lesson` FOREIGN KEY (`id_data`) REFERENCES `data_for_lesson` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -142,9 +132,7 @@ CREATE TABLE `passed_lesson` (
   `id_student` int(11) NOT NULL,
   `id_lesson` int(11) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `LessonPassedForStudent_idx` (`id_lesson`),
-  KEY `id_studentFK_idx` (`id_student`),
-  CONSTRAINT `id_lessonFK` FOREIGN KEY (`id_lesson`) REFERENCES `lesson` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `id_studentFK_idx` (`id_student`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -168,11 +156,7 @@ CREATE TABLE `student_course` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_of_student` int(11) NOT NULL,
   `id_of_course` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `id_studentFK_idx` (`id_of_student`),
-  KEY `id_courceFK_idx` (`id_of_course`),
-  CONSTRAINT `id_of_courseFK` FOREIGN KEY (`id_of_course`) REFERENCES `course` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `idstudentFK` FOREIGN KEY (`id_of_student`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -225,4 +209,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-05-02  2:17:44
+-- Dump completed on 2016-05-02  4:46:36
