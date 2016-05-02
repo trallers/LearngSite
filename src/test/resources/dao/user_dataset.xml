@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+    <user id="1" login="login1" role="admin" name="name1" surname="surname1" phone="phone1" email="email1" ban_status="0" password="1"/>
+    <user id="2" login="login2" role="student" name="name2" surname="surname2" phone="phone2" email="email2" ban_status="0" password="2"/>
+    <user id="3" login="login3" role="lecturer" name="name3" surname="surname3" phone="phone3" email="email3" ban_status="0" password="3"/>
+</dataset>

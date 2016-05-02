@@ -28,7 +28,7 @@ public class UserService {
 
     public static User getUserByID(String id){
         UserDao dao = DaoFactory.getUserDao();
-        return dao.geByID(id);
+        return dao.getByID(id);
     }
 
     public static Integer updateUser(User user){

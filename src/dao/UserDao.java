@@ -63,7 +63,7 @@ public class UserDao {
 
 
     }
-
+///////////
     public User login(String login, String password) {
         User currentUser = null;
         if(login != null && password != null) {
@@ -76,13 +76,13 @@ public class UserDao {
                     currentUser = new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getBoolean(9));
                 }
 
-            } catch (SQLException e) {
+            } catch (SQLException | NullPointerException e) {
                 e.printStackTrace();
             }
         }
         return currentUser;
     }
-
+///////////////
     public  boolean isLoginExist(String login){
         try {
             PreparedStatement ps = DBUtil.getConnection().prepareStatement(CHECK_LOGIN_QUERY);
@@ -92,13 +92,13 @@ public class UserDao {
             if(rs.next())
                 return true;
             return false;
-        } catch (SQLException e) {
+        } catch (SQLException | NullPointerException e) {
             e.printStackTrace();
             return true;
         }
 
     }
-    
+
     public List<User> getAll(){
         List<User> userList = new ArrayList<>();
         try {
@@ -108,13 +108,13 @@ public class UserDao {
                 userList.add(new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7),rs.getString(8), rs.getBoolean(9)));
             return userList;
 
-        } catch (SQLException e) {
+        } catch (SQLException | NullPointerException e) {
             e.printStackTrace();
         }
         return userList;
     }
 
-    public User geByID(String id) {
+    public User getByID(String id) {
         User user = new User();
         if(id != null) {
             try {
@@ -132,7 +132,7 @@ public class UserDao {
                     user.setEmail(rs.getString(8));
                     user.setBanStatus(rs.getBoolean(9));
                 }
-            } catch (SQLException e) {
+            } catch (SQLException | NullPointerException e) {
                 e.printStackTrace();
             }
         }
@@ -151,7 +151,7 @@ public class UserDao {
             ps.setBoolean(6, user.getBanStatus());
             ps.setInt(7, user.getId());
             ps.executeUpdate();
-        } catch (SQLException e) {
+        } catch (SQLException | NullPointerException e) {
             e.printStackTrace();
             return user.getId();
         }
@@ -164,7 +164,7 @@ public class UserDao {
             ps.setString(1, id);
             ps.execute();
             return true;
-        }catch (SQLException e){
+        }catch (SQLException | NullPointerException e){
             e.printStackTrace();
             return false;
         }
@@ -179,7 +179,7 @@ public class UserDao {
             while(rs.next()){
                 lecturerList.add(new User(rs.getInt(1), rs.getString(2), rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getBoolean(9)));
             }
-        } catch (SQLException e) {
+        } catch (SQLException | NullPointerException e) {
             e.printStackTrace();
         }
         return lecturerList;
@@ -193,7 +193,7 @@ public class UserDao {
             while(rs.next()){
                 lecturerList.add(new User(rs.getInt(1), rs.getString(2), rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getBoolean(9)));
             }
-        } catch (SQLException e) {
+        } catch (SQLException | NullPointerException e) {
             e.printStackTrace();
         }
         return lecturerList;

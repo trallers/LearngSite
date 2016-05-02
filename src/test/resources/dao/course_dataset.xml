@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+    <course id="1" name="name1" technology="technology1" id_lecturer="3" price="1"/>
+    <course id="2" name="name2" technology="technology2" id_lecturer="3" price="2"/>
+    <course id="3" name="name3" technology="technology3" id_lecturer="3" price="3"/>
+    <course id="4" name="name4" technology="technology4" id_lecturer="3" price="4"/>
+</dataset>

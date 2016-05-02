@@ -38,12 +38,12 @@ public class CourseDao {
             while (rs.next()){
                 coursesList.add(new Course(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getInt(5)));
             }
-        } catch (SQLException e) {
+        } catch (SQLException | NullPointerException e) {
             e.printStackTrace();
         }
         return coursesList;
     }
-    
+
     public List<Course> getAll(){
         List<Course> courseList = new ArrayList<>();
         try {
@@ -52,7 +52,7 @@ public class CourseDao {
             while (rs.next()){
                 courseList.add(new Course(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getInt(5)));
             }
-        } catch (SQLException e) {
+        } catch (SQLException | NullPointerException e) {
             e.printStackTrace();
         }
         return courseList;
@@ -67,7 +67,7 @@ public class CourseDao {
             ps.setInt(4, course.getPrice());
             ps.executeUpdate();
             return true;
-        } catch (SQLException e) {
+        } catch (SQLException | NullPointerException e) {
             e.printStackTrace();
             return false;
         }
@@ -79,7 +79,7 @@ public class CourseDao {
             ps.setString(1, id);
             ps.execute();
             return true;
-        } catch (SQLException e) {
+        } catch (SQLException | NullPointerException e) {
             e.printStackTrace();
             return false;
         }
@@ -96,7 +96,7 @@ public class CourseDao {
                 ps.setInt(5, course.getId());
                 ps.execute();
                 return true;
-            } catch (SQLException e) {
+            } catch (SQLException | NullPointerException e) {
                 e.printStackTrace();
                 return false;
             }
@@ -115,7 +115,7 @@ public class CourseDao {
             while (rs.next())
                 course = new Course(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getInt(5));
 
-        } catch (SQLException e) {
+        } catch (SQLException | NullPointerException e) {
             e.printStackTrace();
         }
         return course;
@@ -130,7 +130,7 @@ public class CourseDao {
             while (rs.next()){
                 courseList.add(new Course(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getInt(5)));
             }
-        } catch (SQLException e) {
+        } catch (SQLException | NullPointerException e) {
             e.printStackTrace();
         }
         return courseList;

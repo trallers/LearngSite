@@ -16,6 +16,7 @@ import org.dbunit.DBTestCase;
 
 import java.io.FileInputStream;
 import java.sql.Date;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Properties;
@@ -25,7 +26,6 @@ import java.util.Properties;
  */
 public class CertificateDaoTest extends DBTestCase {
     private IDataSet dataSet;
-    private List<Certificate> listOfCertificates = CertificateDao.getInstance().getAll();
 
     @Override
     protected IDataSet getDataSet() throws Exception {
@@ -40,7 +40,7 @@ public class CertificateDaoTest extends DBTestCase {
 
     @Override
     protected DatabaseOperation getTearDownOperation() throws Exception {
-        return DatabaseOperation.NONE;
+        return DatabaseOperation.CLEAN_INSERT;
     }
 
     public CertificateDaoTest(String testName) throws Exception {
@@ -62,17 +62,29 @@ public class CertificateDaoTest extends DBTestCase {
 
     @Test
     public void testConnection() throws Exception {
+        System.out.print(dataSet);
         IDatabaseConnection dbConnection = getConnection();
         Assert.assertNotNull(dbConnection);
     }
 
     @Test
     public void testRead() throws Exception {
+        List<Certificate> listOfCertificates = CertificateDao.getInstance().getAll();
         Certificate actualCertificate = listOfCertificates.get(0);
 
-        Certificate expectedCertificate = new Certificate(1, new User(1,"znexie", "1234", "admin", "Anton", "Shulga", "+375257576982", "znexie@gmail.com", false), new Course(3, "Advanced JS: Natural Simulations", "JS", 3, 200), "10 iz 10 paranek!!", new Date(new SimpleDateFormat("yyyy-MM-dd").parse("2022-03-20").getTime()));
+        Certificate expectedCertificate = new Certificate(1, new User(2,"login2", "2", "student", "name2", "surname2", "phone2", "email2", false), new Course(1, "name1", "technology1", 3, 1), "data1", new Date(new SimpleDateFormat("yyyy-MM-dd").parse("2007-01-01").getTime()));
 
         Assert.assertEquals(actualCertificate, expectedCertificate);
+    }
+
+    @Test
+    public void testReadUnexpected() throws Exception {
+        List<Certificate> listOfCertificates = CertificateDao.getInstance().getAll();
+        Certificate actualCertificate = listOfCertificates.get(0);
+
+        Certificate expectedCertificate = new Certificate(1, new User(1,"znexie", "1234", "admin", "Anton", "Shulga", "+375222211220", "znexie@gmail.com", false), new Course(3, "Advanced JS: Natural Simulations", "JS", 3, 200), "10 iz 10 paranek!!", new java.util.Date(new SimpleDateFormat("yyyy-MM-dd").parse("2022-03-20").getTime()));
+
+        Assert.assertNotEquals(actualCertificate, expectedCertificate);
     }
 
     @Test
@@ -83,9 +95,75 @@ public class CertificateDaoTest extends DBTestCase {
     }
 
     @Test
+    public void testReadOnNonCorrectId() {
+        Certificate expectedCertificate = CertificateDao.getInstance().getById("nooooo");
+
+        Assert.assertNull(expectedCertificate);
+    }
+
+    @Test
     public void testCreateNull() {
         Certificate certificate = new Certificate();
 
         Assert.assertFalse(CertificateDao.getInstance().create(certificate));
+    }
+
+    @Test
+    public void testCreateWithSomeNullFields() {
+        Certificate certificate = new Certificate();
+        certificate.setId(1);
+        certificate.setData("some data");
+
+        Assert.assertFalse(CertificateDao.getInstance().create(certificate));
+    }
+
+    @Test
+    public void testCreate() throws Exception {
+        Certificate certificate = new Certificate(15, new User(1,"znexie", "1234", "admin", "Anton", "Shulga", "+375292237896", "znexie@gmail.com", false), new Course(3, "Advanced JS: Natural Simulations", "JS", 3, 200), "10 iz 10 paranek!!", new java.util.Date(new SimpleDateFormat("yyyy-MM-dd").parse("2049-03-20").getTime()));
+
+        Assert.assertTrue(CertificateDao.getInstance().create(certificate));
+    }
+
+    @Test
+    public void testCreateWithExistingId() throws Exception {
+        Certificate certificate = new Certificate(1, new User(1,"znexie", "1234", "admin", "Anton", "Shulga", "+375292237896", "znexie@gmail.com", false), new Course(3, "Advanced JS: Natural Simulations", "JS", 3, 200), "10 iz 10 paranek!!", new java.util.Date(new SimpleDateFormat("yyyy-MM-dd").parse("2049-03-20").getTime()));
+
+        Assert.assertTrue(CertificateDao.getInstance().create(certificate));
+    }
+
+    @Test
+    public void testDelete() {
+        Assert.assertTrue(CertificateDao.getInstance().delete("2"));
+    }
+
+    @Test(expected = SQLException.class)
+    public void testDeleteNonExistingElement() {
+        CertificateDao.getInstance().delete("222");
+    }
+
+    @Test(expected = SQLException.class)
+    public void testDeleteWithWrongParam() {
+        CertificateDao.getInstance().delete("kek");
+    }
+
+    @Test
+    public void testGetById() {
+        List<Certificate> listOfCertificates = CertificateDao.getInstance().getAll();
+        Assert.assertEquals(listOfCertificates.get(0), CertificateDao.getInstance().getById("1"));
+    }
+
+    @Test
+    public void testGetByNonExistingId() {
+        Assert.assertNull(CertificateDao.getInstance().getById("555"));
+    }
+
+    @Test
+    public void testGetByWrongId() {
+        Assert.assertNull(CertificateDao.getInstance().getById("zzz"));
+    }
+
+    @Test
+    public void testGetAll() {
+        Assert.assertNotNull(CertificateDao.getInstance().getAll());
     }
 }

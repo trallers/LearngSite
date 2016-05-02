@@ -1,22 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataset>
-    <certificate id="1" id_student="1" id_course="1" data="data1" date="2007-01-01"/>
+    <certificate id="1" id_student="2" id_course="1" data="data1" date="2007-01-01"/>
     <certificate id="2" id_student="2" id_course="2" data="data2" date="2008-01-01"/>
-    <certificate id="3" id_student="3" id_course="3" data="data3" date="2009-01-01"/>
-    <certificate id="4" id_student="4" id_course="4" data="data4" date="2010-01-01"/>
-
-    <student id="1" login="login1" name="name1" surname="surname1" phone="phone1" email="email1" ban_status="0" password="1"/>
-    <student id="2" login="login2" name="name2" surname="surname2" phone="phone2" email="email2" ban_status="0" password="2"/>
-    <student id="3" login="login3" name="name3" surname="surname3" phone="phone3" email="email3" ban_status="0" password="3"/>
-    <student id="4" login="login4" name="name4" surname="surname4" phone="phone4" email="email4" ban_status="0" password="4"/>
-
-    <course id="1" name="name1" technology="technology1" id_lecturer="1" price="1"/>
-    <course id="2" name="name2" technology="technology2" id_lecturer="2" price="2"/>
-    <course id="3" name="name3" technology="technology3" id_lecturer="3" price="3"/>
-    <course id="4" name="name4" technology="technology4" id_lecturer="4" price="4"/>
-
-    <lecturer id="1" login="login1" password="1" name="name1" surname="surname1" phone="phone1" email="email1" ban_status="0"/>
-    <lecturer id="2" login="login2" password="2" name="name2" surname="surname2" phone="phone2" email="email2" ban_status="0"/>
-    <lecturer id="3" login="login3" password="3" name="name3" surname="surname3" phone="phone3" email="email3" ban_status="0"/>
-    <lecturer id="4" login="login4" password="4" name="name4" surname="surname4" phone="phone4" email="email4" ban_status="0"/>
+    <certificate id="3" id_student="2" id_course="3" data="data3" date="2009-01-01"/>
+    <certificate id="4" id_student="2" id_course="4" data="data4" date="2010-01-01"/>
 </dataset>

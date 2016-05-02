@@ -51,7 +51,7 @@ public class LessonDao {
                 Course course = GetCourseByIdService.execute(rs.getString(2));
                 lessonList.add(new Lesson(rs.getInt(1), course, data));
             }
-        } catch (SQLException e) {
+        } catch (SQLException | NullPointerException e) {
             e.printStackTrace();
 
         }
@@ -67,7 +67,7 @@ public class LessonDao {
             while (resultSet.next()) {
               return  new Data(resultSet.getInt(1), resultSet.getString(2));
             }
-        } catch (SQLException e) {
+        } catch (SQLException | NullPointerException e) {
             e.printStackTrace();
         }
         return null;
@@ -84,7 +84,7 @@ public class LessonDao {
                 lessonList.add(new Lesson(rs.getInt(1), course, data));
             }
 
-        } catch (SQLException e) {
+        } catch (SQLException | NullPointerException e) {
             e.printStackTrace();
         }
         return lessonList;
@@ -102,7 +102,7 @@ public class LessonDao {
                 Course course = GetCourseByIdService.execute(rs.getString(2));
                 lessonList.add(new Lesson(rs.getInt(1), course, data));
             }
-        } catch (SQLException e) {
+        } catch (SQLException | NullPointerException e) {
             e.printStackTrace();
 
         }
@@ -124,7 +124,7 @@ public class LessonDao {
                 lesson = new Lesson(rs.getInt(1), course, data);
             }
 
-        } catch (SQLException e) {
+        } catch (SQLException | NullPointerException e) {
             e.printStackTrace();
         }
         return lesson;
@@ -146,7 +146,7 @@ public class LessonDao {
             ps.setInt(2, idData);
             ps.execute();
             return true;
-        } catch (SQLException e) {
+        } catch (SQLException | NullPointerException e) {
             e.printStackTrace();
             return false;
         }
@@ -158,7 +158,7 @@ public class LessonDao {
             ps.setString(1, id);
             ps.execute();
             return true;
-        } catch (SQLException e) {
+        } catch (SQLException | NullPointerException e) {
             e.printStackTrace();
             return false;
         }
@@ -178,7 +178,7 @@ public class LessonDao {
                 ps.setInt(3, lesson.getId());
                 ps.execute();
                 return true;
-            } catch (SQLException e) {
+            } catch (SQLException | NullPointerException e) {
                 e.printStackTrace();
                 return false;
             }
