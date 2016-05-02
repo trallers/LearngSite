@@ -28,19 +28,19 @@
         <div class="collapse navbar-collapse" id="navbar-ex-collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a href="home_admin.jsp">Home</a>
-                </li>
-                <li>
-                    <a href="<s:url action="list_users_for_admin" ></s:url>">Users</a>
+                    <a href="<s:url action="home_admin"><s:param name="userId">${param["userId"]}</s:param></s:url>">Home</a>
                 </li>
                 <li class="active">
-                    <a href="<s:url action="list_courses_for_admin"></s:url>">Courses</a>
+                    <a href="<s:url action="list_users_for_admin"><s:param name="userId">${param["userId"]}</s:param></s:url>">Users</a>
                 </li>
                 <li>
-                    <a href="<s:url action="list_lessons_for_admin"></s:url>">Lessons</a>
+                    <a href="<s:url action="list_courses_for_admin"><s:param name="userId">${param["userId"]}</s:param></s:url>">Courses</a>
                 </li>
                 <li>
-                    <a href="<s:url action="list_certificates_for_admin"></s:url>">Certificates</a>
+                    <a href="<s:url action="list_lessons_for_admin"><s:param name="userId">${param["userId"]}</s:param></s:url>">Lessons</a>
+                </li>
+                <li>
+                    <a href="<s:url action="list_certificates_for_admin"><s:param name="userId">${param["userId"]}</s:param></s:url>">Certificates</a>
                 </li>
                 <li>
                     <a href="<s:url action="logout"/>" data-toggle="modal">Logout <span
@@ -76,12 +76,14 @@
                                     <td>
                                         <s:url id="editURL" action="get_course_for_admin">
                                             <s:param name="courseId" value="%{id}"/>
+                                            <s:param name="userId" value="%{userId}"/>
                                         </s:url>
                                         <s:a href="%{editURL}">Edit</s:a>
                                     </td>
                                     <td>
                                         <s:url id="deleteURL" action="delete_course">
                                             <s:param name="courseId" value="%{id}"/>
+                                            <s:param name="userId" value="%{userId}"/>
                                         </s:url>
                                         <s:a href="%{deleteURL}">Delete</s:a>
                                     </td>
@@ -94,14 +96,11 @@
                     <s:param name="courseId" value="%{null}"/>
                 </s:url>
                 <s:a href="%{addURL}">Create</s:a>
-                <s:url id="back" value="home_admin.jsp">
-                    <s:param name="userID" value="%{userID}"/>
-                </s:url>
             </div>
         </div>
     </div>
 </div>
-<footer class="navbar-fixed-bottom">
+<footer class="navbar-bottom">
     <div class="container">
         <div class="row">
             <hr>

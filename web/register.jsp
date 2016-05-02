@@ -57,10 +57,10 @@
                     <s:textfield name="login" id="login"
                                  class="form-control" label="Login"
                                  placeholder="Enter login"/>
-                    <s:label id="status" name="status"></s:label>
-                    <s:password name="user.password" label="Password" class="form-control"
+                    <s:label id="status" name="status"/>
+                    <s:password name="user.password" label="Password" id="password" class="form-control"
                                 placeholder="Enter password"/>
-                    <s:password name="repeatPassword" label="Repeat password" class="form-control"
+                    <s:password name="repeatPassword" label="Repeat password" id="repeatPassword" class="form-control"
                                 placeholder="Repeat password"/>
                     <s:select class="ListU form-control" list="{'student','lecturer'}" name="user.role" label="Role"
                               placeholder="student"/>
@@ -99,6 +99,13 @@
                         else
                             $("#status").html('<img src="images/cross.png" width="16" height="16" align="absmiddle">&nbsp;Login should be longer than 3 characters');
                     });
+                    $("#repeatPassword").keyup(function () {
+                       if($("#repeatPassword").val() !== $("#password").val())
+                           $("#status").html('<img src="images/cross.png" width="16" height="16" align="absmiddle">&nbsp;Passwords doesnt match');
+                        else{
+                           $("#status").html('<img src="images/tick.png" width="16" height="16" align="absmiddle">&nbsp;Passwords matches');
+                       }
+                       });
                 </script>
             </div>
 

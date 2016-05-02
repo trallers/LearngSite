@@ -29,19 +29,19 @@
         <div class="collapse navbar-collapse" id="navbar-ex-collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a href="home_admin.jsp">Home</a>
+                    <a href="<s:url action="home_admin"><s:param name="userId">${param["userId"]}</s:param></s:url>">Home</a>
                 </li>
                 <li class="active">
-                    <a href="<s:url action="list_users_for_admin" />">Users</a>
+                    <a href="<s:url action="list_users_for_admin"><s:param name="userId">${param["userId"]}</s:param></s:url>">Users</a>
                 </li>
                 <li>
-                    <a href="<s:url action="list_courses_for_admin"/>">Courses</a>
+                    <a href="<s:url action="list_courses_for_admin"><s:param name="userId">${param["userId"]}</s:param></s:url>">Courses</a>
                 </li>
                 <li>
-                    <a href="<s:url action="list_lessons_for_admin"/>">Lessons</a>
+                    <a href="<s:url action="list_lessons_for_admin"><s:param name="userId">${param["userId"]}</s:param></s:url>">Lessons</a>
                 </li>
                 <li>
-                    <a href="<s:url action="list_certificates_for_admin"/>">Certificates</a>
+                    <a href="<s:url action="list_certificates_for_admin"><s:param name="userId">${param["userId"]}</s:param></s:url>">Certificates</a>
                 </li>
                 <li>
                     <a href="<s:url action="logout"/>" data-toggle="modal">Logout <span
@@ -56,6 +56,7 @@
         <div class="row">
             <div class="col-md-12">
                 <h2>User info</h2>
+                <s:hidden name="userId"/>
                 <s:form action="ban_user" class="Center" validate="true">
                     <s:textfield name="user.id" readonly="true" class="form-control"
                                  placeholder="Enter id" cssStyle="display: none"/>
@@ -80,7 +81,7 @@
         </div>
     </div>
 </div>
-<footer class="navbar-fixed-bottom">
+<footer class="navbar-bottom">
     <div class="container">
         <div class="row">
             <hr>

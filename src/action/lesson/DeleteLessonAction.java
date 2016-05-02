@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 public class DeleteLessonAction extends ActionSupport {
     private String lessonId;
     private HttpServletRequest request;
+    private String userId;
 
     public String getUserId() {
         return userId;
@@ -20,9 +21,6 @@ public class DeleteLessonAction extends ActionSupport {
     public void setUserId(String userId) {
         this.userId = userId;
     }
-
-    private String userId;
-
 
     public String getLessonId() {
         return lessonId;

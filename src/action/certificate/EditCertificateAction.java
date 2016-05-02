@@ -22,6 +22,15 @@ public class EditCertificateAction extends ActionSupport {
     private List<Course> courseList;
     private String studentSurname;
     private String courseName;
+    private String userId;
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
 
     public String getStudentSurname() {
         return studentSurname;

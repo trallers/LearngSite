@@ -8,6 +8,7 @@ import service.course.DeleteCourseService;
  */
 public class DeleteCourseAction extends ActionSupport{
     private String courseId;
+    private String userId;
 
     public String getCourseId() {
         return courseId;
@@ -26,5 +27,13 @@ public class DeleteCourseAction extends ActionSupport{
             addActionError("Can't delete course.");
             return ERROR;
         }
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getUserId() {
+        return userId;
     }
 }

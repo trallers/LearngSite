@@ -87,7 +87,7 @@
         </div>
     </div>
 </div>
-<footer class="navbar-fixed-bottom">
+<footer class="navbar-bottom">
     <div class="container">
         <div class="row" style="background-color: #272b30">
             <hr>

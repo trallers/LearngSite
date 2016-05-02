@@ -28,22 +28,22 @@
         <div class="collapse navbar-collapse" id="navbar-ex-collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a href="home_admin.jsp">Home</a>
+                    <a href="<s:url action="home_admin"><s:param name="userId">${param["userId"]}</s:param></s:url>">Home</a>
+                </li>
+                <li class="active">
+                    <a href="<s:url action="list_users_for_admin"><s:param name="userId">${param["userId"]}</s:param></s:url>">Users</a>
                 </li>
                 <li>
-                    <a href="<s:url action="list_users_for_admin"/>">Users</a>
+                    <a href="<s:url action="list_courses_for_admin"><s:param name="userId">${param["userId"]}</s:param></s:url>">Courses</a>
                 </li>
                 <li>
-                    <a href="<s:url action="list_courses_for_admin"/>">Courses</a>
+                    <a href="<s:url action="list_lessons_for_admin"><s:param name="userId">${param["userId"]}</s:param></s:url>">Lessons</a>
                 </li>
                 <li>
-                    <a href="<s:url action="list_lessons_for_admin"/>">Lessons</a>
-                </li>
-                <li class="active" >
-                    <a href="<s:url action="list_certificates_for_admin"/>">Certificates</a>
+                    <a href="<s:url action="list_certificates_for_admin"><s:param name="userId">${param["userId"]}</s:param></s:url>">Certificates</a>
                 </li>
                 <li>
-                    <a href="/login.jsp" data-toggle="modal">Logout <span
+                    <a href="<s:url action="logout"/>" data-toggle="modal">Logout <span
                             class="glyphicon glyphicon-log-out"></span></a>
                 </li>
             </ul>
@@ -55,6 +55,7 @@
         <div class="row">
             <div class="col-md-12">
                 <h2>All certificates</h2>
+                <s:hidden name="userId"/>
                 <s:if test="certificateList.size() > 0">
                     <div class="content">
                         <table class="table table-hover" class="certificates_table">
@@ -76,12 +77,14 @@
                                     <td>
                                         <s:url id="editURL" action="get_certificate_for_admin">
                                             <s:param name="certificateId" value="%{id}"/>
+                                            <s:param name="userId" value="%{userId}"/>
                                         </s:url>
                                         <s:a href="%{editURL}">Edit</s:a>
                                     </td>
                                     <td>
                                         <s:url id="deleteURL" action="delete_certificate">
                                             <s:param name="certificateId" value="%{id}"/>
+                                            <s:param name="userId" value="%{userId}"/>
                                         </s:url>
                                         <s:a href="%{deleteURL}">Delete</s:a>
                                     </td>
@@ -99,7 +102,7 @@
         </div>
     </div>
 </div>
-<footer class="navbar-fixed-bottom">
+<footer class="navbar-bottom">
     <div class="container">
         <div class="row">
             <hr>

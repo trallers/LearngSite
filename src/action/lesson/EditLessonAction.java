@@ -22,9 +22,6 @@ public class EditLessonAction extends ActionSupport {
     private List<Course> courseList;
     private String lessonId;
 
-
-
-
     public String getLessonId() {
         return lessonId;
     }

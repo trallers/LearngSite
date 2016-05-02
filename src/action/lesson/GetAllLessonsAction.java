@@ -11,6 +11,7 @@ import java.util.List;
  */
 public class GetAllLessonsAction extends ActionSupport {
     private List<Lesson> lessonList;
+    private String userId;
 
     public List<Lesson> getLessonList() {
         return lessonList;
@@ -24,5 +25,13 @@ public class GetAllLessonsAction extends ActionSupport {
     public String execute(){
         lessonList = GetAllLessonsService.execute();
         return SUCCESS;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getUserId() {
+        return userId;
     }
 }

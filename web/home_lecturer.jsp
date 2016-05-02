@@ -28,6 +28,9 @@
         <div class="collapse navbar-collapse" id="navbar-ex-collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li class="active">
+                    <a href="<s:url action="home_lecturer"><s:param name="userId">${param["userId"]}</s:param></s:url>">Home</a>
+                </li>
+                <li>
                     <a href="<s:url action="list_lessons_for_lecturer"><s:param name="userId">${param["userId"]}</s:param></s:url>">My lessons</a>
                 </li>
                 <li>

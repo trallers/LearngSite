@@ -31,19 +31,19 @@
         <div class="collapse navbar-collapse" id="navbar-ex-collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a href="home_admin.jsp">Home</a>
-                </li>
-                <li>
-                    <a href="<s:url action="list_users_for_admin" />">Users</a>
-                </li>
-                <li>
-                    <a href="<s:url action="list_courses_for_admin"/>">Courses</a>
-                </li>
-                <li>
-                    <a href="<s:url action="list_lessons_for_admin"/>">Lessons</a>
+                    <a href="<s:url action="home_admin"><s:param name="userId">${param["userId"]}</s:param></s:url>">Home</a>
                 </li>
                 <li class="active">
-                    <a href="<s:url action="list_certificates_for_admin"/>">Certificates</a>
+                    <a href="<s:url action="list_users_for_admin"><s:param name="userId">${param["userId"]}</s:param></s:url>">Users</a>
+                </li>
+                <li>
+                    <a href="<s:url action="list_courses_for_admin"><s:param name="userId">${param["userId"]}</s:param></s:url>">Courses</a>
+                </li>
+                <li>
+                    <a href="<s:url action="list_lessons_for_admin"><s:param name="userId">${param["userId"]}</s:param></s:url>">Lessons</a>
+                </li>
+                <li>
+                    <a href="<s:url action="list_certificates_for_admin"><s:param name="userId">${param["userId"]}</s:param></s:url>">Certificates</a>
                 </li>
                 <li>
                     <a href="<s:url action="logout"/>" data-toggle="modal">Logout <span
@@ -58,6 +58,7 @@
         <div class="row">
             <div class="col-md-12">
                 <h2>Certificate info</h2>
+                <s:hidden name="userId"/>
                 <s:form action="create_or_update_certificate">
                     <s:actionerror/>
                     <s:hidden name="certificate.id" readonly="true" label="ID" class="form-control"/>
@@ -79,7 +80,7 @@
                             class="form-control"/>
                     <s:textarea name="certificate.data" label="Data" class="form-control"
                                 placeholder="Enter data"/>
-                    <sx:datetimepicker name="certificate.date" label="Date" displayFormat="yyyy-MM-dd"/>
+                    <sx:datetimepicker name="certificate.date" label="Date" cssClass="form-control" displayFormat="yyyy-MM-dd"/>
                     <s:submit value="Save" class="active btn btn-primary"/>
                 </s:form>
             </div>

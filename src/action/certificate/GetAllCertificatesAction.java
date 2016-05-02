@@ -11,6 +11,15 @@ import java.util.List;
  */
 public class GetAllCertificatesAction extends ActionSupport {
     private List<Certificate> certificateList;
+    private String userId;
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
 
     public List<Certificate> getCertificateList() {
         return certificateList;

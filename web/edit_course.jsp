@@ -12,7 +12,7 @@
           type="text/css">
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet" type="text/css">
-    <s:head></s:head>
+    <s:head/>
 </head>
 <body>
 <div class="navbar navbar-default navbar-inverse navbar-static-top">
@@ -29,19 +29,19 @@
         <div class="collapse navbar-collapse" id="navbar-ex-collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a href="home_admin.jsp">Home</a>
+                    <a href="<s:url action="home_admin"><s:param name="userId">${param["userId"]}</s:param></s:url>">Home</a>
+                </li>
+                <li class="active">
+                    <a href="<s:url action="list_users_for_admin"><s:param name="userId">${param["userId"]}</s:param></s:url>">Users</a>
                 </li>
                 <li>
-                    <a href="<s:url action="list_users_for_admin" />">Users</a>
+                    <a href="<s:url action="list_courses_for_admin"><s:param name="userId">${param["userId"]}</s:param></s:url>">Courses</a>
                 </li>
                 <li>
-                    <a href="<s:url action="list_courses_for_admin"/>">Courses</a>
+                    <a href="<s:url action="list_lessons_for_admin"><s:param name="userId">${param["userId"]}</s:param></s:url>">Lessons</a>
                 </li>
                 <li>
-                    <a href="<s:url action="list_lessons_for_admin"/>">Lessons</a>
-                </li>
-                <li>
-                    <a href="<s:url action="list_certificates_for_admin"/>">Certificates</a>
+                    <a href="<s:url action="list_certificates_for_admin"><s:param name="userId">${param["userId"]}</s:param></s:url>">Certificates</a>
                 </li>
                 <li>
                     <a href="<s:url action="logout"/>" data-toggle="modal">Logout <span
@@ -57,7 +57,7 @@
             <div class="col-md-12">
                 <h2>Course info</h2>
                 <s:form action="create_or_update_course"  validate="true" method="POST">
-                    <s:actionerror></s:actionerror>
+                    <s:actionerror/>
                     <s:hidden name="course.id" readonly="true" label="Id" class="form-control"
                               placeholder="Enter id"/>
                     <s:textfield name="course.name" label="Name" class="form-control"
@@ -80,7 +80,7 @@
         </div>
     </div>
 </div>
-<footer class="navbar-fixed-bottom">
+<footer class="navbar-bottom">
     <div class="container">
         <div class="row">
             <hr>

@@ -17,6 +17,7 @@ public class EditCourseAction extends ActionSupport{
     private List<User> lecturerList;
     private String lecturerID;
     private String courseId;
+    private String userId;
 
     public String getCourseId() {
         return courseId;
@@ -65,5 +66,13 @@ public class EditCourseAction extends ActionSupport{
         lecturerList = GetAllLecturersService.execute();
         course = GetCourseByIdService.execute(courseId);
         return SUCCESS;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getUserId() {
+        return userId;
     }
 }
