@@ -33,7 +33,7 @@
                 <li>
                     <a href="<s:url action="home_admin"><s:param name="userId">${param["userId"]}</s:param></s:url>">Home</a>
                 </li>
-                <li class="active">
+                <li>
                     <a href="<s:url action="list_users_for_admin"><s:param name="userId">${param["userId"]}</s:param></s:url>">Users</a>
                 </li>
                 <li>
@@ -42,7 +42,7 @@
                 <li>
                     <a href="<s:url action="list_lessons_for_admin"><s:param name="userId">${param["userId"]}</s:param></s:url>">Lessons</a>
                 </li>
-                <li>
+                <li class="active">
                     <a href="<s:url action="list_certificates_for_admin"><s:param name="userId">${param["userId"]}</s:param></s:url>">Certificates</a>
                 </li>
                 <li>
@@ -58,8 +58,8 @@
         <div class="row">
             <div class="col-md-12">
                 <h2>Certificate info</h2>
-                <s:hidden name="userId"/>
                 <s:form action="create_or_update_certificate">
+                    <s:param name="userId">%{userId}</s:param>
                     <s:actionerror/>
                     <s:hidden name="certificate.id" readonly="true" label="ID" class="form-control"/>
                     <s:select

@@ -30,13 +30,13 @@
                 <li>
                     <a href="<s:url action="home_admin"><s:param name="userId">${param["userId"]}</s:param></s:url>">Home</a>
                 </li>
-                <li class="active">
+                <li>
                     <a href="<s:url action="list_users_for_admin"><s:param name="userId">${param["userId"]}</s:param></s:url>">Users</a>
                 </li>
                 <li>
                     <a href="<s:url action="list_courses_for_admin"><s:param name="userId">${param["userId"]}</s:param></s:url>">Courses</a>
                 </li>
-                <li>
+                <li class="active">
                     <a href="<s:url action="list_lessons_for_admin"><s:param name="userId">${param["userId"]}</s:param></s:url>">Lessons</a>
                 </li>
                 <li>

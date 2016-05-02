@@ -27,23 +27,24 @@
         </div>
         <div class="collapse navbar-collapse" id="navbar-ex-collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a href="home_admin.jsp">Home</a>
-                </li>
                 <li class="active">
-                    <a href="<s:url action="list_users_for_admin" ></s:url>">Users</a>
+                    <a href="<s:url action="home_admin"><s:param name="userId">${param["userId"]}</s:param></s:url>">Home</a>
                 </li>
                 <li>
-                    <a href="<s:url action="list_courses_for_admin"></s:url>">Courses</a>
+                    <a href="<s:url action="list_users_for_admin"><s:param name="userId">${param["userId"]}</s:param></s:url>">Users</a>
                 </li>
                 <li>
-                    <a href="<s:url action="list_lessons_for_admin"></s:url>">Lessons</a>
+                    <a href="<s:url action="list_courses_for_admin"><s:param name="userId">${param["userId"]}</s:param></s:url>">Courses</a>
                 </li>
                 <li>
-                    <a href="<s:url action="list_certificates_for_admin"></s:url>">Certificates</a>
+                    <a href="<s:url action="list_lessons_for_admin"><s:param name="userId">${param["userId"]}</s:param></s:url>">Lessons</a>
+                </li>
+                <LI>
+                    <a href="<s:url action="list_certificates_for_admin"><s:param name="userId">${param["userId"]}</s:param></s:url>">Certificates</a>
                 </li>
                 <li>
-                    <a href="<s:url action="logout"/>" data-toggle="modal">Logout <span class="glyphicon glyphicon-log-out"></span></a>
+                    <a href="<s:url action="logout"/>" data-toggle="modal">Logout <span
+                            class="glyphicon glyphicon-log-out"></span></a>
                 </li>
             </ul>
         </div>

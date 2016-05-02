@@ -184,7 +184,7 @@
        <action name="get_certificate_for_admin" class="action.certificate.EditCertificateAction" method="getById">
            <interceptor-ref name="AdminRoleStack"/>
            <result name="success">edit_certificate.jsp</result>
-           <result name="login" type="chain">login</result>
+           <result name="login" type="chain">logout</result>
            <result name="error">list_certificates_for_admin.action</result>
        </action>
 
@@ -205,7 +205,7 @@
         <action name="get_course_for_admin" class="action.course.EditCourseAction" method="getById">
             <interceptor-ref name="AdminRoleStack"/>
             <result name="success">edit_course.jsp</result>
-            <result name="login" type="chain">login</result>
+            <result name="login" type="chain">logout</result>
             <result name="error" type="chain">list_courses_for_admin</result>
         </action>
 
