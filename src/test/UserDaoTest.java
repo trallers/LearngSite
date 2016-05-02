@@ -122,6 +122,8 @@ public class UserDaoTest extends DBTestCase{
         UserDao.getInstance().create(user);
     }
 
+
+
     @Test
     public void testDelete() {
         Assert.assertTrue(UserDao.getInstance().delete("1"));
@@ -134,7 +136,25 @@ public class UserDaoTest extends DBTestCase{
 
     @Test(expected = SQLException.class)
     public void testDeleteWithWrongParam() {
-        UserDao.getInstance().delete("222");
+        UserDao.getInstance().delete("sss");
+    }
+
+    @Test
+    public void testDeleteString() {
+        String s = "1";
+        Assert.assertTrue(UserDao.getInstance().delete(s));
+    }
+
+    @Test(expected = SQLException.class)
+    public void testDeleteNonExistingElementString() {
+        String s = "222";
+        UserDao.getInstance().delete(s);
+    }
+
+    @Test(expected = SQLException.class)
+    public void testDeleteWithWrongParamString() {
+        String s = "sss";
+        UserDao.getInstance().delete(s);
     }
 
     @Test
@@ -149,8 +169,31 @@ public class UserDaoTest extends DBTestCase{
     }
 
     @Test(expected = SQLException.class)
+    public void testGetByNegativeId() {
+        UserDao.getInstance().getByID("-228");
+    }
+
+    @Test(expected = SQLException.class)
     public void testGetByWrongId() {
         UserDao.getInstance().getByID("rly");
+    }
+
+    @Test(expected = SQLException.class)
+    public void testGetByNonExistingIdString() {
+        String s = "322";
+        UserDao.getInstance().getByID(s);
+    }
+
+    @Test(expected = SQLException.class)
+    public void testGetByNegativeIdString() {
+        String s = "-228";
+        UserDao.getInstance().getByID(s);
+    }
+
+    @Test(expected = SQLException.class)
+    public void testGetByWrongIdString() {
+        String s = "rly";
+        UserDao.getInstance().getByID(s);
     }
 
     @Test
@@ -171,6 +214,26 @@ public class UserDaoTest extends DBTestCase{
     @Test
     public void testLoginExist() {
         Assert.assertTrue(UserDao.getInstance().isLoginExist("login1"));
+    }
+
+    @Test
+    public void testLoginString() {
+        String login = "login1";
+        String password = "1";
+        Assert.assertNotNull(UserDao.getInstance().login(login, password));
+    }
+
+    @Test
+    public void testWrongLoginString() {
+        String login = "kek";
+        String password = "azaza";
+        Assert.assertNull(UserDao.getInstance().login(login, password));
+    }
+
+    @Test
+    public void testLoginExistString() {
+        String existingLogin = "login2";
+        Assert.assertTrue(UserDao.getInstance().isLoginExist(existingLogin));
     }
 
     @Test

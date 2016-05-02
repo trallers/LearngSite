@@ -62,7 +62,6 @@ public class CertificateDaoTest extends DBTestCase {
 
     @Test
     public void testConnection() throws Exception {
-        System.out.print(dataSet);
         IDatabaseConnection dbConnection = getConnection();
         Assert.assertNotNull(dbConnection);
     }
@@ -95,8 +94,31 @@ public class CertificateDaoTest extends DBTestCase {
     }
 
     @Test
+    public void testReadNegativeId() {
+        Certificate expectedCertificate = CertificateDao.getInstance().getById("-2");
+
+        Assert.assertNull(expectedCertificate);
+    }
+
+    @Test
     public void testReadOnNonCorrectId() {
         Certificate expectedCertificate = CertificateDao.getInstance().getById("nooooo");
+
+        Assert.assertNull(expectedCertificate);
+    }
+
+    @Test
+    public void testReadNullString() {
+        String s = "100000";
+        Certificate expectedCertificate = CertificateDao.getInstance().getById(s);
+
+        Assert.assertNull(expectedCertificate);
+    }
+
+    @Test
+    public void testReadOnNonCorrectIdString() {
+        String s = "asdqee";
+        Certificate expectedCertificate = CertificateDao.getInstance().getById(s);
 
         Assert.assertNull(expectedCertificate);
     }
@@ -137,6 +159,11 @@ public class CertificateDaoTest extends DBTestCase {
     }
 
     @Test(expected = SQLException.class)
+    public void testDeleteNegativeId() {
+        CertificateDao.getInstance().delete("-2");
+    }
+
+    @Test(expected = SQLException.class)
     public void testDeleteNonExistingElement() {
         CertificateDao.getInstance().delete("222");
     }
@@ -146,10 +173,34 @@ public class CertificateDaoTest extends DBTestCase {
         CertificateDao.getInstance().delete("kek");
     }
 
+    @Test(expected = SQLException.class)
+    public void testDeleteNonExistingElementString() {
+        String s = "222";
+        CertificateDao.getInstance().delete(s);
+    }
+
+    @Test(expected = SQLException.class)
+    public void testDeleteWithWrongString() {
+        String s = "kek";
+        CertificateDao.getInstance().delete(s);
+    }
+
     @Test
-    public void testGetById() {
+    public void testGetByFirstId() {
         List<Certificate> listOfCertificates = CertificateDao.getInstance().getAll();
         Assert.assertEquals(listOfCertificates.get(0), CertificateDao.getInstance().getById("1"));
+    }
+
+    @Test
+    public void testGetBySecondId() {
+        List<Certificate> listOfCertificates = CertificateDao.getInstance().getAll();
+        Assert.assertEquals(listOfCertificates.get(1), CertificateDao.getInstance().getById("2"));
+    }
+
+    @Test
+    public void testGetByNonEqualsId() {
+        List<Certificate> listOfCertificates = CertificateDao.getInstance().getAll();
+        Assert.assertNotEquals(listOfCertificates.get(0), CertificateDao.getInstance().getById("2"));
     }
 
     @Test
@@ -158,8 +209,31 @@ public class CertificateDaoTest extends DBTestCase {
     }
 
     @Test
+    public void testGetByNegativeId() {
+        Assert.assertNull(CertificateDao.getInstance().getById("-555"));
+    }
+
+    @Test
     public void testGetByWrongId() {
         Assert.assertNull(CertificateDao.getInstance().getById("zzz"));
+    }
+
+    @Test
+    public void testGetByNullId() {
+        String s = new String();
+        Assert.assertNull(CertificateDao.getInstance().getById(s));
+    }
+
+    @Test
+    public void testGetByWrongString() {
+        String s = "asdasd";
+        Assert.assertNull(CertificateDao.getInstance().getById(s));
+    }
+
+    @Test
+    public void testGetByString() {
+        String s = "1";
+        Assert.assertNotNull(CertificateDao.getInstance().getById(s));
     }
 
     @Test

@@ -90,6 +90,13 @@ public class CourseDaoTest extends DBTestCase{
     }
 
     @Test
+    public void testReadNegativeId() {
+        Course course = CourseDao.getInstance().getById("-22");
+
+        Assert.assertNull(course);
+    }
+
+    @Test
     public void testReadOnNonCorrectId() {
         Course course = CourseDao.getInstance().getById("ahaha");
 
@@ -120,6 +127,18 @@ public class CourseDaoTest extends DBTestCase{
     }
 
     @Test
+    public void testCreateWithSetAttributes() {
+        Course course = new Course();
+        course.setId(5);
+        course.setIdLecturer(3);
+        course.setName("name5");
+        course.setPrice(5);
+        course.setTechnology("technology5");
+
+        Assert.assertTrue(CourseDao.getInstance().create(course));
+    }
+
+    @Test
     public void testCreateWithExistingId() {
         Course course = new Course(1, "name1", "technology1", 3, 1);
 
@@ -134,6 +153,11 @@ public class CourseDaoTest extends DBTestCase{
     @Test(expected = SQLException.class)
     public void testDeleteNonExistingElement() {
         CourseDao.getInstance().delete("222");
+    }
+
+    @Test(expected = SQLException.class)
+    public void testDeleteNegativeElement() {
+        CourseDao.getInstance().delete("-4");
     }
 
     @Test(expected = SQLException.class)
@@ -155,6 +179,29 @@ public class CourseDaoTest extends DBTestCase{
     @Test
     public void testGetByWrongId() {
         Assert.assertNull(CourseDao.getInstance().getById("rly"));
+    }
+
+    @Test
+    public void testGetByNegativeId() {
+        Assert.assertNull(CourseDao.getInstance().getById("-3"));
+    }
+
+    @Test
+    public void testGetByNonExistingIdString() {
+        String s = "322";
+        Assert.assertNull(CourseDao.getInstance().getById(s));
+    }
+
+    @Test
+    public void testGetByWrongIdString() {
+        String s = "rly";
+        Assert.assertNull(CourseDao.getInstance().getById(s));
+    }
+
+    @Test
+    public void testGetByNegativeIdString() {
+        String s = "-4";
+        Assert.assertNull(CourseDao.getInstance().getById(s));
     }
 
     @Test

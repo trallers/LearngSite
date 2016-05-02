@@ -93,6 +93,31 @@ public class LessonDaoTest extends DBTestCase {
     }
 
     @Test
+    public void testReadNullTilda() {
+        Lesson lesson = LessonDao.getInstance().getById("~");
+
+        Assert.assertNull(lesson);
+    }
+    @Test
+    public void testReadNullSymbol() {
+        Lesson lesson = LessonDao.getInstance().getById(".");
+
+        Assert.assertNull(lesson);
+    }
+    @Test
+    public void testReadSum() {
+        Lesson lesson = LessonDao.getInstance().getById("1+2");
+
+        Assert.assertNotNull(lesson);
+    }
+    @Test
+    public void testReadMinus() {
+        Lesson lesson = LessonDao.getInstance().getById("2-1");
+
+        Assert.assertNull(lesson);
+    }
+
+    @Test
     public void testReadOnNonCorrectId() {
         Lesson lesson = LessonDao.getInstance().getById("asdqqwe");
 
@@ -152,6 +177,11 @@ public class LessonDaoTest extends DBTestCase {
     @Test
     public void testGetByNonExistingId() {
         Assert.assertNull(LessonDao.getInstance().getById("322"));
+    }
+
+    @Test
+    public void testGetByNegativeId() {
+        Assert.assertNull(LessonDao.getInstance().getById("-322"));
     }
 
     @Test
