@@ -3,6 +3,7 @@
 <html>
 <head>
     <title>Admin| All lessons</title>
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
@@ -50,32 +51,34 @@
         </div>
     </div>
 </div>
-<div class="section">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h2>All lessons</h2>
-                <s:if test="lessonList.size() > 0">
-                    <div class="content">
-                        <table class="table table-hover" class="courses_table">
-                            <thead>
-                            <th>Name of course</th>
-                            <th>Data</th>
-                            </thead>
-                            <s:iterator value="lessonList" status="userStatus">
-                                <tr>
-                                    <td><s:property value="course.name"/></td>
-                                    <td><s:property value="data.data" /></td>
-                                </tr>
-                            </s:iterator>
-                        </table>
-                    </div>
-                </s:if>
+<content class="container-fluid body-content">
+    <div class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>All lessons</h2>
+                    <s:if test="lessonList.size() > 0">
+                        <div class="content">
+                            <table class="table table-hover" class="courses_table">
+                                <thead>
+                                <th>Name of course</th>
+                                <th>Data</th>
+                                </thead>
+                                <s:iterator value="lessonList" status="userStatus">
+                                    <tr>
+                                        <td><s:property value="course.name"/></td>
+                                        <td><s:property value="data.data"/></td>
+                                    </tr>
+                                </s:iterator>
+                            </table>
+                        </div>
+                    </s:if>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<footer class="navbar-bottom">
+</content>
+<footer class="navbar navbar-fixed-bottom">
     <div class="container">
         <div class="row">
             <hr>

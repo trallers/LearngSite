@@ -3,6 +3,7 @@
 <html>
 <head>
     <title>Student| All courses</title>
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script type="text/javascript" src="js/jquery.min.js"></script>
@@ -27,20 +28,24 @@
         </div>
         <div class="collapse navbar-collapse" id="navbar-ex-collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li >
+                <li>
                     <a href="<s:url action="home_student"><s:param name="userId">${param["userId"]}</s:param></s:url>">Home</a>
                 </li>
                 <li class="active">
-                    <a href="<s:url action="list_courses_for_student"><s:param name="userId">${param["userId"]}</s:param></s:url>">My courses</a>
+                    <a href="<s:url action="list_courses_for_student"><s:param name="userId">${param["userId"]}</s:param></s:url>">My
+                        courses</a>
                 </li>
                 <li>
-                    <a href="<s:url action="list_lessons_for_student"><s:param name="userId">${param["userId"]}</s:param></s:url>">Passed lessons</a>
+                    <a href="<s:url action="list_lessons_for_student"><s:param name="userId">${param["userId"]}</s:param></s:url>">Passed
+                        lessons</a>
                 </li>
                 <li>
-                    <a href="<s:url action="list_certificates_for_students"><s:param name="userId">${param["userId"]}</s:param></s:url>">My certificates</a>
+                    <a href="<s:url action="list_certificates_for_students"><s:param name="userId">${param["userId"]}</s:param></s:url>">My
+                        certificates</a>
                 </li>
                 <li>
-                    <a href="<s:url action="get_user_for_student"><s:param name="userId">${param["userId"]}</s:param></s:url>">My settings</a>
+                    <a href="<s:url action="get_user_for_student"><s:param name="userId">${param["userId"]}</s:param></s:url>">My
+                        settings</a>
                 </li>
                 <li>
                     <a href="<s:url action="logout"/>" data-toggle="modal">Logout <span
@@ -50,36 +55,38 @@
         </div>
     </div>
 </div>
-<div class="section">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 text-center">
-                <h1>All courses</h1>
-                <s:hidden name="userId" value="%{userId}"/>
-                <s:if test="courseList.size() > 0">
-                    <div class="content">
-                        <table class="courses_table table table-hover">
-                            <thead>
+<content class="container-fluid body-content">
+    <div class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h1>All courses</h1>
+                    <s:hidden name="userId" value="%{userId}"/>
+                    <s:if test="courseList.size() > 0">
+                        <div class="content">
+                            <table class="courses_table table table-hover">
+                                <thead>
                                 <th>Name</th>
                                 <th>Technology</th>
                                 <th>Price</th>
-                            </thead>
-                            <s:iterator value="courseList" status="userStatus">
-                                <tr>
-                                    <s:hidden name="id" value="id"/>
-                                    <td><s:property value="name" /></td>
-                                    <td><s:property value="technology" /></td>
-                                    <td><s:property value="price" /></td>
-                                </tr>
-                            </s:iterator>
-                        </table>
-                    </div>
-                </s:if>
+                                </thead>
+                                <s:iterator value="courseList" status="userStatus">
+                                    <tr>
+                                        <s:hidden name="id" value="id"/>
+                                        <td><s:property value="name"/></td>
+                                        <td><s:property value="technology"/></td>
+                                        <td><s:property value="price"/></td>
+                                    </tr>
+                                </s:iterator>
+                            </table>
+                        </div>
+                    </s:if>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<footer class="navbar-bottom">
+</content>
+<footer class="navbar navbar-fixed-bottom">
     <div class="container">
         <div class="row" style="background-color: #272b30">
             <hr>

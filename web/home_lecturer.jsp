@@ -3,6 +3,7 @@
 <html>
 <head>
     <title>Learning site| Lecturer page</title>
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script type="text/javascript" src="js/jquery.min.js"></script>
@@ -31,7 +32,8 @@
                     <a href="<s:url action="home_lecturer"><s:param name="userId">${param["userId"]}</s:param></s:url>">Home</a>
                 </li>
                 <li>
-                    <a href="<s:url action="list_lessons_for_lecturer"><s:param name="userId">${param["userId"]}</s:param></s:url>">My lessons</a>
+                    <a href="<s:url action="list_lessons_for_lecturer"><s:param name="userId">${param["userId"]}</s:param></s:url>">My
+                        lessons</a>
                 </li>
                 <li>
                     <a href="<s:url action="logout"/>" data-toggle="modal">Logout <span
@@ -41,16 +43,18 @@
         </div>
     </div>
 </div>
-<div class="section">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 text-center">
-            <h1>dfdghopefjbjjikofjgfikifjgnfkjgnjfjgfjrjgdrfg</h1>
+<content class="container-fluid body-content">
+    <div class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h1>dfdghopefjbjjikofjgfikifjgnfkjgnjfjgfjrjgdrfg</h1>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<footer class="navbar-fixed-bottom">
+</content>
+<footer class="navbar navbar-fixed-bottom">
     <div class="container">
         <div class="row" style="background-color: #272b30">
             <hr>

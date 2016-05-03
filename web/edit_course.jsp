@@ -2,13 +2,14 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Admin| Edit courese</title>
+    <title>Admin| Edit courses</title>
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
     <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 
-    <link href="font-awesome/css/font-awesome.min.css"  rel="stylesheet"
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet"
           type="text/css">
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet" type="text/css">
@@ -51,36 +52,38 @@
         </div>
     </div>
 </div>
-<div class="section">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h2>Course info</h2>
-                <s:form action="create_or_update_course"  validate="true" method="POST">
-                    <s:actionerror/>
-                    <s:hidden name="course.id" readonly="true" label="Id" class="form-control"
-                              placeholder="Enter id"/>
-                    <s:textfield name="course.name" label="Name" class="form-control"
-                                 placeholder="Enter name"/>
-                    <s:textfield name="course.technology" label="Technology" class="form-control"
-                                 placeholder="Enter technology"/>
-                    <s:select
-                            name="lecturerID"
-                            label="Lecturer"
-                            list="lecturerList"
-                            listKey="id"
-                            listValue="surname"
-                            required="true" class="form-control"
-                            placeholder="Enter technology"/>
-                    <s:textfield name="course.price" label="Price" class="form-control"
-                                 placeholder="Enter price"/>
-                    <s:submit value="Save" class="active btn btn-primary"/>
-                </s:form>
+<content class="container-fluid body-content">
+    <div class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>Course info</h2>
+                    <s:form action="create_or_update_course" validate="true" method="POST">
+                        <s:actionerror/>
+                        <s:hidden name="course.id" readonly="true" label="Id" class="form-control"
+                                  placeholder="Enter id"/>
+                        <s:textfield name="course.name" label="Name" class="form-control"
+                                     placeholder="Enter name"/>
+                        <s:textfield name="course.technology" label="Technology" class="form-control"
+                                     placeholder="Enter technology"/>
+                        <s:select
+                                name="lecturerID"
+                                label="Lecturer"
+                                list="lecturerList"
+                                listKey="id"
+                                listValue="surname"
+                                required="true" class="form-control"
+                                placeholder="Enter technology"/>
+                        <s:textfield name="course.price" label="Price" class="form-control"
+                                     placeholder="Enter price"/>
+                        <s:submit value="Save" class="btn"/>
+                    </s:form>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<footer class="navbar-bottom">
+</content>
+<footer class="navbar navbar-fixed-bottom">
     <div class="container">
         <div class="row">
             <hr>

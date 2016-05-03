@@ -4,12 +4,13 @@
 <html>
 <head>
     <title>Admin| Edit certificate</title>
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
     <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 
-    <link href="font-awesome/css/font-awesome.min.css"  rel="stylesheet"
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet"
           type="text/css">
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet" type="text/css">
@@ -53,41 +54,44 @@
         </div>
     </div>
 </div>
-<div class="section">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h2>Certificate info</h2>
-                <s:form action="create_or_update_certificate">
-                    <s:param name="userId">%{userId}</s:param>
-                    <s:actionerror/>
-                    <s:hidden name="certificate.id" readonly="true" label="ID" class="form-control"/>
-                    <s:select
-                            name="studentSurname"
-                            label="Student"
-                            list="studentList"
-                            listKey="surname"
-                            listValue="surname"
-                            required="true"
-                            class="form-control"/>
-                    <s:select
-                            name="courseName"
-                            label="Course"
-                            list="courseList"
-                            listKey="name"
-                            listValue="name"
-                            required="true"
-                            class="form-control"/>
-                    <s:textarea name="certificate.data" label="Data" class="form-control"
-                                placeholder="Enter data"/>
-                    <sx:datetimepicker name="certificate.date" label="Date" cssClass="form-control" displayFormat="yyyy-MM-dd"/>
-                    <s:submit value="Save" class="active btn btn-primary"/>
-                </s:form>
+<content class="container-fluid body-content">
+    <div class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>Certificate info</h2>
+                    <s:form action="create_or_update_certificate">
+                        <s:param name="userId">%{userId}</s:param>
+                        <s:actionerror/>
+                        <s:hidden name="certificate.id" readonly="true" label="ID" class="form-control"/>
+                        <s:select
+                                name="studentSurname"
+                                label="Student"
+                                list="studentList"
+                                listKey="surname"
+                                listValue="surname"
+                                required="true"
+                                class="form-control"/>
+                        <s:select
+                                name="courseName"
+                                label="Course"
+                                list="courseList"
+                                listKey="name"
+                                listValue="name"
+                                required="true"
+                                class="form-control"/>
+                        <s:textarea name="certificate.data" label="Data" class="form-control"
+                                    placeholder="Enter data"/>
+                        <sx:datetimepicker name="certificate.date" label="Date" cssClass="form-control"
+                                           displayFormat="yyyy-MM-dd"/>
+                        <s:submit value="Save" class="btn"/>
+                    </s:form>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<footer class="navbar-fixed-bottom">
+</content>
+<footer class="navbar navbar-fixed-bottom">
     <div class="container">
         <div class="row">
             <hr>

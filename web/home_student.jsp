@@ -3,12 +3,13 @@
 <html>
 <head>
     <title>Learning site| Student page</title>
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 
-    <link href="font-awesome/css/font-awesome.min.css"  rel="stylesheet"
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet"
           type="text/css">
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet" type="text/css">
@@ -31,16 +32,20 @@
                     <a href="<s:url action="home_student"><s:param name="userId">${param["userId"]}</s:param></s:url>">Home</a>
                 </li>
                 <li>
-                    <a href="<s:url action="list_courses_for_student"><s:param name="userId">${param["userId"]}</s:param></s:url>">My courses</a>
+                    <a href="<s:url action="list_courses_for_student"><s:param name="userId">${param["userId"]}</s:param></s:url>">My
+                        courses</a>
                 </li>
                 <li>
-                    <a href="<s:url action="list_lessons_for_student"><s:param name="userId">${param["userId"]}</s:param></s:url>">Passed lessons</a>
+                    <a href="<s:url action="list_lessons_for_student"><s:param name="userId">${param["userId"]}</s:param></s:url>">Passed
+                        lessons</a>
                 </li>
                 <li>
-                    <a href="<s:url action="list_certificates_for_students"><s:param name="userId">${param["userId"]}</s:param></s:url>">My certificates</a>
+                    <a href="<s:url action="list_certificates_for_students"><s:param name="userId">${param["userId"]}</s:param></s:url>">My
+                        certificates</a>
                 </li>
                 <li>
-                    <a href="<s:url action="get_user_for_student"><s:param name="userId">${param["userId"]}</s:param></s:url>">My settings</a>
+                    <a href="<s:url action="get_user_for_student"><s:param name="userId">${param["userId"]}</s:param></s:url>">My
+                        settings</a>
                 </li>
                 <li>
                     <a href="<s:url action="logout"/>" data-toggle="modal">Logout <span
@@ -50,21 +55,23 @@
         </div>
     </div>
 </div>
-<div class="section">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 text-center">
-                <h1>Student page</h1>
-                kfljldkfjdfn fdjgul ndldfh nuliig nbdlfk hdnlfjk dnhbgld dfbgl bdldfbl
+<content class="container-fluid body-content">
+    <div class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h1>Student page</h1>
+                    kfljldkfjdfn fdjgul ndldfh nuliig nbdlfk hdnlfjk dnhbgld dfbgl bdldfbl
+                </div>
             </div>
         </div>
     </div>
-</div>
-<footer class="navbar-fixed-bottom">
+</content>
+<footer class="navbar navbar-fixed-bottom">
     <div class="container">
         <div class="row" style="background-color: #272b30">
             <hr>
-            <div class="col-lg-12" >
+            <div class="col-lg-12">
                 <div class="col-md-8">
                     <a href="#">Terms of Service</a>|
                     <a href="#">Privacy</a>

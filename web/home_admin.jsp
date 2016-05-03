@@ -3,12 +3,13 @@
 <html>
 <head>
     <title>Learning site</title>
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
     <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 
-    <link href="font-awesome/css/font-awesome.min.css"  rel="stylesheet"
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet"
           type="text/css">
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet" type="text/css">
@@ -50,24 +51,26 @@
         </div>
     </div>
 </div>
-<div class="section">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h2>Admin panel</h2>
-                <p>You can edit on this page:</p>
-                <ul>
-                    <li>Users info</li>
-                    <li>Courses data</li>
-                    <li>Lessons data</li>
-                    <li>Certificates</li>
-                </ul>
-                <p>To change the desired data, select the menu item</p>
+<content class="container-fluid body-content">
+    <div class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>Admin panel</h2>
+                    <p>You can edit on this page:</p>
+                    <ul>
+                        <li>Users info</li>
+                        <li>Courses data</li>
+                        <li>Lessons data</li>
+                        <li>Certificates</li>
+                    </ul>
+                    <p>To change the desired data, select the menu item</p>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<footer class="navbar-fixed-bottom">
+</content>
+<footer class="navbar navbar-fixed-bottom">
     <div class="container">
         <div class="row">
             <hr>

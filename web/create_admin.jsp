@@ -3,12 +3,13 @@
 <html>
 <head>
     <title>Admin| Create admin</title>
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
     <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 
-    <link href="font-awesome/css/font-awesome.min.css"  rel="stylesheet"
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet"
           type="text/css">
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet" type="text/css">
@@ -51,39 +52,41 @@
         </div>
     </div>
 </div>
-<div class="section">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <p>New admin</p>
-                <s:form action="add_admin" class="Center" validate="true">
-                    <h2>Add admin</h2>
-                    <s:actionerror/>
-                    <s:hidden name="user.id" class="form-control"
-                              placeholder="Enter id"/>
-                    <s:hidden name="user.role" value="admin" class="form-control"
-                              placeholder="Enter role"/>
-                    <s:textfield name="user.login" label="Login" class="form-control"
-                                 placeholder="Enter login"/>
-                    <s:password name="user.password" label="Password" class="form-control"
-                                placeholder="Enter password"/>
-                    <s:textfield name="user.name" label="Name" class="form-control"
-                                 placeholder="Enter name"/>
-                    <s:textfield name="user.surname" label="Surname" class="form-control"
-                                 placeholder="Enter surname"/>
-                    <s:textfield name="user.phone" label="Phone" class="form-control"
-                                 placeholder="Enter phone"/>
-                    <s:textfield name="user.email" label="Email" class="form-control"
-                                 placeholder="Enter email"/>
-                    <s:hidden name="user.banStatus" value="0" class="form-control"
-                              placeholder="Enter banstatus"/>
-                    <s:submit value="Add admin" class="active btn btn-primary"/>
-                </s:form>
+<content class="container-fluid body-content">
+    <div class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <p>New admin</p>
+                    <s:form action="add_admin" class="Center" validate="true">
+                        <h2>Add admin</h2>
+                        <s:actionerror/>
+                        <s:hidden name="user.id" class="form-control"
+                                  placeholder="Enter id"/>
+                        <s:hidden name="user.role" value="admin" class="form-control"
+                                  placeholder="Enter role"/>
+                        <s:textfield name="user.login" label="Login" class="form-control"
+                                     placeholder="Enter login"/>
+                        <s:password name="user.password" label="Password" class="form-control"
+                                    placeholder="Enter password"/>
+                        <s:textfield name="user.name" label="Name" class="form-control"
+                                     placeholder="Enter name"/>
+                        <s:textfield name="user.surname" label="Surname" class="form-control"
+                                     placeholder="Enter surname"/>
+                        <s:textfield name="user.phone" label="Phone" class="form-control"
+                                     placeholder="Enter phone"/>
+                        <s:textfield name="user.email" label="Email" class="form-control"
+                                     placeholder="Enter email"/>
+                        <s:hidden name="user.banStatus" value="0" class="form-control"
+                                  placeholder="Enter banstatus"/>
+                        <s:submit value="Add admin" class="btn"/>
+                    </s:form>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<footer class="navbar-bottom">
+</content>
+<footer class="navbar navbar-fixed-bottom">
     <div class="container">
         <div class="row">
             <hr>

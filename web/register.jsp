@@ -2,14 +2,15 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <script type="text/javascript" src="js/jquery-1.12.3.js"></script>
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
     <title>Learning site</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script type="text/javascript" src="js/jquery-1.12.3.js"></script>
     <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet"
-          type="text/css">
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet" type="text/css">
     <s:head/>
@@ -31,9 +32,6 @@
                 <li>
                     <a href="index.jsp">Home</a>
                 </li>
-                <li>
-                    <a href="#">Courses</a>
-                </li>
                 <li class="active">
                     <a href="/register.jsp" data-toggle="modal"><span class="glyphicon glyphicon-user"></span> Sign
                         Up</a>
@@ -45,74 +43,65 @@
         </div>
     </div>
 </div>
-<div class="section">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h1>Register</h1>
+<content class="container-fluid body-content">
+    <div class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-sm-offset-3 form-box">
+                    <div class="form-top">
+                        <div class="form-top-left">
+                            <h3>Register on our site</h3>
+                            <p>Enter your data to sign up:</p>
+                        </div>
+                        <div class="form-top-right">
+                            <i class="fa fa-user-plus"></i>
+                        </div>
+                    </div>
+                    <div class="form-bottom">
+                        <s:form role="form" action="registration" method="post" validate="true"
+                                class="form-group login-form">
+                            <s:actionerror/>
+                            <s:label value="Login"/>
+                            <s:label id="status" name="status"/>
+                            <s:textfield name="login" id="login"
+                                         class="form-control"
+                                         placeholder="Enter your login"/>
+                            <s:label value="Password"/>
+                            <s:password name="user.password" id="password" class="form-control"
+                                        placeholder="Enter password"/>
+                            <s:label value="Repeat password"/>
+                            <s:label id="passwordStatus" name="passwordStatus"/>
+                            <s:password name="repeatPassword" id="repeatPassword"
+                                        class="form-control"
+                                        placeholder="Repeat password"/>
+                            <s:label value="Role"/>
+                            <s:select class="ListU form-control" list="{'student','lecturer'}" name="user.role"
+                                      placeholder="student"/>
+                            <s:label value="Name"/>
+                            <s:textfield name="user.name" class="form-control"
+                                         placeholder="Enter your name"/>
+                            <s:label value="Surname"/>
+                            <s:textfield name="user.surname" class="form-control"
+                                         placeholder="Enter surname"/>
+                            <s:label value="Phone"/>
+                            <s:textfield name="user.phone" class="form-control"
+                                         placeholder="Enter phone"/>
+                            <s:label value="Email"/>
+                            <s:textfield name="user.email" class="form-control"
+                                         placeholder="Enter email"/>
+                            <s:hidden name="user.banStatus" value="0" class="form-control"
+                                      placeholder=""/>
+                            <s:submit value="Sign up" class="btn loginButton"/>
 
-
-                <s:form action="registration" method="post" validate="true">
-                    <s:actionerror/>
-                    <s:textfield name="login" id="login"
-                                 class="form-control" label="Login"
-                                 placeholder="Enter login"/>
-                    <s:label id="status" name="status"/>
-                    <s:password name="user.password" label="Password" id="password" class="form-control"
-                                placeholder="Enter password"/>
-                    <s:password name="repeatPassword" label="Repeat password" id="repeatPassword" class="form-control"
-                                placeholder="Repeat password"/>
-                    <s:select class="ListU form-control" list="{'student','lecturer'}" name="user.role" label="Role"
-                              placeholder="student"/>
-                    <s:textfield name="user.name" label="Name" class="form-control"
-                                 placeholder="Enter name"/>
-                    <s:textfield name="user.surname" label="Surname" class="form-control"
-                                 placeholder="Enter surname"/>
-                    <s:textfield name="user.phone" label="Phone" class="form-control"
-                                 placeholder="Enter phone"/>
-                    <s:textfield name="user.email" label="Email" class="form-control"
-                                 placeholder="Enter email"/>
-                    <s:hidden name="user.banStatus" value="0" class="form-control"
-                              placeholder=""/>
-                    <s:submit value="Register" class="active btn btn-primary"/>
-
-                </s:form>
-
-                <script>
-                    $("#login").keyup(function () {
-                        $("#status").html('<img src="images/loader.gif" width="16" height="16" align="absmiddle">&nbsp;Checking availability...');
-                        $.ajax({
-                            type: "GET",
-                            url: 'check_login_exist.action?userName=' + $("#login").val(),
-                            dataType: 'text',
-                            success: function (data) {
-                                if ('exist' === data) {
-                                    $("#status").html('<img src="images/cross.png" width="16" height="16" align="absmiddle">&nbsp;User with this login already exist');
-                                }
-                            },
-                            error: function () {
-                                alert("Abnormal！");
-                            }
-                        });
-                        if ($("#login").val().length > 3)
-                            $("#status").html('<img src="images/tick.png" width="16" height="16" align="absmiddle">&nbsp;You can use this login');
-                        else
-                            $("#status").html('<img src="images/cross.png" width="16" height="16" align="absmiddle">&nbsp;Login should be longer than 3 characters');
-                    });
-                    $("#repeatPassword").keyup(function () {
-                       if($("#repeatPassword").val() !== $("#password").val())
-                           $("#status").html('<img src="images/cross.png" width="16" height="16" align="absmiddle">&nbsp;Passwords doesnt match');
-                        else{
-                           $("#status").html('<img src="images/tick.png" width="16" height="16" align="absmiddle">&nbsp;Passwords matches');
-                       }
-                       });
-                </script>
+                        </s:form>
+                        <script type="text/javascript" src="js/script.js"></script>
+                    </div>
+                </div>
             </div>
-
         </div>
     </div>
-</div>
-<footer class="navbar-bottom">
+</content>
+<footer class="navbar navbar-fixed-bottom">
     <div class="container">
         <div class="row" style="background-color: #272b30">
             <hr>

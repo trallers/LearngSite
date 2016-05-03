@@ -3,12 +3,13 @@
 <html>
 <head>
     <title>Admin| Edit user</title>
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
     <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 
-    <link href="font-awesome/css/font-awesome.min.css"  rel="stylesheet"
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet"
           type="text/css">
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet" type="text/css">
@@ -51,37 +52,39 @@
         </div>
     </div>
 </div>
-<div class="section">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h2>User info</h2>
-                <s:hidden name="userId"/>
-                <s:form action="ban_user" class="Center" validate="true">
-                    <s:textfield name="user.id" readonly="true" class="form-control"
-                                 placeholder="Enter id" cssStyle="display: none"/>
-                    <s:textfield name="user.role" readonly="true" label="Role" class="form-control"
-                                 placeholder="Enter role"/>
-                    <s:textfield name="user.login" label="Login" readonly="true" class="form-control"
-                                 placeholder="Enter login"/>
-                    <s:hidden name="user.password" label="Password" readonly="true" class="form-control"
-                              placeholder="Enter password"/>
-                    <s:textfield name="user.name" label="Name" readonly="true" class="form-control"
-                                 placeholder="Enter name"/>
-                    <s:textfield name="user.surname" label="Surname" readonly="true" class="form-control"
-                                 placeholder="Enter surname"/>
-                    <s:textfield name="user.phone" label="Phone" readonly="true" class="form-control"
-                                 placeholder="Enter phone"/>
-                    <s:textfield name="user.email" label="Email" readonly="true" class="form-control"
-                                 placeholder="Enter email"/>
-                    <s:checkbox name="user.banStatus" label="Is banned"/>
-                    <s:submit value="Save changes" class="active btn btn-primary"/>
-                </s:form>
+<content class="container-fluid body-content">
+    <div class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>User info</h2>
+                    <s:hidden name="userId"/>
+                    <s:form action="ban_user" class="Center" validate="true">
+                        <s:textfield name="user.id" readonly="true" class="form-control"
+                                     placeholder="Enter id" cssStyle="display: none"/>
+                        <s:textfield name="user.role" readonly="true" label="Role" class="form-control"
+                                     placeholder="Enter role"/>
+                        <s:textfield name="user.login" label="Login" readonly="true" class="form-control"
+                                     placeholder="Enter login"/>
+                        <s:hidden name="user.password" label="Password" readonly="true" class="form-control"
+                                  placeholder="Enter password"/>
+                        <s:textfield name="user.name" label="Name" readonly="true" class="form-control"
+                                     placeholder="Enter name"/>
+                        <s:textfield name="user.surname" label="Surname" readonly="true" class="form-control"
+                                     placeholder="Enter surname"/>
+                        <s:textfield name="user.phone" label="Phone" readonly="true" class="form-control"
+                                     placeholder="Enter phone"/>
+                        <s:textfield name="user.email" label="Email" readonly="true" class="form-control"
+                                     placeholder="Enter email"/>
+                        <s:checkbox name="user.banStatus" label="Is banned"/>
+                        <s:submit value="Save changes" class="btn"/>
+                    </s:form>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<footer class="navbar-bottom">
+</content>
+<footer class="navbar navbar-fixed-bottom">
     <div class="container">
         <div class="row">
             <hr>

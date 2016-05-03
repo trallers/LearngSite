@@ -3,16 +3,16 @@
 <html>
 <head>
     <title>Learning site</title>
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
     <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 
-    <link href="font-awesome/css/font-awesome.min.css"  rel="stylesheet"
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet"
           type="text/css">
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet" type="text/css">
-    <s:head />
 </head>
 <body>
 <div class="navbar navbar-default navbar-inverse navbar-static-top">
@@ -32,9 +32,6 @@
                     <a href="index.jsp">Home</a>
                 </li>
                 <li>
-                    <a href="#">Courses</a>
-                </li>
-                <li>
                     <a href="/register.jsp" data-toggle="modal"><span class="glyphicon glyphicon-user"></span> Sign
                         Up</a>
                 </li>
@@ -45,32 +42,39 @@
         </div>
     </div>
 </div>
-<div class="section">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h1>Welcome!</h1>
-                <s:actionmessage/>
-                <s:actionerror/>
-                <s:form action="login" method="post" validate="true">
-                    <s:div class="form-group">
-                        <s:textfield label="Login" name="login" class="form-control"
-                                     placeholder="Enter login"/>
-                    </s:div>
-                    <s:div class="form-group">
-                        <s:password label="Password" name="password" class="form-control"
-                                    placeholder="Enter password"/>
-                    </s:div>
-                    <s:submit value="Login" class="active btn btn-primary allElements"/>
-                </s:form>
+<content class="container-fluid body-content">
+    <div class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-sm-offset-3 form-box">
+                    <div class="form-top">
+                        <div class="form-top-left">
+                            <h3>Login to our site</h3>
+                            <p>Enter your username and password to log on:</p>
+                        </div>
+                        <div class="form-top-right">
+                            <i class="fa fa-user"></i>
+                        </div>
+                    </div>
+                    <div class="form-bottom">
+                        <s:actionmessage/>
+                        <s:actionerror/>
+                        <s:form action="login" method="post" validate="true" class="form-group login-form">
+                            <s:textfield name="login" class="form-control"
+                                         placeholder="Username..."/>
+                            <s:password name="password" class="form-control"
+                                        placeholder="Password..."/>
+                            <s:submit value="Sign in" class="btn loginButton"/>
+                        </s:form>
+                    </div>
+                </div>
             </div>
-
         </div>
     </div>
-</div>
+</content>
 <footer class="navbar-fixed-bottom">
     <div class="container">
-        <div class="row"  style="background-color: #272b30">
+        <div class="row" style="background-color: #272b30">
             <hr>
             <div class="col-lg-12">
                 <div class="col-md-8">

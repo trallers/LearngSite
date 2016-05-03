@@ -2,12 +2,13 @@
 <html>
 <head>
     <title>Learning site| Ban page</title>
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 
-    <link href="font-awesome/css/font-awesome.min.css"  rel="stylesheet"
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet"
           type="text/css">
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet" type="text/css">
@@ -63,21 +64,23 @@
         </div>
     </div>
 </div>
-<div class="section">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 text-center">
-                <h1>U are banned on this site! Omg!!!</h1>
+<content class="container-fluid body-content">
+    <div class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h1>U are banned on this site! Omg!!!</h1>
 
+                </div>
             </div>
         </div>
     </div>
-</div>
-<footer class="navbar-bottom">
+</content>
+<footer class="navbar navbar-fixed-bottom">
     <div class="container">
         <div class="row" style="background-color: #272b30">
             <hr>
-            <div class="col-lg-12" >
+            <div class="col-lg-12">
                 <div class="col-md-8">
                     <a href="#">Terms of Service</a>|
                     <a href="#">Privacy</a>
