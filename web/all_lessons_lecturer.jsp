@@ -2,7 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Learning site| All lessons</title>
+    <title>Lecturer| All lessons</title>
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -79,11 +79,12 @@
                             </table>
                         </div>
                     </s:if>
-                    <s:form action="get_lesson_for_lecturer">
+                    <s:url id="addURL" action="get_lesson_for_lecturer">
                         <s:param name="userId" value="%{userId}"/>
                         <s:param name="lessonId" value="%{null}"/>
-                        <s:submit value="Create" class="btn"/>
-                    </s:form>
+                    </s:url>
+                    <s:a  class="btn" href="%{addURL}">Create</s:a>
+
                 </div>
             </div>
         </div>

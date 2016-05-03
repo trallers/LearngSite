@@ -94,10 +94,10 @@
                             </table>
                         </div>
                     </s:if>
-                    <s:form action="get_course_for_admin">
+                    <s:url id="addURL" action="get_course_for_admin">
                         <s:param name="courseId" value="%{null}"/>
-                        <s:submit value="Create" class="btn"/>
-                    </s:form>
+                    </s:url>
+                    <s:a class="btn" href="%{addURL}">Create</s:a>
                 </div>
             </div>
         </div>

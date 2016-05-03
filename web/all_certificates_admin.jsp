@@ -2,7 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Admmin| All certificates</title>
+    <title>Admin| All certificates</title>
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -96,10 +96,10 @@
                             </table>
                         </div>
                     </s:if>
-                    <s:form action="get_certificate_for_admin">
+                    <s:url id="addURL" action="get_certificate_for_admin">
                         <s:param name="certificateId" value="%{null}"/>
-                        <s:submit value="Create" class="btn"/>
-                    </s:form>
+                    </s:url>
+                    <s:a class="btn" href="%{addURL}">Create</s:a>
                 </div>
             </div>
         </div>
