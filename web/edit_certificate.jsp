@@ -83,7 +83,7 @@
                         <s:textarea name="certificate.data" label="Data" class="form-control"
                                     placeholder="Enter data"/>
                         <sx:datetimepicker name="certificate.date" label="Date" cssClass="form-control" cssStyle="min-width: 200px;"
-                                           displayFormat="yyyy-MM-dd"/>
+                                           displayFormat="dd-MM-yyyy"/>
                         <s:submit value="Save" class="btn"/>
                     </s:form>
                 </div>

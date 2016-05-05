@@ -4,6 +4,7 @@
 <head>
     <title>Student| Student settings</title>
     <meta charset="utf-8">
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
@@ -12,7 +13,6 @@
           type="text/css">
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet" type="text/css">
-    <s:head/>
 </head>
 <body>
 <div class="navbar navbar-default navbar-inverse navbar-static-top">

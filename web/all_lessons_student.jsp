@@ -68,11 +68,25 @@
                                 <thead>
                                 <th>Name of course</th>
                                 <th>Data</th>
+                                <th>Save course</th>
                                 </thead>
                                 <s:iterator value="lessonList" status="userStatus">
                                     <tr>
                                         <td><s:property value="course.name"/></td>
                                         <td><s:property value="data.data"/></td>
+                                        <td>
+                                                <%--  ПРИМЕР
+                                                <s:url id="deleteURL" action="delete_certificate">
+                                                    <s:param name="certificateId" value="%{id}"/>
+                                                    <s:param name="userId" value="%{userId}"/>
+                                                </s:url>
+                                                <s:a class="btn tableBtn" href="%{deleteURL}">Delete</s:a>
+                                                --%>
+
+                                            <s:a class="btn tableBtn" cssStyle="margin-right: 20px;" href="%{Pdf}">Pdf</s:a>
+                                            <s:a class="btn tableBtn" cssStyle="margin-right: 20px;" href="%{Excel}">Excel</s:a>
+                                            <s:a class="btn tableBtn" cssStyle="margin-right: 20px;" href="%{Csv}">Csv</s:a>
+                                        </td>
                                     </tr>
                                 </s:iterator>
                             </table>
