@@ -552,3 +552,7 @@ select {
     font-style: normal;
     vertical-align: middle;
 }
+
+.col-md-12 {
+    word-break: break-all;
+}
