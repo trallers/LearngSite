@@ -6,7 +6,7 @@
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
     <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet"
@@ -50,8 +50,8 @@
     <div class="section">
         <div class="container">
             <div class="row">
-                <div class="col-md-12 text-center">
-                    <h1>dfdghopefjbjjikofjgfikifjgnfkjgnjfjgfjrjgdrfg</h1>
+                <div class="col-md-12">
+                    <h1>Lecturer page</h1>
                 </div>
             </div>
         </div>
