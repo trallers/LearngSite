@@ -50,7 +50,7 @@
     <div class="section">
         <div class="container">
             <div class="row">
-                <div class="col-md-12 text-center">
+                <div class="col-md-12">
                     <h1>All lessons</h1>
                     <s:if test="lessonList.size() > 0">
                         <div class="content">
@@ -61,7 +61,7 @@
                                 </thead>
                                 <s:iterator value="lessonList" status="userStatus">
                                     <tr>
-                                        <td><s:property value="course.name"/></td>
+                                        <td class="lesson"><s:property value="course.name"/></td>
                                         <td><s:property value="data.data"/></td>
                                         <td>
                                             <s:url id="editURL" action="get_lesson_for_lecturer">

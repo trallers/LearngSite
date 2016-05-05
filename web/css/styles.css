@@ -254,12 +254,11 @@ fieldset[disabled] .btn-primary.active {
     -moz-transition: all .3s;
     -webkit-transition: all .3s;
     -ms-transition: all .3s;
-    transition: all .3s;
+    transition: all .3s;}
     ::-webkit-input-placeholder {color:#888;}
     ::-moz-placeholder          {color:#888;}/* Firefox 19+ */
     :-moz-placeholder           {color:#888;}/* Firefox 18- */
     :-ms-input-placeholder      {color:#888;}
-}
 
 .form-control {
     position: relative;
@@ -522,4 +521,16 @@ select{
 
 .col-md-4 h2{
     text-indent: 30px;
+}
+
+.table td {
+    word-break: break-all;
+}
+
+.lesson{
+    width: 200px;
+}
+
+table {
+    width: 100%; /* Ширина таблицы в процентах */
 }

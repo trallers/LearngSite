@@ -66,7 +66,7 @@
                                 </thead>
                                 <s:iterator value="lessonList" status="userStatus">
                                     <tr>
-                                        <td><s:property value="course.name"/></td>
+                                        <td class="lesson"><s:property value="course.name"/></td>
                                         <td><s:property value="data.data"/></td>
                                     </tr>
                                 </s:iterator>
