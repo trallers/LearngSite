@@ -3,6 +3,7 @@
 <head>
     <title>Learning site</title>
     <meta charset="utf-8">
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
     <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
@@ -81,9 +82,9 @@
                                 class="icon-next fa fa-angle-right"></i></a>
                     </div>
                     <script type="text/javascript">
-                        $(document).ready(function() {
+                        $(document).ready(function () {
                             $('#myCarousel').carousel({
-                                interval: 2000
+                                interval: 7000
                             })
                         });
                     </script>
@@ -95,24 +96,43 @@
     <div class="section">
         <div class="container">
             <div class="row">
-                <div class="col-md-12 text-center">
-                    <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor
-                        incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                        nostrud</p>
-                    <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor
-                        incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                        nostrud</p>
-                    <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor
-                        incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                        nostrud</p>
-                    <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor
-                        incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                        nostrud</p>
-
+                <div class="col-md-4">
+                    <img src="/images/java.jpg"
+                         class="img-responsive">
+                    <h2>Java</h2>
+                    <p>Java is the foundation for virtually every type of
+                        networked application and is the global standard
+                        for developing and delivering embedded and mobile
+                        applications, games, Web-based content, and enterprise
+                        software. With more than 9 million developers worldwide,
+                        Java enables you to efficiently develop, deploy and
+                        use exciting applications and services.
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <img src="images/js.png"
+                         class="img-responsive">
+                    <h2>JavaScript</h2>
+                    <p>JavaScript is a programming language used to make web pages interactive. It runs on your
+                        visitor's computer and doesn't require constant downloads from your website. JavaScript is often
+                        used to create polls and quizzes.
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <img src="images/net.png"
+                         class="img-responsive">
+                    <h2>.NET</h2>
+                    <p>.NET is both a business strategy from Microsoft and its collection of programming support for
+                        what are known as Web services, the ability to use the Web rather than your own computer for
+                        various services. Microsoft's goal is to provide individual and business users with a seamlessly
+                        interoperable and Web-enabled interface for applications and computing devices and to make
+                        computing activities increasingly Web browser-oriented.
+                    </p>
                 </div>
             </div>
         </div>
     </div>
+
 </content>
 <footer class="navbar navbar-fixed-bottom">
     <div class="container">

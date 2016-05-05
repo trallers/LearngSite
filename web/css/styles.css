@@ -490,3 +490,15 @@ textarea::-webkit-input-placeholder, textarea.form-control::-webkit-input-placeh
 
 }
 
+
+.col-md-4{
+    min-width: 200px;
+    max-width: 400px;
+}
+
+.col-md-4 img{
+    width: 75%;
+    height: auto;
+    min-width: 100px;
+    margin: auto;
+}
