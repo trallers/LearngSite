@@ -36,6 +36,9 @@
                         lessons</a>
                 </li>
                 <li>
+                    <a href="#">Settings</a>
+                </li>
+                <li>
                     <a href="<s:url action="logout"/>" data-toggle="modal">Logout <span
                             class="glyphicon glyphicon-log-out"></span></a>
                 </li>

@@ -80,7 +80,7 @@
                                 listValue="name"
                                 required="true"
                                 class="form-control"/>
-                        <s:textarea name="certificate.data" label="Data" class="form-control" cssStyle="max-width: 500px; max-height: 500px;"
+                        <s:textarea name="certificate.data" label="Data" class="form-control"
                                     placeholder="Enter data"/>
                         <sx:datetimepicker name="certificate.date" label="Date" cssClass="form-control" cssStyle="min-width: 200px;"
                                            displayFormat="yyyy-MM-dd"/>

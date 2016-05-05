@@ -502,3 +502,11 @@ textarea::-webkit-input-placeholder, textarea.form-control::-webkit-input-placeh
     min-width: 100px;
     margin: auto;
 }
+
+textarea{
+    max-width: 500px; max-height: 500px;
+}
+
+select{
+    min-width:223px;
+}
