@@ -59,9 +59,9 @@
     <div class="section">
         <div class="container">
             <div class="row">
-                <div class="col-md-12 text-center">
+                <div class="col-md-12">
                     <h1>Student page</h1>
-                    kfljldkfjdfn fdjgul ndldfh nuliig nbdlfk hdnlfjk dnhbgld dfbgl bdldfbl
+                        Nanananananananananananannanana
                 </div>
             </div>
         </div>

@@ -530,7 +530,3 @@ select{
 .lesson{
     width: 200px;
 }
-
-table {
-    width: 100%; /* Ширина таблицы в процентах */
-}
