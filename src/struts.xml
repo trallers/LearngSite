@@ -250,6 +250,10 @@
             <interceptor-ref name="jsonStack"/>
             <result name="json">register.jsp</result>
         </action>
+
+        <action name="generate_pdf_pricelist" class="action.document.GeneratePdfAction" method="generatePriceList">
+            <result name="success" type="chain">logout</result>
+        </action>
     </package>
 
 </struts>

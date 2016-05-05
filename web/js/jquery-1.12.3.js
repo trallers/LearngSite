@@ -785,7 +785,7 @@ function Sizzle( selector, context, results, seed ) {
 		return results;
 	}
 
-	// Try to shortcut find operations (as opposed to filters) in HTML documents
+	// Try to shortcut find operations (as opposed to filters) in HTML document
 	if ( !seed ) {
 
 		if ( ( context ? context.ownerDocument || context : preferredDoc ) !== document ) {
@@ -1084,7 +1084,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 	documentIsHTML = !isXML( document );
 
 	// Support: IE 9-11, Edge
-	// Accessing iframe documents after unload throws "permission denied" errors (jQuery #13936)
+	// Accessing iframe document after unload throws "permission denied" errors (jQuery #13936)
 	if ( (parent = document.defaultView) && parent.top !== parent ) {
 		// Support: IE 11
 		if ( parent.addEventListener ) {
@@ -1392,7 +1392,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 			ap = [ a ],
 			bp = [ b ];
 
-		// Parentless nodes are either documents or disconnected
+		// Parentless nodes are either document or disconnected
 		if ( !aup || !bup ) {
 			return a === document ? -1 :
 				b === document ? 1 :
