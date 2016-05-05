@@ -254,11 +254,26 @@ fieldset[disabled] .btn-primary.active {
     -moz-transition: all .3s;
     -webkit-transition: all .3s;
     -ms-transition: all .3s;
-    transition: all .3s;}
-    ::-webkit-input-placeholder {color:#888;}
-    ::-moz-placeholder          {color:#888;}/* Firefox 19+ */
-    :-moz-placeholder           {color:#888;}/* Firefox 18- */
-    :-ms-input-placeholder      {color:#888;}
+    transition: all .3s;
+}
+
+::-webkit-input-placeholder {
+    color: #888;
+}
+
+::-moz-placeholder {
+    color: #888;
+}
+
+/* Firefox 19+ */
+:-moz-placeholder {
+    color: #888;
+}
+
+/* Firefox 18- */
+:-ms-input-placeholder {
+    color: #888;
+}
 
 .form-control {
     position: relative;
@@ -493,33 +508,33 @@ textarea::-webkit-input-placeholder, textarea.form-control::-webkit-input-placeh
 
 }
 
-
-.col-md-4{
+.col-md-4 {
     min-width: 200px;
     max-width: 400px;
 }
 
-.col-md-4 img{
+.col-md-4 img {
     width: 75%;
     height: auto;
     min-width: 100px;
     margin: auto;
 }
 
-textarea{
-    max-width: 500px; max-height: 500px;
+textarea {
+    max-width: 500px;
+    max-height: 500px;
 }
 
-select{
-    min-width:223px;
+select {
+    min-width: 223px;
 }
 
-.col-md-4 p{
+.col-md-4 p {
     text-align: justify;
     text-indent: 30px;
 }
 
-.col-md-4 h2{
+.col-md-4 h2 {
     text-indent: 30px;
 }
 
@@ -527,6 +542,13 @@ select{
     word-break: break-all;
 }
 
-.lesson{
+.lesson {
     width: 200px;
+}
+
+.tdLabel {
+    font-weight: bold;
+    font-size: 22px;
+    font-style: normal;
+    vertical-align: middle;
 }

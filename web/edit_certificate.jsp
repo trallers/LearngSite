@@ -14,7 +14,6 @@
           type="text/css">
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet" type="text/css">
-    <s:head/>
     <sx:head/>
 </head>
 <body>
@@ -80,10 +79,10 @@
                                 listValue="name"
                                 required="true"
                                 class="form-control"/>
-                        <s:textarea name="certificate.data" label="Data" class="form-control"
-                                    placeholder="Enter data"/>
                         <sx:datetimepicker name="certificate.date" label="Date" cssClass="form-control" cssStyle="min-width: 200px;"
                                            displayFormat="dd-MM-yyyy"/>
+                        <s:textarea name="certificate.data" label="Data" class="form-control"
+                                    placeholder="Enter data"/>
                         <s:submit value="Save" class="btn"/>
                     </s:form>
                 </div>

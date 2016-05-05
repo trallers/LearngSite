@@ -51,7 +51,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h1>Lecturer page</h1>
+                    <h1>Lecturer panel</h1>
+                    <p>You can edit on this page:</p>
+                    <ul>
+                        <li>Lessons info</li>
+                        <li>Personal settings</li>
+                    </ul>
+                    <p>To change the desired data, select the menu item</p>
                 </div>
             </div>
         </div>

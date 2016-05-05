@@ -60,8 +60,18 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h1>Student page</h1>
-                        Nanananananananananananannanana
+                    <h1>Student panel</h1>
+                    <p>You can view on this page:</p>
+                    <ul>
+                        <li>Your courses</li>
+                        <li>Passed lessons</li>
+                        <li>Certificates</li>
+                    </ul>
+                    <p>You can edit on this page:</p>
+                    <ul>
+                        <li>Personal settings</li>
+                    </ul>
+                    <p>To view or change the desired data, select the menu item</p>
                 </div>
             </div>
         </div>

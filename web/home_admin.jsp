@@ -56,7 +56,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h2>Admin panel</h2>
+                    <h1>Admin panel</h1>
                     <p>You can edit on this page:</p>
                     <ul>
                         <li>Users info</li>
