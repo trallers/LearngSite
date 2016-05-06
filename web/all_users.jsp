@@ -93,8 +93,8 @@
                                                 <s:url id="deleteURL" action="delete_user">
                                                     <s:param name="userId" value="%{id}"/>
                                                 </s:url>
-                                                <s:a id="delBtn" href="%{deleteURL}"></s:a>
-                                                <s:a class="btn tableBtn delete" href="">Delete</s:a>
+                                                <s:a id="delBtn%{id}" href="%{deleteURL}"></s:a>
+                                                <s:a atr="%{id}" class="btn tableBtn delete" href="" onclick="deleteItem(this)">Delete</s:a>
                                             </s:if>
 
                                         </td>

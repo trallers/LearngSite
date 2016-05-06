@@ -86,8 +86,8 @@
                                                 <s:param name="certificateId" value="%{id}"/>
                                                 <s:param name="userId" value="%{userId}"/>
                                             </s:url>
-                                            <s:a id="delBtn" href="%{deleteURL}"></s:a>
-                                            <s:a class="btn tableBtn delete" href="">Delete</s:a>
+                                            <s:a id="delBtn%{id}" href="%{deleteURL}"></s:a>
+                                            <s:a atr="%{id}" class="btn tableBtn delete" href="" onclick="deleteItem(this)">Delete</s:a>
                                         </td>
 
                                     </tr>
