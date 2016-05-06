@@ -6,9 +6,6 @@
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
-    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
-
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet"
           type="text/css">
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -74,7 +71,7 @@
                                         <td><s:property value="name"/></td>
                                         <td><s:property value="technology"/></td>
                                         <td class="lesson"><s:property value="lecturer.surname"/></td>
-                                        <td  class="lesson"><s:property value="price"/></td>
+                                        <td class="lesson"><s:property value="price"/></td>
                                         <td>
                                             <s:url id="editURL" action="get_course_for_admin">
                                                 <s:param name="courseId" value="%{id}"/>
@@ -87,7 +84,8 @@
                                                 <s:param name="courseId" value="%{id}"/>
                                                 <s:param name="userId" value="%{userId}"/>
                                             </s:url>
-                                            <s:a class="btn tableBtn delete" href="%{deleteURL}">Delete</s:a>
+                                            <s:a id="delBtn" href="%{deleteURL}"></s:a>
+                                            <s:a class="btn tableBtn delete" href="">Delete</s:a>
                                         </td>
                                     </tr>
                                 </s:iterator>
@@ -120,5 +118,9 @@
         </div>
     </div>
 </footer>
+<script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
+<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/js/bootbox.min.js"></script>
+<script type="text/javascript" src="/js/modalBox.js"></script>
 </body>
 </html>

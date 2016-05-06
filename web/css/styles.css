@@ -1,3 +1,6 @@
+html{
+    font-family: 'Roboto', sans-serif;
+}
 
 html body {
     height: 100%;
@@ -157,21 +160,6 @@ a:focus {
 
 .img-thumbnail {
     background-color: #272b30;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.h1,
-.h2,
-.h3,
-.h4,
-.h5,
-.h6 {
-    font-family: Vollkorn;
 }
 
 .table .table {
@@ -359,6 +347,10 @@ textarea::-webkit-input-placeholder, textarea.form-control::-webkit-input-placeh
     box-shadow: none;
     margin-bottom: -3px;
     margin-top: 3px;
+}
+
+.delete:active {
+    background: #FF0000;
 }
 
 .btn:focus {
@@ -554,7 +546,7 @@ select {
 }
 
 .lesson {
-    min-width: 150px;
+    min-width: 200px;
 }
 
 .tdLabel {
@@ -578,4 +570,13 @@ footer .container{
 
 footer .row{
     margin-top: 30px;
+}
+
+
+.modal-content{
+    color: black;
+    font-size: 20px;
+    background-color: #585858;
+    color: white;
+    border: 1px solid white;
 }

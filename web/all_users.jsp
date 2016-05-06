@@ -6,8 +6,6 @@
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
-    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -95,7 +93,8 @@
                                                 <s:url id="deleteURL" action="delete_user">
                                                     <s:param name="userId" value="%{id}"/>
                                                 </s:url>
-                                                <s:a class="btn tableBtn delete" href="%{deleteURL}">Delete</s:a>
+                                                <s:a id="delBtn" href="%{deleteURL}"></s:a>
+                                                <s:a class="btn tableBtn delete" href="">Delete</s:a>
                                             </s:if>
 
                                         </td>
@@ -128,6 +127,10 @@
         </div>
     </div>
 </footer>
+<script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
+<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/js/bootbox.min.js"></script>
+<script type="text/javascript" src="/js/modalBox.js"></script>
 </body>
 </html>
 
