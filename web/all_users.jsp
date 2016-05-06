@@ -95,7 +95,7 @@
                                                 <s:url id="deleteURL" action="delete_user">
                                                     <s:param name="userId" value="%{id}"/>
                                                 </s:url>
-                                                <s:a class="btn tableBtn" href="%{deleteURL}">Delete</s:a>
+                                                <s:a class="btn tableBtn delete" href="%{deleteURL}">Delete</s:a>
                                             </s:if>
 
                                         </td>
@@ -116,7 +116,6 @@
 <footer class="navbar navbar-fixed-bottom">
     <div class="container">
         <div class="row">
-            <hr>
             <div class="col-lg-12">
                 <div class="col-md-8">
                     <a href="#">Terms of Service</a>|

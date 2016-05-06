@@ -75,7 +75,7 @@
                                                 <s:param name="lessonId" value="%{id}"></s:param>
                                                 <s:param name="userId" value="%{userId}"></s:param>
                                             </s:url>
-                                            <s:a class="btn tableBtn" href="%{deleteURL}">Delete</s:a>
+                                            <s:a class="btn tableBtn delete" href="%{deleteURL}">Delete</s:a>
                                         </td>
                                     </tr>
                                 </s:iterator>

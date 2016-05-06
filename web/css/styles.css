@@ -12,7 +12,7 @@ html body .container-fluid.body-content {
     left: 0;
     overflow-y: auto;
     overflow-x: hidden;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
 
 .container {
@@ -322,6 +322,7 @@ textarea::-webkit-input-placeholder, textarea.form-control::-webkit-input-placeh
     padding: 0 20px;
     vertical-align: middle;
     background: #428bca;
+    box-shadow: 0 3px 0 0 #004b8d;
     border: 0;
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
@@ -332,14 +333,11 @@ textarea::-webkit-input-placeholder, textarea.form-control::-webkit-input-placeh
     -webkit-border-radius: 4px;
     border-radius: 4px;
     text-shadow: none;
-    -moz-box-shadow: none;
-    -webkit-box-shadow: none;
-    box-shadow: none;
     -o-transition: all .3s;
     -moz-transition: all .3s;
     -webkit-transition: all .3s;
     transition: all .3s;
-    box-shadow: 0 3px 0 0 #004b8d;
+
 }
 
 .tableBtn {
@@ -529,6 +527,10 @@ select {
     min-width: 223px;
 }
 
+.col-md-12, .col-md-4 {
+    word-break: break-all;
+}
+
 .col-md-4 p {
     text-align: justify;
     text-indent: 30px;
@@ -538,13 +540,21 @@ select {
     text-indent: 30px;
 }
 
+.table {
+    min-width: 500px;
+}
+
 .table td {
     word-break: break-all;
-    min-width: 100px;
+    min-width: 60px;
+}
+
+.table tr{
+    word-break: normal;
 }
 
 .lesson {
-    width: 200px;
+    min-width: 150px;
 }
 
 .tdLabel {
@@ -554,9 +564,18 @@ select {
     vertical-align: middle;
 }
 
-.col-md-12{
-    word-break: break-all;
+.delete {
+    background: #F08080;
+    box-shadow: 0 3px 0 0 #A52A2A;
 }
-.col-md-4{
-    word-break: break-all;
+
+footer{
+    background-color: #272b30;
+}
+footer .container{
+    border-top: 1px solid white;
+}
+
+footer .row{
+    margin-top: 30px;
 }

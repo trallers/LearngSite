@@ -88,7 +88,7 @@
                                                 <s:param name="certificateId" value="%{id}"/>
                                                 <s:param name="userId" value="%{userId}"/>
                                             </s:url>
-                                            <s:a class="btn tableBtn" href="%{deleteURL}">Delete</s:a>
+                                            <s:a class="btn tableBtn delete" href="%{deleteURL}">Delete</s:a>
                                         </td>
 
                                     </tr>
@@ -108,7 +108,6 @@
 <footer class="navbar navbar-fixed-bottom">
     <div class="container">
         <div class="row">
-            <hr>
             <div class="col-lg-12">
                 <div class="col-md-8">
                     <a href="#">Terms of Service</a>|

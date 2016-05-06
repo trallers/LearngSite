@@ -82,8 +82,7 @@
 </content>
 <footer class="navbar navbar-fixed-bottom">
     <div class="container">
-        <div class="row" style="background-color: #272b30">
-            <hr>
+        <div class="row">
             <div class="col-lg-12">
                 <div class="col-md-8">
                     <a href="#">Terms of Service</a>|
