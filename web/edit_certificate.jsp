@@ -12,6 +12,7 @@
 
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet"
           type="text/css">
+    <link rel="stylesheet" href="css/datepicker.css">
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet" type="text/css">
     <sx:head/>
@@ -79,13 +80,24 @@
                                 listValue="name"
                                 required="true"
                                 class="form-control"/>
-                        <sx:datetimepicker name="certificate.date" label="Date" cssClass="form-control" cssStyle="min-width: 200px;"
-                                           displayFormat="dd-MM-yyyy"/>
-                        <s:textarea name="certificate.data" label="Data" class="form-control"
-                                    placeholder="Enter data"/>
+                        <s:textfield name="certificate.date" cssStyle="min-width: 200px;" class="form-control" label="Date" placeholder="choose date"  id="example1"/>
+
+                        <s:textarea name="certificate.data" label="Data"
+                                    placeholder="Enter data" class="form-control"/>
                         <s:submit value="Save" class="btn"/>
                     </s:form>
                 </div>
+                <script src="js/bootstrap-datepicker.js"></script>
+                <script type="text/javascript">
+                    // When the document is ready
+                    $(document).ready(function () {
+
+                        $('#example1').datepicker({
+                            format: "dd.mm.yyyy"
+                        });
+
+                    });
+                </script>
             </div>
         </div>
     </div>
