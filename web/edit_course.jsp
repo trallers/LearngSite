@@ -66,10 +66,10 @@
                         <s:textfield name="course.technology" label="Technology" class="form-control"
                                      placeholder="Enter technology"/>
                         <s:select
-                                name="lecturerID"
+                                name="lecturerSurname"
                                 label="Lecturer"
                                 list="lecturerList"
-                                listKey="id"
+                                listKey="surname"
                                 listValue="surname"
                                 required="true" class="form-control"
                                 placeholder="Enter technology"/>

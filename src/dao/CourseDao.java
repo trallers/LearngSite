@@ -1,6 +1,8 @@
 package dao;
 
 import bean.Course;
+import bean.User;
+import service.user.GetUserByIdService;
 import util.DBUtil;
 
 import java.sql.PreparedStatement;
@@ -36,7 +38,10 @@ public class CourseDao {
             ps.setString(1,userID);
             ResultSet rs = ps.executeQuery();
             while (rs.next()){
-                coursesList.add(new Course(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getInt(5)));
+                Integer idLecturer = rs.getInt(4);
+                User lecturer = GetUserByIdService.execute(idLecturer.toString());
+                if(lecturer != null)
+                    coursesList.add(new Course(rs.getInt(1), rs.getString(2), rs.getString(3), lecturer, rs.getInt(5)));
             }
         } catch (SQLException | NullPointerException e) {
             e.printStackTrace();
@@ -50,7 +55,10 @@ public class CourseDao {
             PreparedStatement ps = DBUtil.getConnection().prepareStatement(GET_ALL_COURSES);
             ResultSet rs = ps.executeQuery();
             while (rs.next()){
-                courseList.add(new Course(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getInt(5)));
+                Integer idLecturer = rs.getInt(4);
+                User lecturer = GetUserByIdService.execute(idLecturer.toString());
+                if(lecturer != null)
+                    courseList.add(new Course(rs.getInt(1), rs.getString(2), rs.getString(3), lecturer, rs.getInt(5)));
             }
         } catch (SQLException | NullPointerException e) {
             e.printStackTrace();
@@ -63,7 +71,7 @@ public class CourseDao {
             PreparedStatement ps = DBUtil.getConnection().prepareStatement(INSERT_COURSE_QUERY);
             ps.setString(1, course.getName());
             ps.setString(2, course.getTechnology());
-            ps.setInt(3, course.getIdLecturer());
+            ps.setInt(3, course.getLecturer().getId());
             ps.setInt(4, course.getPrice());
             ps.executeUpdate();
             return true;
@@ -91,7 +99,7 @@ public class CourseDao {
                 PreparedStatement ps = DBUtil.getConnection().prepareStatement(UPDATE_COURSE_QUERY);
                 ps.setString(1, course.getName());
                 ps.setString(2, course.getTechnology());
-                ps.setInt(3, course.getIdLecturer());
+                ps.setInt(3, course.getLecturer().getId());
                 ps.setInt(4, course.getPrice());
                 ps.setInt(5, course.getId());
                 ps.execute();
@@ -112,8 +120,12 @@ public class CourseDao {
             PreparedStatement ps = DBUtil.getConnection().prepareStatement(GET_COURSE_BY_ID);
             ps.setString(1, id);
             ResultSet rs = ps.executeQuery();
-            while (rs.next())
-                course = new Course(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getInt(5));
+            while (rs.next()) {
+                Integer idLecturer = rs.getInt(4);
+                User lecturer = GetUserByIdService.execute(idLecturer.toString());
+                if(lecturer != null)
+                    course = new Course(rs.getInt(1), rs.getString(2), rs.getString(3), lecturer, rs.getInt(5));
+            }
 
         } catch (SQLException | NullPointerException e) {
             e.printStackTrace();
@@ -128,7 +140,10 @@ public class CourseDao {
             ps.setString(1,lecturerId);
             ResultSet rs = ps.executeQuery();
             while (rs.next()){
-                courseList.add(new Course(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getInt(5)));
+                Integer idLecturer = rs.getInt(4);
+                User lecturer = GetUserByIdService.execute(idLecturer.toString());
+                if(lecturer != null)
+                    courseList.add(new Course(rs.getInt(1), rs.getString(2), rs.getString(3), lecturer, rs.getInt(5)));
             }
         } catch (SQLException | NullPointerException e) {
             e.printStackTrace();

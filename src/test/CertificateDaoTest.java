@@ -71,7 +71,7 @@ public class CertificateDaoTest extends DBTestCase {
         List<Certificate> listOfCertificates = CertificateDao.getInstance().getAll();
         Certificate actualCertificate = listOfCertificates.get(0);
 
-        Certificate expectedCertificate = new Certificate(1, new User(2,"login2", "2", "student", "name2", "surname2", "phone2", "email2", false), new Course(1, "name1", "technology1", 3, 1), "data1", new Date(new SimpleDateFormat("yyyy-MM-dd").parse("2007-01-01").getTime()));
+        Certificate expectedCertificate = new Certificate(1, new User(2,"login2", "2", "student", "name2", "surname2", "phone2", "email2", false), new Course(), "data1", new Date(new SimpleDateFormat("yyyy-MM-dd").parse("2007-01-01").getTime()));
 
         Assert.assertEquals(actualCertificate, expectedCertificate);
     }
@@ -81,7 +81,7 @@ public class CertificateDaoTest extends DBTestCase {
         List<Certificate> listOfCertificates = CertificateDao.getInstance().getAll();
         Certificate actualCertificate = listOfCertificates.get(0);
 
-        Certificate expectedCertificate = new Certificate(1, new User(1,"znexie", "1234", "admin", "Anton", "Shulga", "+375222211220", "znexie@gmail.com", false), new Course(3, "Advanced JS: Natural Simulations", "JS", 3, 200), "10 iz 10 paranek!!", new java.util.Date(new SimpleDateFormat("yyyy-MM-dd").parse("2022-03-20").getTime()));
+        Certificate expectedCertificate = new Certificate(1, new User(1,"znexie", "1234", "admin", "Anton", "Shulga", "+375222211220", "znexie@gmail.com", false), new Course(), "10 iz 10 paranek!!", new java.util.Date(new SimpleDateFormat("yyyy-MM-dd").parse("2022-03-20").getTime()));
 
         Assert.assertNotEquals(actualCertificate, expectedCertificate);
     }
@@ -141,14 +141,14 @@ public class CertificateDaoTest extends DBTestCase {
 
     @Test
     public void testCreate() throws Exception {
-        Certificate certificate = new Certificate(15, new User(1,"znexie", "1234", "admin", "Anton", "Shulga", "+375292237896", "znexie@gmail.com", false), new Course(3, "Advanced JS: Natural Simulations", "JS", 3, 200), "10 iz 10 paranek!!", new java.util.Date(new SimpleDateFormat("yyyy-MM-dd").parse("2049-03-20").getTime()));
+        Certificate certificate = new Certificate(15, new User(1,"znexie", "1234", "admin", "Anton", "Shulga", "+375292237896", "znexie@gmail.com", false), new Course(), "10 iz 10 paranek!!", new java.util.Date(new SimpleDateFormat("yyyy-MM-dd").parse("2049-03-20").getTime()));
 
         Assert.assertTrue(CertificateDao.getInstance().create(certificate));
     }
 
     @Test
     public void testCreateWithExistingId() throws Exception {
-        Certificate certificate = new Certificate(1, new User(1,"znexie", "1234", "admin", "Anton", "Shulga", "+375292237896", "znexie@gmail.com", false), new Course(3, "Advanced JS: Natural Simulations", "JS", 3, 200), "10 iz 10 paranek!!", new java.util.Date(new SimpleDateFormat("yyyy-MM-dd").parse("2049-03-20").getTime()));
+        Certificate certificate = new Certificate(1, new User(1,"znexie", "1234", "admin", "Anton", "Shulga", "+375292237896", "znexie@gmail.com", false), new Course(), "10 iz 10 paranek!!", new java.util.Date(new SimpleDateFormat("yyyy-MM-dd").parse("2049-03-20").getTime()));
 
         Assert.assertTrue(CertificateDao.getInstance().create(certificate));
     }

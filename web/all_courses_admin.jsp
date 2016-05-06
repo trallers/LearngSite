@@ -63,7 +63,7 @@
                                 <thead>
                                 <th>Name</th>
                                 <th>Technology</th>
-                                <th>Id lecturer</th>
+                                <th>Lecturer</th>
                                 <th>Price</th>
                                 <th>Edit</th>
                                 <th>Delete</th>
@@ -73,7 +73,7 @@
                                         <s:hidden value="id"/>
                                         <td><s:property value="name"/></td>
                                         <td><s:property value="technology"/></td>
-                                        <td class="lesson"><s:property value="idLecturer"/></td>
+                                        <td class="lesson"><s:property value="lecturer.surname"/></td>
                                         <td  class="lesson"><s:property value="price"/></td>
                                         <td>
                                             <s:url id="editURL" action="get_course_for_admin">

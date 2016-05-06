@@ -8,13 +8,13 @@ public class Course {
     private String name;
     private String technology;
     private Integer price;
-    private Integer idLecturer;
+    private User lecturer;
 
-    public Course(Integer id, String name, String technology, Integer idLecturer, Integer price) {
+    public Course(Integer id, String name, String technology,  User lecturer, Integer price) {
         this.id = id;
         this.name = name;
         this.technology = technology;
-        this.idLecturer = idLecturer;
+        this.lecturer = lecturer;
         this.price = price;
 
     }
@@ -30,7 +30,7 @@ public class Course {
         if (!name.equals(course.name)) return false;
         if (!technology.equals(course.technology)) return false;
         if (!price.equals(course.price)) return false;
-        return idLecturer.equals(course.idLecturer);
+        return lecturer.equals(course.lecturer);
 
     }
 
@@ -40,7 +40,7 @@ public class Course {
         result = 31 * result + name.hashCode();
         result = 31 * result + technology.hashCode();
         result = 31 * result + price.hashCode();
-        result = 31 * result + idLecturer.hashCode();
+        result = 31 * result + lecturer.hashCode();
         return result;
     }
 
@@ -79,11 +79,11 @@ public class Course {
         this.price = price;
     }
 
-    public Integer getIdLecturer() {
-        return idLecturer;
+    public User getLecturer() {
+        return lecturer;
     }
 
-    public void setIdLecturer(Integer idLecturer) {
-        this.idLecturer = idLecturer;
+    public void setLecturer(User lecturer) {
+        this.lecturer = lecturer;
     }
 }

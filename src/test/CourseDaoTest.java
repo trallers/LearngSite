@@ -67,7 +67,7 @@ public class CourseDaoTest extends DBTestCase{
         List<Course> listOfCourses = CourseDao.getInstance().getAll();
         Course actualCourse = listOfCourses.get(0);
 
-        Course expectedCourse = new Course(1,"name1", "technology1", 3, 1);
+        Course expectedCourse = new Course();
 
         Assert.assertEquals(actualCourse, expectedCourse);
     }
@@ -77,7 +77,7 @@ public class CourseDaoTest extends DBTestCase{
         List<Course> listOfCourses = CourseDao.getInstance().getAll();
         Course actualCourse = listOfCourses.get(0);
 
-        Course expectedCourse = new Course(1,"name2", "technology2", 3, 1);
+        Course expectedCourse = new Course();
 
         Assert.assertNotEquals(actualCourse, expectedCourse);
     }
@@ -114,14 +114,13 @@ public class CourseDaoTest extends DBTestCase{
     public void testCreateWithSomeNullFields() {
         Course course = new Course();
         course.setId(1);
-        course.setIdLecturer(3);
 
         Assert.assertFalse(CourseDao.getInstance().create(course));
     }
 
     @Test
     public void testCreate() {
-        Course course = new Course(5, "name5", "technology5", 3, 5);
+        Course course = new Course();
 
         Assert.assertTrue(CourseDao.getInstance().create(course));
     }
@@ -130,7 +129,6 @@ public class CourseDaoTest extends DBTestCase{
     public void testCreateWithSetAttributes() {
         Course course = new Course();
         course.setId(5);
-        course.setIdLecturer(3);
         course.setName("name5");
         course.setPrice(5);
         course.setTechnology("technology5");
@@ -140,7 +138,7 @@ public class CourseDaoTest extends DBTestCase{
 
     @Test
     public void testCreateWithExistingId() {
-        Course course = new Course(1, "name1", "technology1", 3, 1);
+        Course course = new Course();
 
         Assert.assertTrue(CourseDao.getInstance().create(course));
     }

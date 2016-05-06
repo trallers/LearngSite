@@ -18,6 +18,15 @@ public class EditCourseAction extends ActionSupport{
     private String lecturerID;
     private String courseId;
     private String userId;
+    private String lecturerSurname;
+
+    public String getLecturerSurname() {
+        return lecturerSurname;
+    }
+
+    public void setLecturerSurname(String lecturerSurname) {
+        this.lecturerSurname = lecturerSurname;
+    }
 
     public String getCourseId() {
         return courseId;
@@ -51,8 +60,11 @@ public class EditCourseAction extends ActionSupport{
         this.course = course;
     }
 
+
+
     public String createOrUpdate(){
-        course.setIdLecturer(Integer.parseInt(lecturerID));
+        lecturerList = GetAllLecturersService.execute();
+        course.setLecturer(getLecturerBySurname(lecturerSurname));
         boolean success = UpdateCourseService.execute(course);
         if(success)
             return SUCCESS;
@@ -66,6 +78,14 @@ public class EditCourseAction extends ActionSupport{
         lecturerList = GetAllLecturersService.execute();
         course = GetCourseByIdService.execute(courseId);
         return SUCCESS;
+    }
+
+    private User getLecturerBySurname(String surname){
+        for(User lecturer : lecturerList){
+            if(lecturer.getSurname().equals(surname))
+                return lecturer;
+        }
+        return null;
     }
 
     public void setUserId(String userId) {

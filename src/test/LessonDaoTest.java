@@ -18,8 +18,6 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Properties;
 
-import static org.junit.Assert.*;
-
 /**
  * Created by Wadim on 5/2/16.
  */
@@ -70,7 +68,7 @@ public class LessonDaoTest extends DBTestCase {
         List<Lesson> listOfLessons = LessonDao.getInstance().getAll();
         Lesson actualLesson = listOfLessons.get(0);
 
-        Lesson expectedLesson = new Lesson(1, new Course(1, "name1", "technology1", 3, 1), new Data(1, "data1"));
+        Lesson expectedLesson = new Lesson(1, new Course(), new Data(1, "data1"));
 
         Assert.assertEquals(actualLesson, expectedLesson);
     }
@@ -80,7 +78,7 @@ public class LessonDaoTest extends DBTestCase {
         List<Lesson> listOfLessons = LessonDao.getInstance().getAll();
         Lesson actualLesson = listOfLessons.get(0);
 
-        Lesson expectedLesson = new Lesson(2, new Course(1, "name1", "technology1", 3, 1), new Data(1, "data1"));
+        Lesson expectedLesson = new Lesson(2, new Course(), new Data(1, "data1"));
 
         Assert.assertNotEquals(actualLesson, expectedLesson);
     }
@@ -141,14 +139,14 @@ public class LessonDaoTest extends DBTestCase {
 
     @Test
     public void testCreate() {
-        Lesson lesson = new Lesson(1, new Course(1, "name55", "technology55", 3, 1), new Data(1, "data1"));
+        Lesson lesson = new Lesson(1, new Course(), new Data(1, "data1"));
 
         Assert.assertTrue(LessonDao.getInstance().create(lesson));
     }
 
     @Test
     public void testCreateWithExistingId() {
-        Lesson lesson = new Lesson(1, new Course(1, "name1", "technology1", 3, 1), new Data(1, "data1"));
+        Lesson lesson = new Lesson(1, new Course(), new Data(1, "data1"));
 
         Assert.assertTrue(LessonDao.getInstance().create(lesson));
     }
