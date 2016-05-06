@@ -57,22 +57,22 @@
                             <div class="item active">
                                 <img src="images/slider1.jpg">
                                 <div class="carousel-caption">
-                                    <h2>Title</h2>
-                                    <p>Description</p>
+                                    <h2>Learning site</h2>
+                                    <p>Learn languages</p>
                                 </div>
                             </div>
                             <div class="item">
                                 <img src="images/slider2.jpg">
                                 <div class="carousel-caption">
-                                    <h2>Title2</h2>
-                                    <p>Description2</p>
+                                    <h2>Learning site</h2>
+                                    <p>Increase skills</p>
                                 </div>
                             </div>
                             <div class="item">
                                 <img src="images/slider3.jpg">
                                 <div class="carousel-caption">
-                                    <h2>Title3</h2>
-                                    <p>Description3</p>
+                                    <h2>Learning site</h2>
+                                    <p>Student.code()</p>
                                 </div>
                             </div>
                         </div>

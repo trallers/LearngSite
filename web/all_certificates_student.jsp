@@ -73,7 +73,7 @@
 
                                 <s:iterator value="certificateList" status="userStatus">
                                     <tr>
-                                        <td><s:property value="data"/></td>
+                                        <td  class="lesson"><s:property value="data"/></td>
                                         <td><s:property value="date"/></td>
                                         <td>
                                             <%--  ПРИМЕР

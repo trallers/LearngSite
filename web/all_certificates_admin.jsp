@@ -74,7 +74,7 @@
                                         <s:hidden name="id"/>
                                         <td><s:property value="student.surname"/></td>
                                         <td><s:property value="course.name"/></td>
-                                        <td><s:property value="data"/></td>
+                                        <td  class="lesson"><s:property value="data"/></td>
                                         <td><s:property value="date"/></td>
                                         <td>
                                             <s:url id="editURL" action="get_certificate_for_admin">

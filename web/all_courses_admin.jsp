@@ -73,8 +73,8 @@
                                         <s:hidden value="id"/>
                                         <td><s:property value="name"/></td>
                                         <td><s:property value="technology"/></td>
-                                        <td><s:property value="idLecturer"/></td>
-                                        <td><s:property value="price"/></td>
+                                        <td class="lesson"><s:property value="idLecturer"/></td>
+                                        <td  class="lesson"><s:property value="price"/></td>
                                         <td>
                                             <s:url id="editURL" action="get_course_for_admin">
                                                 <s:param name="courseId" value="%{id}"/>

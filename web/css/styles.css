@@ -540,6 +540,7 @@ select {
 
 .table td {
     word-break: break-all;
+    min-width: 100px;
 }
 
 .lesson {
@@ -553,6 +554,9 @@ select {
     vertical-align: middle;
 }
 
-.col-md-12 {
+.col-md-12{
+    word-break: break-all;
+}
+.col-md-4{
     word-break: break-all;
 }

@@ -52,7 +52,7 @@
                 <field-validator type="stringlength">
                         <param name="minLength">13</param>
                         <param name="maxLength">13</param>
-                        <message>Phone must be 13 characters</message>
+                        <message>Phone must be 13 characters in format (+375--------)</message>
                 </field-validator>
         </field>
         <field name="user.email">
