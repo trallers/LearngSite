@@ -58,7 +58,7 @@
                         </div>
                     </div>
                     <div class="form-bottom">
-                        <s:form role="form" action="registration" method="post" validate="true"
+                        <s:form role="form" action="register" method="post" validate="true"
                                 class="form-group login-form">
                             <s:actionerror/>
                             <s:label value="Login"/>
