@@ -252,7 +252,7 @@
         </action>
 
         <action name="generate_pdf_pricelist" class="action.document.GeneratePdfAction" method="generatePriceList">
-            <result name="success" type="chain">logout</result>
+            <result name="success" type="chain">list_courses_for_admin</result>
         </action>
     </package>
 

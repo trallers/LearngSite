@@ -5,10 +5,7 @@ import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.*;
 import service.course.GetAllCoursesService;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.util.List;
 
 /**
@@ -32,13 +29,11 @@ public class PDFGenerator implements DocumentGenerator {
 
     public static PDFGenerator getInstance(){return instance;}
 
-    public  void generatePriceList(){
+    public  void generatePriceList(OutputStream outputStream){
         List<Course> courseList = GetAllCoursesService.execute();
         Document document = new Document();
         try {
-
-            File file = new File(PRICELIST_FILE_NAME);
-            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(file));
+            PdfWriter writer = PdfWriter.getInstance(document, outputStream);
             document.open();
             Paragraph title = new Paragraph("Pricelist of courses of Learning Site:");
             title.setAlignment(Element.ALIGN_CENTER);
@@ -88,28 +83,28 @@ public class PDFGenerator implements DocumentGenerator {
                 canvas.restoreState();
             }
             document.close();
-        } catch (FileNotFoundException | DocumentException e) {
+        } catch (DocumentException e) {
             e.printStackTrace();
         }
     }
 
     @Override
-    public void generateListOfStudents() {
+    public void generateListOfStudents(OutputStream outputStream) {
 
     }
 
     @Override
-    public void generateCertificate() {
+    public void generateCertificate(OutputStream outputStream) {
 
     }
 
     @Override
-    public void generateRecommendation() {
+    public void generateRecommendation(OutputStream outputStream) {
 
     }
 
     @Override
-    public void generateListOfLecturers() {
+    public void generateListOfLecturers(OutputStream outputStream) {
 
     }
 
