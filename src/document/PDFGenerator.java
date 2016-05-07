@@ -34,7 +34,9 @@ public class PDFGenerator implements DocumentGenerator {
         Document document = new Document();
         try {
             PdfWriter writer = PdfWriter.getInstance(document, outputStream);
+            
             document.open();
+
             Paragraph title = new Paragraph("Pricelist of courses of Learning Site:");
             title.setAlignment(Element.ALIGN_CENTER);
             document.add(title);

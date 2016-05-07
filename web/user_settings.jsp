@@ -59,9 +59,9 @@
     <div class="section">
         <div class="container">
             <div class="row">
-                <div class="col-md-12 text-center">
+                <div class="col-md-12">
                     <s:form action="update_user" class="Center">
-                        <h2>Settings</h2>
+                        <h1>Settings</h1>
                         <s:hidden name="user.id" class="form-control"/>
                         <s:hidden name="user.role" class="form-control"/>
                         <s:hidden name="user.banStatus" class="form-control"/>

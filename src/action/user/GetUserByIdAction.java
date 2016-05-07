@@ -10,6 +10,7 @@ import service.user.GetUserByIdService;
 public class GetUserByIdAction extends ActionSupport {
     private User user;
     private String userId;
+    private String id;
 
     public User getUser() {
         return user;
@@ -31,5 +32,13 @@ public class GetUserByIdAction extends ActionSupport {
     public String execute(){
         user = GetUserByIdService.execute(userId);
         return SUCCESS;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getId() {
+        return id;
     }
 }

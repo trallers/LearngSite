@@ -580,3 +580,6 @@ footer .row{
     color: white;
     border: 1px solid white;
 }
+.datepicker .table-condensed{
+    color: black;
+}

@@ -57,8 +57,8 @@
     <div class="section">
         <div class="container">
             <div class="row">
-                <div class="col-md-12 text-center">
-                    <h2>All lessons</h2>
+                <div class="col-md-12">
+                    <h1>All lessons</h1>
                     <s:hidden name="userId" value="%{userId}"/>
                     <s:if test="lessonList.size() > 0">
                         <div class="content">

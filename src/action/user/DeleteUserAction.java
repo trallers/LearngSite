@@ -8,6 +8,7 @@ import service.user.DeleteUserByIdService;
  */
 public class DeleteUserAction  extends ActionSupport{
     private String userId;
+    private String id;
 
     public String getUserId() {
         return userId;
@@ -25,4 +26,11 @@ public class DeleteUserAction  extends ActionSupport{
         else return ERROR;
     }
 
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getId() {
+        return id;
+    }
 }

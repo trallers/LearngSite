@@ -36,7 +36,8 @@
                         lessons</a>
                 </li>
                 <li>
-                    <a href="#">Settings</a>
+                    <a href="<s:url action="get_user_for_lecturer"><s:param name="userId">${param["userId"]}</s:param></s:url>">My
+                        settings</a>
                 </li>
                 <li>
                     <a href="<s:url action="logout"/>" data-toggle="modal">Logout <span

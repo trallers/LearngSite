@@ -82,7 +82,8 @@
                                         <td>
                                             <s:if test="!currentUser(id)">
                                                 <s:url id="editURL" action="get_user_for_admin">
-                                                    <s:param name="userId" value="%{id}"/>
+                                                    <s:param name="userId" value="%{userId}"/>
+                                                    <s:param name="id" value="%{id}"/>
                                                 </s:url>
                                                 <s:a class="btn tableBtn" href="%{editURL}">Edit</s:a>
                                             </s:if>
@@ -91,9 +92,10 @@
                                         <td>
                                             <s:if test="!role.equals(\"admin\")">
                                                 <s:url id="deleteURL" action="delete_user">
-                                                    <s:param name="userId" value="%{id}"/>
+                                                    <s:param name="userId" value="%{userId}"/>
+                                                    <s:param name="id" value="id"/>
                                                 </s:url>
-                                                <s:a id="delBtn%{id}" href="%{deleteURL}"></s:a>
+                                                <s:a id="delBtn%{id}" href="%{deleteURL}"/>
                                                 <s:a atr="%{id}" class="btn tableBtn delete" href="" onclick="deleteItem(this)">Delete</s:a>
                                             </s:if>
 

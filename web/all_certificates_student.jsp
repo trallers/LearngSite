@@ -56,7 +56,7 @@
     <div class="section">
         <div class="container">
             <div class="row">
-                <div class="col-md-12 text-center">
+                <div class="col-md-12">
                     <h1>All Certificates</h1>
                     <s:hidden name="userId" value="%{userId}"/>
                     <s:if test="certificateList.size() > 0">
