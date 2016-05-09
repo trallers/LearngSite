@@ -20,7 +20,7 @@ public class DeleteUserAction  extends ActionSupport{
 
     @Override
     public String execute(){
-        boolean success = DeleteUserByIdService.execute(userId);
+        boolean success = DeleteUserByIdService.execute(id);
         if(success)
             return SUCCESS;
         else return ERROR;

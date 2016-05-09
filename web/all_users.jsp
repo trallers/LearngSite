@@ -95,8 +95,13 @@
                                                     <s:param name="userId" value="%{userId}"/>
                                                     <s:param name="id" value="id"/>
                                                 </s:url>
+                                                <s:url id="recommendationPdf" action="generate_recommendation_pdf">
+                                                    <s:param name="userId" value="%{userId}"/>
+                                                    <s:param name="id" value="id"/>
+                                                </s:url>
                                                 <s:a id="delBtn%{id}" href="%{deleteURL}"/>
                                                 <s:a atr="%{id}" class="btn tableBtn delete" href="" onclick="deleteItem(this)">Delete</s:a>
+                                                <s:a class="btn tableBtn" href="%{recommendationPdf}">Pdf recommendation</s:a>
                                             </s:if>
 
                                         </td>
@@ -105,6 +110,10 @@
                                 <s:form action="create_admin">
                                     <s:submit value="Create admin" class="btn"/>
                                 </s:form>
+                                <s:url id="pdfStudents" action="generate_studentList"/>
+                                <s:a class="btn" href="%{pdfStudents}">Students pdf</s:a>
+                                <s:url id="pdfLecturers" action="generate_lecturerList"/>
+                                <s:a class="btn" href="%{pdfLecturers}">Lecturers pdf</s:a>
                             </table>
                         </div>
 
