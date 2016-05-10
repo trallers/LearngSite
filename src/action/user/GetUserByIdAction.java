@@ -30,7 +30,7 @@ public class GetUserByIdAction extends ActionSupport {
 
     @Override
     public String execute(){
-        user = GetUserByIdService.execute(userId);
+        user = GetUserByIdService.execute(id);
         return SUCCESS;
     }
 

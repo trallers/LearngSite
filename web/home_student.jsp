@@ -44,7 +44,7 @@
                         certificates</a>
                 </li>
                 <li>
-                    <a href="<s:url action="get_user_for_student"><s:param name="userId">${param["userId"]}</s:param></s:url>">My
+                    <a href="<s:url action="get_user_for_student"><s:param name="id">${param["userId"]}</s:param><s:param name="userId">${param["userId"]}</s:param></s:url>">My
                         settings</a>
                 </li>
                 <li>
