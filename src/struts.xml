@@ -258,15 +258,15 @@
             <result name="json">register.jsp</result>
         </action>
 
-        <action name="generate_pdf_pricelist" class="action.document.GeneratePdfAction" method="generatePriceList">
+        <action name="generate_pricelist_pdf" class="action.document.GeneratePdfAction" method="generatePriceList">
             <result name="success" type="redirectAction">list_courses_for_admin?userId=${userId}</result>
         </action>
 
-        <action name="generate_studentList" class="action.document.GeneratePdfAction" method="generateListOfStudents">
+        <action name="generate_studentList_pdf" class="action.document.GeneratePdfAction" method="generateListOfStudents">
             <result name="success" type="redirectAction">list_lessons_for_admin?userId=${userId}</result>
         </action>
 
-        <action name="generate_lecturerList" class="action.document.GeneratePdfAction" method="generateListOfLecturers">
+        <action name="generate_lecturerList_pdf" class="action.document.GeneratePdfAction" method="generateListOfLecturers">
             <result name="success" type="redirectAction">list_users_for_admin?userId=${userId}</result>
         </action>
 
@@ -275,6 +275,26 @@
         </action>
 
         <action name="generate_recommendation_pdf" class="action.document.GeneratePdfAction" method="generateRecommendation">
+            <result name="success" type="redirectAction">list_users_for_admin?=userId=${userId}</result>
+        </action>
+
+        <action name="generate_pricelist_xlsx" class="action.document.GenerateXLSXAction" method="generatePriceList">
+            <result name="success" type="redirectAction">list_courses_for_admin?userId=${userId}</result>
+        </action>
+
+        <action name="generate_studentList_xlsx" class="action.document.GenerateXLSXAction" method="generateListOfStudents">
+            <result name="success" type="redirectAction">list_lessons_for_admin?userId=${userId}</result>
+        </action>
+
+        <action name="generate_lecturerList_xlsx" class="action.document.GenerateXLSXAction" method="generateListOfLecturers">
+            <result name="success" type="redirectAction">list_users_for_admin?userId=${userId}</result>
+        </action>
+
+        <action name="generate_certificate_xlsx" class="action.document.GenerateXLSXAction" method="generateCertificate">
+            <result name="success" type="redirectAction">list_certificates_for_students?userId=${userId}</result>
+        </action>
+
+        <action name="generate_recommendation_xlsx" class="action.document.GenerateXLSXAction" method="generateRecommendation">
             <result name="success" type="redirectAction">list_users_for_admin?=userId=${userId}</result>
         </action>
     </package>

@@ -170,7 +170,7 @@ public class PDFGenerator implements DocumentGenerator {
             title.setAlignment(Element.ALIGN_CENTER);
             title.setFont(new Font(BASE_FONT,20, Font.BOLD));
             document.add(title);
-            Phrase data = new Phrase("for student " + certificate.getStudent().getName() + " " + certificate.getStudent().getSurname() + ". He successfully finished course " + certificate.getCourse().getName() + " on technology " + certificate.getCourse().getTechnology() + ". " + certificate.getData());
+            Phrase data = new Phrase("For student " + certificate.getStudent().getName() + " " + certificate.getStudent().getSurname() + ". He successfully finished course " + certificate.getCourse().getName() + " on technology " + certificate.getCourse().getTechnology() + ". " + certificate.getData());
             document.add(data);
             Paragraph date = new Paragraph(certificate.getDate().toString());
             date.setAlignment(Element.ALIGN_RIGHT);
@@ -217,7 +217,7 @@ public class PDFGenerator implements DocumentGenerator {
             title.setFont(new Font(BASE_FONT, 20, Font.BOLD));
             document.add(title);
             document.add(Chunk.NEWLINE);
-            Phrase data = new Phrase("for student " + student.getName() + " " + student.getSurname() + ". He is learning programming on Learning site. He is very good student.");
+            Phrase data = new Phrase("For student " + student.getName() + " " + student.getSurname() + ". He is learning programming on Learning site. He is very good student.");
             document.add(data);
             Paragraph logo = new Paragraph("Learning site 2016");
             logo.setAlignment(Element.ALIGN_BOTTOM);

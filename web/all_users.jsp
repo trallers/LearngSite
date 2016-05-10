@@ -68,6 +68,7 @@
                                 <th>Ban status</th>
                                 <th>Edit</th>
                                 <th>Delete</th>
+                                <th>Recommendation</th>
                                 </thead>
                                 <s:iterator value="userList" status="userStatus">
                                     <tr>
@@ -95,25 +96,37 @@
                                                     <s:param name="userId" value="%{userId}"/>
                                                     <s:param name="id" value="id"/>
                                                 </s:url>
+                                                <s:a id="delBtn%{id}" href="%{deleteURL}"/>
+                                                <s:a atr="%{id}" class="btn tableBtn delete" href="" onclick="deleteItem(this)">Delete</s:a>
+                                            </s:if>
+                                        </td>
+                                        <td>
+                                            <s:if test="!role.equals(\"admin\")">
                                                 <s:url id="recommendationPdf" action="generate_recommendation_pdf">
                                                     <s:param name="userId" value="%{userId}"/>
                                                     <s:param name="id" value="id"/>
                                                 </s:url>
-                                                <s:a id="delBtn%{id}" href="%{deleteURL}"/>
-                                                <s:a atr="%{id}" class="btn tableBtn delete" href="" onclick="deleteItem(this)">Delete</s:a>
-                                                <s:a class="btn tableBtn" href="%{recommendationPdf}">Pdf recommendation</s:a>
+                                                <s:url id="recommendationXLSX" action="generate_recommendation_xlsx">
+                                                    <s:param name="userId" value="%{userId}"/>
+                                                    <s:param name="id" value="id"/>
+                                                </s:url>
+                                                <s:a class="btn tableBtn" href="%{recommendationPdf}">Pdf</s:a>
+                                                <s:a class="btn tableBtn" href="%{recommendationXLSX}">Excel</s:a>
                                             </s:if>
-
                                         </td>
                                     </tr>
                                 </s:iterator>
                                 <s:form action="create_admin">
                                     <s:submit value="Create admin" class="btn"/>
                                 </s:form>
-                                <s:url id="pdfStudents" action="generate_studentList"/>
+                                <s:url id="pdfStudents" action="generate_studentList_pdf"/>
                                 <s:a class="btn" href="%{pdfStudents}">Students pdf</s:a>
-                                <s:url id="pdfLecturers" action="generate_lecturerList"/>
+                                <s:url id="xlsxStudents" action="generate_studentList_xlsx"/>
+                                <s:a class="btn" href="%{xlsxStudents}">Students Excel</s:a>
+                                <s:url id="pdfLecturers" action="generate_lecturerList_pdf"/>
                                 <s:a class="btn" href="%{pdfLecturers}">Lecturers pdf</s:a>
+                                <s:url id="xlsxLecturers" action="generate_lecturerList_xlsx"/>
+                                <s:a class="btn" href="%{xlsxLecturers}">Lecturers Excel</s:a>
                             </table>
                         </div>
 

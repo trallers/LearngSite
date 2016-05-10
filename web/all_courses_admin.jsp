@@ -96,8 +96,10 @@
                         <s:param name="courseId" value="%{null}"/>
                     </s:url>
                     <s:a class="btn" href="%{addURL}">Create</s:a>
-                    <s:url id="pdf" action="generate_pdf_pricelist"/>
+                    <s:url id="pdf" action="generate_pricelist_pdf"/>
                     <s:a class="btn" href="%{pdf}">PDF</s:a>
+                    <s:url id="xlsx" action="generate_pricelist_xlsx"/>
+                    <s:a class="btn" href="%{xlsx}">Excel</s:a>
                 </div>
             </div>
         </div>
