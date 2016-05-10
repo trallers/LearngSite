@@ -297,6 +297,26 @@
         <action name="generate_recommendation_xlsx" class="action.document.GenerateXLSXAction" method="generateRecommendation">
             <result name="success" type="redirectAction">list_users_for_admin?=userId=${userId}</result>
         </action>
+
+        <action name="generate_pricelist_csv" class="action.document.GenerateCSVAction" method="generatePriceList">
+            <result name="success" type="redirectAction">list_courses_for_admin?userId=${userId}</result>
+        </action>
+
+        <action name="generate_studentList_csv" class="action.document.GenerateCSVAction" method="generateListOfStudents">
+            <result name="success" type="redirectAction">list_lessons_for_admin?userId=${userId}</result>
+        </action>
+
+        <action name="generate_lecturerList_csv" class="action.document.GenerateCSVAction" method="generateListOfLecturers">
+            <result name="success" type="redirectAction">list_users_for_admin?userId=${userId}</result>
+        </action>
+
+        <action name="generate_certificate_csv" class="action.document.GenerateCSVAction" method="generateCertificate">
+            <result name="success" type="redirectAction">list_certificates_for_students?userId=${userId}</result>
+        </action>
+
+        <action name="generate_recommendation_csv" class="action.document.GenerateCSVAction" method="generateRecommendation">
+            <result name="success" type="redirectAction">list_users_for_admin?=userId=${userId}</result>
+        </action>
     </package>
 
 </struts>

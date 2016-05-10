@@ -8,6 +8,13 @@ import java.io.OutputStream;
 import java.util.List;
 
 public class CSVGenerator implements DocumentGenerator {
+    private static final CSVGenerator instance = new CSVGenerator();
+
+    private CSVGenerator() {
+
+    }
+
+    public static CSVGenerator getInstance(){return instance;}
 
     @Override
     public void generatePriceList(OutputStream outputStream, List<Course> courseList) {

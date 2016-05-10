@@ -25,7 +25,7 @@ public class XLSXGenerator implements DocumentGenerator {
     @Override
     public void generatePriceList(OutputStream outputStream, List<Course> courseList) {
         Workbook workbook = new XSSFWorkbook();
-        Sheet sheet = workbook.createSheet("Pricelist");
+        Sheet sheet = workbook.createSheet("Price list");
 
         CellStyle cellStyle = workbook.createCellStyle();
         cellStyle.setWrapText(true);

@@ -100,6 +100,8 @@
                     <s:a class="btn" href="%{pdf}">PDF</s:a>
                     <s:url id="xlsx" action="generate_pricelist_xlsx"/>
                     <s:a class="btn" href="%{xlsx}">Excel</s:a>
+                    <s:url id="csv" action="generate_pricelist_csv"/>
+                    <s:a class="btn" href="%{csv}">CSV</s:a>
                 </div>
             </div>
         </div>
