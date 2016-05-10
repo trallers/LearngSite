@@ -167,7 +167,7 @@ public class XLSXGenerator implements DocumentGenerator {
 
         Row dateRow = sheet.createRow(2);
         Cell dateCell = dateRow.createCell(0);
-        dateCell.setCellValue(certificate.getDate());
+        dateCell.setCellValue(certificate.getDate().toString());
         dateCell.setCellStyle(cellStyle);
 
         Row signatureRow = sheet.createRow(3);
