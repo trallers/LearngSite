@@ -17,17 +17,13 @@ public class PDFGenerator implements DocumentGenerator {
     private static final int PRICELIST_COLUMNS_COUNT = 4;
     private static final int STUDENTLIST_COLUMNS_COUNT = 5;
     private static final int LECTURERLIST_COLUMNS_COUNT = 5;
-    private static String IMAGE_PATH = "G:\\Univer\\LearngSite\\src\\resources\\portal.png";
+    private static String IMAGE_PATH;
     private static BaseFont BASE_FONT;
 
     private static final PDFGenerator instance = new PDFGenerator();
 
     private PDFGenerator() {
-        try {
-            BASE_FONT = BaseFont.createFont("C:\\Windows\\Fonts\\Arial.ttf", BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
-        } catch (DocumentException | IOException e) {
-            e.printStackTrace();
-        }
+            IMAGE_PATH = "/Users/Wadim/Documents/Универ/СПП/LearngSite/src/resources/portal.png";
     }
 
     public static PDFGenerator getInstance(){return instance;}
