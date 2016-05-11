@@ -277,7 +277,6 @@ public class XLSXGenerator implements DocumentGenerator {
         sheet.setColumnWidth(2, 5000);
         sheet.setColumnWidth(3, 5000);
         sheet.setColumnWidth(4, 5000);
-
         try {
             workbook.write(outputStream);
             workbook.close();
