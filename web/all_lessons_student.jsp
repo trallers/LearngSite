@@ -81,9 +81,9 @@
                                                 <s:a class="btn tableBtn" href="%{deleteURL}">Delete</s:a>
                                                 --%>
 
-                                            <s:a class="btn tableBtn" cssStyle="margin-right: 20px;" href="%{Pdf}">Pdf</s:a>
-                                            <s:a class="btn tableBtn" cssStyle="margin-right: 20px;" href="%{Excel}">Excel</s:a>
-                                            <s:a class="btn tableBtn" cssStyle="margin-right: 20px;" href="%{Csv}">Csv</s:a>
+                                            <s:a class="btn tableBtn doc" cssStyle="margin-right: 20px;" href="%{Pdf}">Pdf</s:a>
+                                            <s:a class="btn tableBtn doc" cssStyle="margin-right: 20px;" href="%{Excel}">Excel</s:a>
+                                            <s:a class="btn tableBtn doc" cssStyle="margin-right: 20px;" href="%{Csv}">Csv</s:a>
                                         </td>
                                     </tr>
                                 </s:iterator>

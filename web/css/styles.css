@@ -325,6 +325,7 @@ textarea::-webkit-input-placeholder, textarea.form-control::-webkit-input-placeh
     -moz-transition: all .3s;
     -webkit-transition: all .3s;
     transition: all .3s;
+    margin-bottom: 10px;
 
 }
 
@@ -559,6 +560,15 @@ select {
 .delete {
     background: #F08080;
     box-shadow: 0 3px 0 0 #A52A2A;
+}
+
+.doc {
+    background: #3CB371;
+    box-shadow: 0 3px 0 0 #228B22;
+}
+
+.doc:active{
+    background: #32CD32;
 }
 
 footer{
