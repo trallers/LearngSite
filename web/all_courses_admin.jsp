@@ -97,11 +97,11 @@
                     </s:url>
                     <s:a class="btn" href="%{addURL}">Create</s:a>
                     <s:url id="pdf" action="generate_pricelist_pdf"/>
-                    <s:a class="btn" href="%{pdf}">PDF</s:a>
+                    <s:a class="btn doc" href="%{pdf}">PDF</s:a>
                     <s:url id="xlsx" action="generate_pricelist_xlsx"/>
-                    <s:a class="btn" href="%{xlsx}">Excel</s:a>
+                    <s:a class="btn doc" href="%{xlsx}">Excel</s:a>
                     <s:url id="csv" action="generate_pricelist_csv"/>
-                    <s:a class="btn" href="%{csv}">CSV</s:a>
+                    <s:a class="btn doc" href="%{csv}">CSV</s:a>
                 </div>
             </div>
         </div>

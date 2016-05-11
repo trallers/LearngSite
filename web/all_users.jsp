@@ -114,9 +114,10 @@
                                                     <s:param name="userId" value="%{userId}"/>
                                                     <s:param name="id" value="id"/>
                                                 </s:url>
-                                                <s:a class="btn tableBtn" href="%{recommendationPdf}">PDF</s:a>
-                                                <s:a class="btn tableBtn" href="%{recommendationXLSX}">XLSX</s:a>
-                                                <s:a class="btn tableBtn" href="%{recommendationCSV}">CSV</s:a>
+                                                <s:a class="btn tableBtn doc" href="%{recommendationPdf}">PDF</s:a>
+                                                <s:a class="btn tableBtn doc" href="%{recommendationCSV}">CSV</s:a>
+                                                <br/><s:a class="btn tableBtn doc" href="%{recommendationXLSX}">XLSX</s:a>
+
                                             </s:if>
                                         </td>
                                     </tr>
@@ -129,17 +130,17 @@
                             </s:url>
                             <s:a class="btn" href="%{create_admin}">Create admin</s:a>
                             <s:url id="pdfStudents" action="generate_studentList_pdf"/>
-                            <s:a class="btn" href="%{pdfStudents}">Students PDF</s:a>
+                            <s:a class="btn doc" href="%{pdfStudents}">Students PDF</s:a>
                             <s:url id="xlsxStudents" action="generate_studentList_xlsx"/>
-                            <s:a class="btn" href="%{xlsxStudents}">Students XLSX</s:a>
+                            <s:a class="btn doc" href="%{xlsxStudents}">Students XLSX</s:a>
                             <s:url id="csvStudents" action="generate_studentList_csv"/>
-                            <s:a class="btn" href="%{csvStudents}">Students CSV</s:a>
+                            <s:a class="btn doc" href="%{csvStudents}">Students CSV</s:a>
                             <s:url id="pdfLecturers" action="generate_lecturerList_pdf"/>
-                            <s:a class="btn" href="%{pdfLecturers}">Lecturers PDF</s:a>
+                            <s:a class="btn doc" href="%{pdfLecturers}">Lecturers PDF</s:a>
                             <s:url id="xlsxLecturers" action="generate_lecturerList_xlsx"/>
-                            <s:a class="btn" href="%{xlsxLecturers}">Lecturers XLSX</s:a>
+                            <s:a class="btn doc" href="%{xlsxLecturers}">Lecturers XLSX</s:a>
                             <s:url id="csvLecturers" action="generate_lecturerList_csv"/>
-                            <s:a class="btn" href="%{csvLecturers}">Lecturers CSV</s:a>
+                            <s:a class="btn doc" href="%{csvLecturers}">Lecturers CSV</s:a>
                         </div>
 
                     </s:if>

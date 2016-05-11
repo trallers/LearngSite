@@ -77,17 +77,17 @@
                                                 <s:param name="userId" value="%{userId}"/>
                                                 <s:param name="certificateId" value="%{id}"/>
                                             </s:url>
-                                            <s:a class="btn tableBtn" cssStyle="margin-right: 20px;" href="%{Pdf}">PDF</s:a>
+                                            <s:a class="btn tableBtn doc" cssStyle="margin-right: 20px;" href="%{Pdf}">PDF</s:a>
                                             <s:url id="xlsx" action="generate_certificate_xlsx">
                                                 <s:param name="userId" value="%{userId}"/>
                                                 <s:param name="certificateId" value="%{id}"/>
                                             </s:url>
-                                            <s:a class="btn tableBtn" cssStyle="margin-right: 20px;" href="%{xlsx}">XLSX</s:a>
+                                            <s:a class="btn tableBtn doc" cssStyle="margin-right: 20px;" href="%{xlsx}">XLSX</s:a>
                                             <s:url id="Csv" action="generate_certificate_csv">
                                                 <s:param name="userId" value="%{userId}"/>
                                                 <s:param name="certificateId" value="%{id}"/>
                                             </s:url>
-                                            <s:a class="btn tableBtn" cssStyle="margin-right: 20px;" href="%{Csv}">CSV</s:a>
+                                            <s:a class="btn tableBtn doc" cssStyle="margin-right: 20px;" href="%{Csv}">CSV</s:a>
                                         </td>
                                     </tr>
                                 </s:iterator>
